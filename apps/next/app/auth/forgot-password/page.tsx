@@ -1,5 +1,5 @@
 "use client";
 
-import { ForgotPassword } from "@/screens/auth/forgot-password";
+import { ForgotPassword } from "@/module.feat-identities/auth/forgot-password";
 
 export default ForgotPassword;

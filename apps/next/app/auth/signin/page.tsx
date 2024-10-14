@@ -1,5 +1,5 @@
 "use client";
 
-import { SignIn } from "@/screens/auth/signin";
+import { SignIn } from "@/module.feat-identities/auth/signin";
 
 export default SignIn;

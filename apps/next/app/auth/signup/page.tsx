@@ -1,5 +1,5 @@
 "use client";
 
-import { SignUp } from "@/screens/auth/signup";
+import { SignUp } from "@/module.feat-identities/auth/signup";
 
 export default SignUp;
