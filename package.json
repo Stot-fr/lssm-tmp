@@ -2,6 +2,16 @@
   "private": true,
   "workspaces": [
     "apps/*",
+    "apps/client/*",
+    "apps/server/*",
+    "modules/*",
+    "modules/service/*",
+    "modules/feat/*",
+    "libs/*",
+    "libs/feat/*",
+    "libs/service/*",
+    "libs/util/*",
+    "configs/*",
     "packages/*"
   ],
   "scripts": {
