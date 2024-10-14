@@ -2,6 +2,6 @@
 module.exports = {
   config: {
     components: "./packages/components",
-    screens: "./packages/screens",
+    // screens: "./packages/screens",
   },
 };
