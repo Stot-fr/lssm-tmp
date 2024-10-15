@@ -11,8 +11,7 @@
     "libs/feat/*",
     "libs/service/*",
     "libs/util/*",
-    "configs/*",
-    "packages/*"
+    "configs/*"
   ],
   "scripts": {
     "dev": "turbo run dev",

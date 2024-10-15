@@ -2,8 +2,10 @@
 module.exports = {
   darkMode: "class",
   content: [
-    "./libs/service/ui-kit/**/*.{js,jsx,ts,tsx}",
-    "./apps/client/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/*.{js,jsx,ts,tsx,mdx}",
+    "../../packages/components/**/*.{js,jsx,ts,tsx}",
+    "../../packages/screens/**/*.{js,jsx,ts,tsx}",
   ],
   safelist: [
     "gap-x-2",
@@ -18,8 +20,15 @@ module.exports = {
     },
   ],
   presets: [require("nativewind/preset")],
-
   theme: {
+    screens: {
+      base: "0",
+      xs: "400px",
+      sm: "480px",
+      md: "768px",
+      lg: "992px",
+      xl: "1280px",
+    },
     extend: {
       colors: {
         primary: {
@@ -205,6 +214,9 @@ module.exports = {
       },
       fontSize: {
         "2xs": "10px",
+      },
+      border: {
+        2: "2px",
       },
     },
     plugins: [],
