@@ -2,29 +2,17 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "apps/client/*",
-    "apps/server/*",
-    "modules/*",
-    "modules/service/*",
-    "modules/feat/*",
-    "libs/*",
-    "libs/feat/*",
-    "libs/service/*",
-    "libs/util/*",
-    "configs/*"
+    "libs/service/*"
   ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
-    "run:expo": "cd apps/expo-app && yarn start",
-    "run:next": "cd apps/next && yarn dev",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "postinstall": "patch-package",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },
   "devDependencies": {
-    "browserslist": "^4.24.0",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },

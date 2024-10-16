@@ -1,5 +1,5 @@
 {
-  "name": "@lssm/libs.service-ui-kit",
+  "name": "@/ui-kit",
   "version": "0.0.0",
   "main": "index.js",
   "module": "index.js",
