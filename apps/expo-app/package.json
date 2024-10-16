@@ -3,7 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --clear",
+    "start": "rm -rf node_modules/.cache/nativewind/global.css ; cp node_modules/.cache/nativewind/global.css.web.css node_modules/.cache/nativewind/global.css ;  EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --clear",
     "android": "EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --android",
     "ios": "EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --ios",
     "web": "EXPO_USE_METRO_WORKSPACE_ROOT=1 npx expo start --web",
