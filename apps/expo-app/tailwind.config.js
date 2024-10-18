@@ -5,6 +5,7 @@ module.exports = {
     "./app/**/*.{js,jsx,ts,tsx}",
     "./components/*.{js,jsx,ts,tsx,mdx}",
     "../../libs/service/ui-kit/**/*.{js,jsx,ts,tsx}",
+    "../../libs/feat/design-system/**/*.{js,jsx,ts,tsx}",
   ],
   safelist: [
     "gap-x-2",
