@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
+    "modules/*",
     "libs/service/*",
     "libs/feat/*"
   ],
