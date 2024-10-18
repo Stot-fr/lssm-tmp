@@ -1,18 +1,14 @@
 "use client";
-import { Button, ButtonText } from "@/ui-kit/ui/button";
-import { VStack } from "@/ui-kit/ui/vstack";
+import { Button } from "@/design-system/components/Button";
 
 const Page = () => {
   return (
-    <VStack className="m-2" space="xl">
-      <Button
-        onPress={() => {
-          console.log("test");
-        }}
-      >
-        <ButtonText>Test</ButtonText>
-      </Button>
-    </VStack>
+    <Button
+      onPress={() => {
+        console.log("test");
+      }}
+      label={"Test"}
+    />
   );
 };
 

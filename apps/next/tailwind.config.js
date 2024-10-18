@@ -3,6 +3,7 @@ module.exports = {
   darkMode: "class",
   content: [
     "../../libs/service/ui-kit/**/*.{js,jsx,ts,tsx}",
+    "../../libs/feat/design-system/**/*.{js,jsx,ts,tsx}",
     "./app/**/*.{js,jsx,ts,tsx}",
     "./app/*.{js,jsx,ts,tsx}",
   ],
