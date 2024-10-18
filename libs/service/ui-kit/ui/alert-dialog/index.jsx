@@ -4,13 +4,12 @@ import { createAlertDialog } from '@gluestack-ui/alert-dialog';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import { withStyleContext, useStyleContext, } from '@gluestack-ui/nativewind-utils/withStyleContext';
 import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
-import { cssInterop } from '@gluestack-ui/nativewind-utils/cssInterop';
+import { cssInterop } from 'nativewind';
 import { Motion, AnimatePresence, createMotionAnimatedComponent, } from '@legendapp/motion';
 import { View, Pressable, ScrollView, Platform } from 'react-native';
 const AnimatedPressable = createMotionAnimatedComponent(Pressable);
 const SCOPE = 'ALERT_DIALOG';
 const UIAccessibleAlertDialog = createAlertDialog({
-    // @ts-ignore
     Root: Platform.OS === 'web'
         ? withStyleContext(View, SCOPE)
         : withStyleContextAndStates(View, SCOPE),
@@ -20,14 +19,18 @@ const UIAccessibleAlertDialog = createAlertDialog({
     Header: View,
     Footer: View,
     Backdrop: AnimatedPressable,
-    AnimatePresence: AnimatePresence, //TODO: Add support for this
+    AnimatePresence: AnimatePresence,
 });
 cssInterop(UIAccessibleAlertDialog, { className: 'style' });
 cssInterop(UIAccessibleAlertDialog.Content, { className: 'style' });
 cssInterop(UIAccessibleAlertDialog.CloseButton, { className: 'style' });
 cssInterop(UIAccessibleAlertDialog.Header, { className: 'style' });
 cssInterop(UIAccessibleAlertDialog.Footer, { className: 'style' });
-cssInterop(UIAccessibleAlertDialog.Body, { className: 'style' });
+cssInterop(UIAccessibleAlertDialog.Body, {
+    className: 'style',
+    contentContainerClassName: 'contentContainerStyle',
+    indicatorClassName: 'indicatorStyle',
+});
 cssInterop(UIAccessibleAlertDialog.Backdrop, { className: 'style' });
 const alertDialogStyle = tva({
     base: 'group/modal w-full h-full justify-center items-center web:pointer-events-none',
@@ -42,7 +45,7 @@ const alertDialogStyle = tva({
     },
 });
 const alertDialogContentStyle = tva({
-    base: 'bg-background-50 rounded-lg overflow-hidden ',
+    base: 'bg-background-0 rounded-lg overflow-hidden border border-outline-100 p-6',
     parentVariants: {
         size: {
             xs: 'w-[60%] max-w-[360px]',
@@ -57,12 +60,12 @@ const alertDialogCloseButtonStyle = tva({
     base: 'group/alert-dialog-close-button z-10 rounded-sm p-2 data-[focus-visible=true]:bg-background-100 web:cursor-pointer outline-0',
 });
 const alertDialogHeaderStyle = tva({
-    base: 'p-4 justify-between items-center flex-row',
+    base: 'justify-between items-center flex-row',
 });
 const alertDialogFooterStyle = tva({
-    base: 'p-4 flex-row justify-end items-center flex-wrap',
+    base: 'flex-row justify-end items-center gap-3',
 });
-const alertDialogBodyStyle = tva({ base: 'px-4 py-2' });
+const alertDialogBodyStyle = tva({ base: '' });
 const alertDialogBackdropStyle = tva({
     base: 'absolute left-0 top-0 right-0 bottom-0 bg-background-dark web:cursor-default',
 });

@@ -8,28 +8,23 @@ import { Svg } from 'react-native-svg';
 import { cssInterop } from 'nativewind';
 const SCOPE = 'ALERT';
 const alertStyle = tva({
-    base: 'items-center p-3 rounded flex-row',
+    base: 'items-center py-3 px-4 rounded-md flex-row gap-2 border-outline-100',
     variants: {
         action: {
-            error: 'bg-background-error border-error-300 ',
-            warning: 'bg-background-warning border-warning-300',
-            success: 'bg-background-success border-success-300',
-            info: 'bg-background-info border-info-300',
-            muted: 'bg-background-muted border-muted-300',
+            error: 'bg-background-error',
+            warning: 'bg-background-warning',
+            success: 'bg-background-success',
+            info: 'bg-background-info',
+            muted: 'bg-background-muted',
         },
         variant: {
             solid: '',
-            outline: 'border bg-transparent',
-            accent: 'border-l-4',
+            outline: 'border bg-background-0',
         },
-    },
-    defaultVariants: {
-        variant: 'solid',
-        action: 'info',
     },
 });
 const alertTextStyle = tva({
-    base: 'text-typography-700 flex-1 font-normal font-body',
+    base: 'flex-1 font-normal font-body',
     variants: {
         isTruncated: {
             true: 'web:truncate',
@@ -66,8 +61,18 @@ const alertTextStyle = tva({
             true: 'bg-yellow-500',
         },
     },
+    parentVariants: {
+        action: {
+            error: 'text-error-800',
+            warning: 'text-warning-800',
+            success: 'text-success-800',
+            info: 'text-info-800',
+            muted: 'text-background-800',
+        },
+    },
 });
 const alertIconStyle = tva({
+    base: 'fill-none',
     variants: {
         size: {
             '2xs': 'h-3 w-3',
@@ -78,43 +83,75 @@ const alertIconStyle = tva({
             'xl': 'h-6 w-6',
         },
     },
+    parentVariants: {
+        action: {
+            error: 'text-error-800',
+            warning: 'text-warning-800',
+            success: 'text-success-800',
+            info: 'text-info-800',
+            muted: 'text-secondary-800',
+        },
+    },
 });
-const PrimitiveIcon = React.forwardRef(({ height, width, fill = 'none', color, size, as: AsComp, ...props }, ref) => {
+const PrimitiveIcon = React.forwardRef(({ height, width, fill, color, classNameColor, size, stroke, as: AsComp, ...props }, ref) => {
+    color = color ?? classNameColor;
     const sizeProps = useMemo(() => {
-        return size ? { size } : { height, width };
+        if (size)
+            return { size };
+        if (height && width)
+            return { height, width };
+        if (height)
+            return { height };
+        if (width)
+            return { width };
+        return {};
     }, [size, height, width]);
-    if (AsComp) {
-        return (<AsComp ref={ref} fill={fill} color={color} {...props} {...sizeProps}/>);
+    let colorProps = {};
+    if (fill) {
+        colorProps = { ...colorProps, fill: fill };
     }
-    return (<Svg ref={ref} height={height} width={width} fill={fill} color={color} {...props}/>);
+    if (stroke !== 'currentColor') {
+        colorProps = { ...colorProps, stroke: stroke };
+    }
+    else if (stroke === 'currentColor' && color !== undefined) {
+        colorProps = { ...colorProps, stroke: color };
+    }
+    if (AsComp) {
+        return <AsComp ref={ref} {...props} {...sizeProps} {...colorProps}/>;
+    }
+    return (<Svg ref={ref} height={height} width={width} {...colorProps} {...props}/>);
+});
+const IconWrapper = React.forwardRef(({ ...props }, ref) => {
+    return <PrimitiveIcon {...props} ref={ref}/>;
 });
 export const UIAlert = createAlert({
     Root: withStyleContext(View, SCOPE),
     Text: Text,
-    Icon: PrimitiveIcon,
+    Icon: IconWrapper,
 });
 cssInterop(UIAlert, { className: 'style' });
 //@ts-ignore
 cssInterop(UIAlert.Text, { className: 'style' });
-cssInterop(UIAlert.Icon, {
+//@ts-ignore
+cssInterop(IconWrapper, {
     className: {
         target: 'style',
         nativeStyleToProp: {
-            height: 'height',
-            width: 'width',
+            height: true,
+            width: true,
             //@ts-ignore
-            fill: 'fill',
-            color: 'color',
+            fill: true,
+            color: 'classNameColor',
+            stroke: true,
         },
     },
 });
-const Alert = React.forwardRef(({ className, variant = 'solid', action = 'info', ...props }, ref) => {
+const Alert = React.forwardRef(({ className, variant = 'solid', action = 'muted', ...props }, ref) => {
     return (<UIAlert className={alertStyle({ action, variant, class: className })} context={{ variant, action }} ref={ref} {...props}/>);
 });
 const AlertText = React.forwardRef(({ className, isTruncated, bold, underline, strikeThrough, size = 'md', sub, italic, highlight, ...props }, ref) => {
-    return (<UIAlert.Text 
-    // @ts-ignore
-    className={alertTextStyle({
+    const { action: parentAction } = useStyleContext(SCOPE);
+    return (<UIAlert.Text className={alertTextStyle({
             isTruncated,
             bold,
             underline,
@@ -124,29 +161,27 @@ const AlertText = React.forwardRef(({ className, isTruncated, bold, underline, s
             italic,
             highlight,
             class: className,
+            parentVariants: {
+                action: parentAction,
+            },
         })} {...props} ref={ref}/>);
 });
-const defaultColors = {
-    info: '#0DA6F2',
-    success: '#38A169',
-    error: '#D32F2F',
-    warning: '#FFC107',
-    muted: '#999999',
-};
 const AlertIcon = React.forwardRef(({ className, size = 'md', ...props }, ref) => {
     const { action: parentAction } = useStyleContext(SCOPE);
-    const { color = defaultColors[parentAction] } = props;
     if (typeof size === 'number') {
-        return (<UIAlert.Icon ref={ref} {...props} color={color} className={alertIconStyle({ class: className })} size={size}/>);
+        return (<UIAlert.Icon ref={ref} {...props} className={alertIconStyle({ class: className })} size={size}/>);
     }
     else if ((props.height !== undefined || props.width !== undefined) &&
         size === undefined) {
-        return (<UIAlert.Icon ref={ref} {...props} color={color} className={alertIconStyle({ class: className })}/>);
+        return (<UIAlert.Icon ref={ref} {...props} className={alertIconStyle({ class: className })}/>);
     }
     return (<UIAlert.Icon className={alertIconStyle({
+            parentVariants: {
+                action: parentAction,
+            },
             size,
             class: className,
-        })} color={color} {...props} ref={ref}/>);
+        })} {...props} ref={ref}/>);
 });
 Alert.displayName = 'Alert';
 AlertText.displayName = 'AlertText';

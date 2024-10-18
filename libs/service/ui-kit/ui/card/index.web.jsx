@@ -1,7 +1,7 @@
-import 'react';
+import React from 'react';
 import { cardStyle } from './styles';
-const Card = ({ className, size = 'md', variant = 'elevated', ...props }) => {
-    return (<div className={cardStyle({ size, variant, class: className })} {...props}/>);
-};
+const Card = React.forwardRef(({ className, size = 'md', variant = 'elevated', ...props }, ref) => {
+    return (<div className={cardStyle({ size, variant, class: className })} {...props} ref={ref}/>);
+});
 Card.displayName = 'Card';
 export { Card };

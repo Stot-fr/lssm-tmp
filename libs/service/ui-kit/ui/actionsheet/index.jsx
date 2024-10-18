@@ -3,28 +3,47 @@ import React, { useMemo } from 'react';
 import { H4 } from '@expo/html-elements';
 import { Svg } from 'react-native-svg';
 import { createActionsheet } from '@gluestack-ui/actionsheet';
-import { Pressable, View, Text, ScrollView, VirtualizedList, FlatList, SectionList, Platform, } from 'react-native';
+import { Pressable, View, Text, ScrollView, VirtualizedList, FlatList, SectionList, Platform, PressableProps, } from 'react-native';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
-import { withStyleContext } from '@gluestack-ui/nativewind-utils/withStyleContext';
-import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
 import { cssInterop } from 'nativewind';
 import { Motion, AnimatePresence, createMotionAnimatedComponent, } from '@legendapp/motion';
-const PrimitiveIcon = React.forwardRef(({ height, width, fill = 'none', color = 'gray', size, as: AsComp, ...props }, ref) => {
+const PrimitiveIcon = React.forwardRef(({ height, width, fill, color, classNameColor, size, stroke, as: AsComp, ...props }, ref) => {
+    color = color ?? classNameColor;
     const sizeProps = useMemo(() => {
-        return size ? { size } : { height, width };
+        if (size)
+            return { size };
+        if (height && width)
+            return { height, width };
+        if (height)
+            return { height };
+        if (width)
+            return { width };
+        return {};
     }, [size, height, width]);
-    if (AsComp) {
-        return (<AsComp ref={ref} fill={fill} color={color} {...props} {...sizeProps}/>);
+    let colorProps = {};
+    if (fill) {
+        colorProps = { ...colorProps, fill: fill };
     }
-    return (<Svg ref={ref} height={height} width={width} fill={fill} color={color} {...props}/>);
+    if (stroke !== 'currentColor') {
+        colorProps = { ...colorProps, stroke: stroke };
+    }
+    else if (stroke === 'currentColor' && color !== undefined) {
+        colorProps = { ...colorProps, stroke: color };
+    }
+    if (AsComp) {
+        return <AsComp ref={ref} {...props} {...sizeProps} {...colorProps}/>;
+    }
+    return (<Svg ref={ref} height={height} width={width} {...colorProps} {...props}/>);
+});
+const ItemWrapper = React.forwardRef(({ ...props }, ref) => {
+    return <Pressable {...props} ref={ref}/>;
 });
 const AnimatedPressable = createMotionAnimatedComponent(Pressable);
 export const UIActionsheet = createActionsheet({
     Root: View,
-    Content: withStyleContext(Motion.View),
-    Item: Platform.OS === 'web'
-        ? withStyleContext(Pressable)
-        : withStyleContextAndStates(Pressable),
+    Content: Motion.View,
+    Item: Platform.OS === 'web' ? ItemWrapper : withStates(ItemWrapper),
     ItemText: Text,
     DragIndicator: View,
     IndicatorWrapper: View,
@@ -39,37 +58,55 @@ export const UIActionsheet = createActionsheet({
 });
 cssInterop(UIActionsheet, { className: 'style' });
 cssInterop(UIActionsheet.Content, { className: 'style' });
-cssInterop(UIActionsheet.Item, { className: 'style' });
+cssInterop(ItemWrapper, { className: 'style' });
 cssInterop(UIActionsheet.ItemText, { className: 'style' });
 cssInterop(UIActionsheet.DragIndicator, { className: 'style' });
 cssInterop(UIActionsheet.DragIndicatorWrapper, { className: 'style' });
 cssInterop(UIActionsheet.Backdrop, { className: 'style' });
-cssInterop(UIActionsheet.ScrollView, { className: 'style' });
-cssInterop(UIActionsheet.VirtualizedList, { className: 'style' });
-cssInterop(UIActionsheet.FlatList, { className: 'style' });
+cssInterop(UIActionsheet.ScrollView, {
+    className: 'style',
+    contentContainerClassName: 'contentContainerStyle',
+    indicatorClassName: 'indicatorStyle',
+});
+cssInterop(UIActionsheet.VirtualizedList, {
+    className: 'style',
+    ListFooterComponentClassName: 'ListFooterComponentStyle',
+    ListHeaderComponentClassName: 'ListHeaderComponentStyle',
+    contentContainerClassName: 'contentContainerStyle',
+    indicatorClassName: 'indicatorStyle',
+});
+cssInterop(UIActionsheet.FlatList, {
+    className: 'style',
+    ListFooterComponentClassName: 'ListFooterComponentStyle',
+    ListHeaderComponentClassName: 'ListHeaderComponentStyle',
+    columnWrapperClassName: 'columnWrapperStyle',
+    contentContainerClassName: 'contentContainerStyle',
+    indicatorClassName: 'indicatorStyle',
+});
 cssInterop(UIActionsheet.SectionList, { className: 'style' });
 cssInterop(UIActionsheet.SectionHeaderText, { className: 'style' });
+// @ts-ignore
 cssInterop(UIActionsheet.Icon, {
     className: {
         target: 'style',
         nativeStyleToProp: {
-            height: 'height',
-            width: 'width',
-            //@ts-ignore
-            fill: 'fill',
-            color: 'color',
+            height: true,
+            width: true,
+            fill: true,
+            color: 'classNameColor',
+            stroke: true,
         },
     },
 });
 const actionsheetStyle = tva({ base: 'w-full h-full web:pointer-events-none' });
 const actionsheetContentStyle = tva({
-    base: 'items-center rounded-tl-3xl rounded-tr-3xl p-2 bg-background-0 web:pointer-events-auto web:select-none shadow-lg',
+    base: 'items-center rounded-tl-3xl rounded-tr-3xl p-5 pt-2 bg-background-0 web:pointer-events-auto web:select-none shadow-hard-5 border border-b-0 border-outline-100',
 });
 const actionsheetItemStyle = tva({
-    base: 'w-full flex-row items-center p-3 rounded-sm disabled:opacity-40 disabled:web:pointer-events-auto disabled:web:cursor-not-allowed hover:bg-background-50 active:bg-background-100 focus:bg-background-100 web:focus-visible:bg-background-100',
+    base: 'w-full flex-row items-center p-3 rounded-sm data-[disabled=true]:opacity-40 data-[disabled=true]:web:pointer-events-auto data-[disabled=true]:web:cursor-not-allowed hover:bg-background-50 active:bg-background-100 data-[focus=true]:bg-background-100 web:data-[focus-visible=true]:bg-background-100 web:data-[focus-visible=true]:outline-indicator-primary gap-2',
 });
 const actionsheetItemTextStyle = tva({
-    base: 'text-typography-700 font-normal font-body tracking-md text-left mx-2',
+    base: 'text-typography-700 font-normal font-body',
     variants: {
         isTruncated: {
             true: '',
@@ -96,9 +133,6 @@ const actionsheetItemTextStyle = tva({
             '5xl': 'text-5xl',
             '6xl': 'text-6xl',
         },
-    },
-    defaultVariants: {
-        size: 'md',
     },
 });
 const actionsheetDragIndicatorStyle = tva({
@@ -163,7 +197,7 @@ const actionsheetSectionHeaderTextStyle = tva({
     },
 });
 const actionsheetIconStyle = tva({
-    base: '',
+    base: 'text-background-500 fill-none',
     variants: {
         size: {
             '2xs': 'h-3 w-3',
@@ -190,7 +224,7 @@ const ActionsheetItem = React.forwardRef(({ className, ...props }, ref) => {
             class: className,
         })} ref={ref} {...props}/>);
 });
-const ActionsheetItemText = React.forwardRef(({ isTruncated, bold, underline, strikeThrough, size, className, ...props }, ref) => {
+const ActionsheetItemText = React.forwardRef(({ isTruncated, bold, underline, strikeThrough, size = 'sm', className, ...props }, ref) => {
     return (<UIActionsheet.ItemText className={actionsheetItemTextStyle({
             class: className,
             isTruncated,
@@ -254,17 +288,17 @@ const ActionsheetSectionHeaderText = React.forwardRef(({ className, isTruncated,
             highlight,
         })} ref={ref} {...props}/>);
 });
-const ActionsheetIcon = React.forwardRef(({ className, size = 'sm', color = 'gray', ...props }, ref) => {
+const ActionsheetIcon = React.forwardRef(({ className, size = 'sm', ...props }, ref) => {
     if (typeof size === 'number') {
-        return (<UIActionsheet.Icon ref={ref} {...props} color={color} className={actionsheetIconStyle({ class: className })} size={size}/>);
+        return (<UIActionsheet.Icon ref={ref} {...props} className={actionsheetIconStyle({ class: className })} size={size}/>);
     }
     else if ((props.height !== undefined || props.width !== undefined) &&
         size === undefined) {
-        return (<UIActionsheet.Icon ref={ref} {...props} color={color} className={actionsheetIconStyle({ class: className })}/>);
+        return (<UIActionsheet.Icon ref={ref} {...props} className={actionsheetIconStyle({ class: className })}/>);
     }
     return (<UIActionsheet.Icon className={actionsheetIconStyle({
             class: className,
             size,
-        })} color={color} ref={ref} {...props}/>);
+        })} ref={ref} {...props}/>);
 });
 export { Actionsheet, ActionsheetContent, ActionsheetItem, ActionsheetItemText, ActionsheetDragIndicator, ActionsheetDragIndicatorWrapper, ActionsheetBackdrop, ActionsheetScrollView, ActionsheetVirtualizedList, ActionsheetFlatList, ActionsheetSectionList, ActionsheetSectionHeaderText, ActionsheetIcon, };
