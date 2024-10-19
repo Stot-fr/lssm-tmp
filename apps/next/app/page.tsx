@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/design-system/components/Button";
+import { Button } from "@/design-system/components/atoms/Fields/Button";
 
 const Page = () => {
   return (
