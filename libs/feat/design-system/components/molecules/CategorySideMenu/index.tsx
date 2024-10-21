@@ -3,6 +3,7 @@ import type { IconProps } from "@/icons-kit/icons";
 import { View } from "@/ui-kit/ui/view";
 import { Text } from "@/ui-kit/ui/text";
 import { Link } from "@/ui-kit/ui/link";
+import Icon from "@/icons-kit/icons";
 
 export type CategorySideMenuItem = {
   id: string;
@@ -31,8 +32,11 @@ export const CategorySideMenu = ({
         <Link
           key={item.id}
           href={item.target}
-          className="flex space-x-2 py-3 px-3 hover:bg-gray-900 hover:bg-opacity-50"
+          className="flex items-center space-x-2 py-3 px-3 hover:bg-gray-900 hover:bg-opacity-50 flex-row"
         >
+          {item.IconElement && (
+            <Icon {...item.IconElement} className="text-gray-400" />
+          )}
           <Text className="text-gray-400">{item.title}</Text>
         </Link>
       ))}
