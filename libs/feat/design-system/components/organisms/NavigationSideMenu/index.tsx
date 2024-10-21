@@ -19,8 +19,8 @@ export const NavigationSideMenu = ({
   menuTitle,
 }: NavigationSideMenuProps) => {
   return (
-    <ScrollView className="w-full bg-blue-900 text-white h-screen">
-      <Text className="text-2xl font-semibold mb-4">{menuTitle}</Text>
+    <ScrollView className="w-full bg-gray-700 text-white h-screen">
+      <Text className="text-xl text-white p-4 border-gray-500 border-b">{menuTitle}</Text>
       {menu.map((menuCategory) => (
         <CategorySideMenu {...menuCategory} key={menuCategory.id} />
       ))}

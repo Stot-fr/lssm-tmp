@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/design-system/components/atoms/Fields/Button";
-import { SideNavBarLayout } from "@/design-system/components/templates/layouts/SideNavBarLayout";
+import { SideNavBarLayout } from "@/design-system/components/templates/Layouts/SideNavBarLayout";
 
 const Page = () => {
   return (

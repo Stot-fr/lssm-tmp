@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "@/ui-kit/ui/view";
 import { NavigationSideMenu } from "../../../organisms/NavigationSideMenu";
 
@@ -45,13 +45,33 @@ const menu = [
 export const SideNavBarLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  return (
-    <View className="flex h-screen w-screen">
-      <View className="absolute top-0 left-0 h-screen z-10 w-1/5 max-w-sm min-w-min">
-        <NavigationSideMenu menuTitle="LSSM Test Project" menu={menu} />
-      </View>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-      <View className="flex-1">{children}</View>
-    </View>
-  );
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 800);
+      if (window.innerWidth > 800) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  if (isMobile) return children;
+  else {
+    return (
+      <View className="flex flex-row h-screen w-screen">
+        <View className="top-0 left-0 h-screen z-10 w-1/4 max-w-sm min-w-64 shadow-md">
+          <NavigationSideMenu menuTitle="LSSM Test Project" menu={menu} />
+        </View>
+
+        <View className="flex-1">{children}</View>
+      </View>
+    );
+  }
 };
