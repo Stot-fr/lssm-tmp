@@ -1,14 +1,17 @@
 "use client";
 import { Button } from "@/design-system/components/atoms/Fields/Button";
+import { SideNavBarLayout } from "@/design-system/components/templates/layouts/SideNavBarLayout";
 
 const Page = () => {
   return (
-    <Button
-      onPress={() => {
-        console.log("test");
-      }}
-      label={"Test"}
-    />
+    <SideNavBarLayout>
+      <Button
+        onPress={() => {
+          console.log("test");
+        }}
+        label={"Test"}
+      />
+    </SideNavBarLayout>
   );
 };
 

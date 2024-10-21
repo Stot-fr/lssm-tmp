@@ -2,7 +2,7 @@ import { icons } from "lucide-react";
 
 export type IconName = keyof typeof icons;
 
-interface IconProps {
+export interface IconProps {
   name: IconName;
   color: string;
   size: number;
