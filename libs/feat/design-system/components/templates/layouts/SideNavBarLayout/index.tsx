@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Dimensions } from "react-native";
 import { View } from "@/ui-kit/ui/view";
 import { Button } from "../../../atoms/Fields/Button";
 import { Drawer, DrawerBackdrop, DrawerContent } from "@/ui-kit/ui/drawer";
@@ -12,19 +13,24 @@ export const SideNavBarLayout: React.FC<{
   navigationMenu: NavigationSideMenuProps;
 }> = ({ children, navigationMenu }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+  const [isMobile, setIsMobile] = useState(
+    Dimensions.get("window").width <= 800
+  );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 800);
-      if (window.innerWidth > 800) {
+      const screenWidth = Dimensions.get("window").width;
+      setIsMobile(screenWidth <= 800);
+
+      if (screenWidth > 800) {
         setIsMenuOpen(false);
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    const subscription = Dimensions.addEventListener("change", handleResize);
+
     return () => {
-      window.removeEventListener("resize", handleResize);
+      subscription.remove();
     };
   }, []);
 
