@@ -1,65 +1,16 @@
-"use client";
-import { Button } from "@/design-system/components/atoms/Fields/Button";
-import { TopNavBarLayout } from "@/design-system/components/templates/Layouts/TopNavBarLayout";
-import { IconName } from "@/icons-kit/icons";
-
-const menuTitle = "LSSM Project";
-const testMenu = [
-  {
-    id: "build",
-    category: "Build",
-    IconElement: {
-      name: "Blocks" as IconName,
-    },
-    items: [
-      {
-        id: "overview",
-        title: "Overview",
-        target: "/overview",
-      },
-      {
-        id: "auth",
-        title: "Authentification",
-        target: "/auth",
-      },
-      {
-        id: "db",
-        title: "Database",
-        target: "/database",
-      },
-    ],
-  },
-  {
-    id: "quality",
-    category: "Quality",
-    IconElement: {
-      name: "Sparkles" as IconName,
-    },
-    items: [
-      {
-        id: "analytics",
-        title: "Analytics",
-        target: "/analytics",
-      },
-      {
-        id: "performance",
-        title: "Performance",
-        target: "/perf",
-      },
-    ],
-  },
-];
+import { Link, LinkText } from "@/ui-kit/ui/link";
+import { View } from "@/ui-kit/ui/view";
 
 const Page = () => {
   return (
-    <TopNavBarLayout navigationMenu={{ menu: testMenu, menuTitle }}>
-      <Button
-        onPress={() => {
-          console.log("test");
-        }}
-        label={"Test"}
-      />
-    </TopNavBarLayout>
+    <View className="h-screen v-screen">
+      <Link href="/layouts/topbar">
+        <LinkText>Topbar</LinkText>
+      </Link>
+      <Link href="/layouts/sidebar">
+        <LinkText>Sidebar</LinkText>
+      </Link>
+    </View>
   );
 };
 

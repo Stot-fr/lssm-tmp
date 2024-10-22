@@ -3,6 +3,8 @@ import { Button } from "@/design-system/components/atoms/Fields/Button";
 import { SideNavBarLayout } from "@/design-system/components/templates/Layouts/SideNavBarLayout";
 import { IconName } from "@/icons-kit/icons";
 
+import { Link, LinkText } from "@/ui-kit/ui/link";
+
 const menuTitle = "LSSM Project";
 const testMenu = [
   {
@@ -68,6 +70,12 @@ const Page = () => {
         }}
         label={"Test"}
       />
+      <Link href="/">
+        <LinkText>Home</LinkText>
+      </Link>
+      <Link href="/layouts/topbar">
+        <LinkText>Topbar</LinkText>
+      </Link>
     </SideNavBarLayout>
   );
 };
