@@ -1,14 +1,16 @@
-"use client";
-import { Button } from "@/design-system/components/atoms/Fields/Button";
+import { Link, LinkText } from "@/ui-kit/ui/link";
+import { View } from "@/ui-kit/ui/view";
 
 const Page = () => {
   return (
-    <Button
-      onPress={() => {
-        console.log("test");
-      }}
-      label={"Test"}
-    />
+    <View className="h-screen v-screen">
+      <Link href="/layouts/topbar">
+        <LinkText>Topbar</LinkText>
+      </Link>
+      <Link href="/layouts/sidebar">
+        <LinkText>Sidebar</LinkText>
+      </Link>
+    </View>
   );
 };
 
