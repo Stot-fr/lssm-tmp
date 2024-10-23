@@ -14,6 +14,7 @@ type CategoryTopMenuItem = {
   id: string;
   target: string;
   title: string;
+  IconElement?: IconProps;
 };
 
 interface CategoryTopMenuProps {
@@ -23,17 +24,19 @@ interface CategoryTopMenuProps {
   items: CategoryTopMenuItem[];
 }
 
-interface NavigationTopMenuProps {
+export interface NavigationTopMenuProps {
   menuTitle: string;
-  menu: CategoryTopMenuProps[];
+  items: Array<CategoryTopMenuItem | CategoryTopMenuProps>;
 }
 
 export const TopNavBarLayout: React.FC<{
   children: React.ReactNode;
   navigationMenu: NavigationTopMenuProps;
 }> = ({ children, navigationMenu }) => {
-  const { menuTitle, menu } = navigationMenu;
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+  const { menuTitle, items } = navigationMenu;
+  const [isMobile, setIsMobile] = useState(
+    Dimensions.get("window").width <= 800,
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,40 +59,66 @@ export const TopNavBarLayout: React.FC<{
         </View>
 
         <View className="flex flex-row h-full space-x-8 items-center pr-6">
-          {menu.map((menuElement) => (
-            <Menu
-              key={menuElement.id}
-              placement="bottom right"
-              offset={24}
-              disabledKeys={["Settings"]}
-              trigger={({ ...triggerProps }) => {
-                return (
-                  <Link
-                    {...triggerProps}
-                    className="flex flex-row items-center space-x-2"
-                  >
-                    {menuElement.IconElement && (
-                      <Icon {...menuElement.IconElement} />
-                    )}
-                    <LinkText className="text-gray-800 no-underline">
-                      {menuElement.category}
-                    </LinkText>
-                  </Link>
-                );
-              }}
-              className="border-2-gray-800"
-            >
-              {menuElement.items.map((item) => (
-                <MenuItem
-                  key={item.id}
-                  textValue={item.target}
-                  className="focus:bg-gray-100 hover:bg-gray-800"
+          {items.map((menuElement) => {
+            if (!("category" in menuElement)) {
+              return (
+                <Link
+                  key={menuElement.id}
+                  href={menuElement.target}
+                  className="flex flex-row items-center space-x-2"
                 >
-                  <MenuItemLabel size="sm">{item.title}</MenuItemLabel>
-                </MenuItem>
-              ))}
-            </Menu>
-          ))}
+                  {menuElement.IconElement && (
+                    <Icon {...menuElement.IconElement} />
+                  )}
+                  <LinkText className="text-gray-800 no-underline">
+                    {menuElement.title}
+                  </LinkText>
+                </Link>
+              );
+            }
+
+            return (
+              <Menu
+                key={menuElement.id}
+                placement="bottom right"
+                offset={24}
+                disabledKeys={["Settings"]}
+                trigger={({ ...triggerProps }) => {
+                  return (
+                    <Link
+                      {...triggerProps}
+                      className="flex flex-row items-center space-x-2"
+                    >
+                      {menuElement.IconElement && (
+                        <Icon {...menuElement.IconElement} />
+                      )}
+                      <LinkText className="text-gray-800 no-underline">
+                        {menuElement.category}
+                      </LinkText>
+                    </Link>
+                  );
+                }}
+                className="border-2-gray-800"
+              >
+                {menuElement.items.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    textValue={item.target}
+                    className="focus:bg-gray-100 hover:bg-gray-800"
+                  >
+                    <Link
+                      href={item.target}
+                      className="flex flex-row items-center space-x-2"
+                    >
+                      <MenuItemLabel size="sm">
+                        <LinkText className="">{item.title}</LinkText>
+                      </MenuItemLabel>
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+            );
+          })}
         </View>
       </View>
 

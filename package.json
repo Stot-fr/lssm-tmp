@@ -2,10 +2,13 @@
   "private": true,
   "workspaces": [
     "apps/*",
+    "modules/*",
     "libs/service/*",
-    "libs/feat/*"
+    "libs/feat/*",
+    "libs/util/*"
   ],
   "scripts": {
+    "dev:meet": "turbo run dev --filter=@/app-webclient.meet",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
