@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 
-import { View } from "@/ui-kit/ui/view";
+import { View } from "@lssm/ui-kit/ui/view";
 
-import { Menu, MenuItem, MenuItemLabel } from "@/ui-kit/ui/menu";
-import { Link, LinkText } from "@/ui-kit/ui/link";
+import { Menu, MenuItem, MenuItemLabel } from "@lssm/ui-kit/ui/menu";
+import { Link, LinkText } from "@lssm/ui-kit/ui/link";
 
-import { Text } from "@/ui-kit/ui/text";
-import type { IconProps } from "@/icons-kit/icons";
-import Icon from "@/icons-kit/icons";
+import { Text } from "@lssm/ui-kit/ui/text";
+import type { IconProps } from "@lssm/icons-kit/icons";
+import Icon from "@lssm/icons-kit/icons";
 
 type CategoryTopMenuItem = {
   id: string;

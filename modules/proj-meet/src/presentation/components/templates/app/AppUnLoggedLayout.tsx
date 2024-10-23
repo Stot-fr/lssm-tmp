@@ -1,12 +1,12 @@
 "use client";
-import type { IconName } from "@/icons-kit/icons";
+import type { IconName } from "@lssm/icons-kit/icons";
 
 import { type PropsWithChildren, useMemo } from "react";
 import { APP_NAME } from "../../../constants/app";
 import {
   type NavigationTopMenuProps,
   TopNavBarLayout,
-} from "@/design-system/components/templates/layouts/TopNavBarLayout";
+} from "@lssm/design-system/components/templates/layouts/TopNavBarLayout";
 
 export const AppUnLoggedLayout = (props: PropsWithChildren) => {
   const user = null;

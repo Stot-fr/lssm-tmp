@@ -3,8 +3,8 @@ import React from "react";
 import { Link, Stack } from "expo-router";
 import { StyleSheet } from "react-native";
 
-import { Text } from "@/ui-kit/ui/text";
-import { View } from "@/ui-kit/ui/view";
+import { Text } from "@lssm/ui-kit/ui/text";
+import { View } from "@lssm/ui-kit/ui/view";
 
 export default function NotFoundScreen() {
   return (

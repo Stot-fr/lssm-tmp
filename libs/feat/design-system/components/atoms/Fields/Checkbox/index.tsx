@@ -1,4 +1,4 @@
-import { Checkbox as UiCheckbox } from "@/ui-kit/ui/checkbox";
+import { Checkbox as UiCheckbox } from "@lssm/ui-kit/ui/checkbox";
 
 import type { ComponentProps } from "react";
 
