@@ -8,10 +8,12 @@ import {
   type NavigationSideMenuProps,
 } from "../../../organisms/NavigationSideMenu";
 
-export const SideNavBarLayout: React.FC<{
-  children: React.ReactNode;
-  navigationMenu: NavigationSideMenuProps;
-}> = ({ children, navigationMenu }) => {
+export type SideNavBarLayoutProps = {
+    children: React.ReactNode;
+    navigationMenu: NavigationSideMenuProps;
+};
+
+export const SideNavBarLayout: React.FC<SideNavBarLayoutProps> = ({ children, navigationMenu }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(
     Dimensions.get("window").width <= 800

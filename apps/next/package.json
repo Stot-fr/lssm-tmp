@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@/app-webclient.meet",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@/module.proj-meet": "*",
     "@/design-system": "*",
     "@gluestack-ui/nativewind-utils": "latest",
     "@gluestack-ui/overlay": "latest",
