@@ -1,5 +1,5 @@
 {
-  "name": "@/module.proj-meet",
+  "name": "@lssm/module.proj-meet",
   "version": "0.0.0",
   "main": "index.js",
   "module": "index.js",
@@ -21,9 +21,9 @@
     "react-native": "^0.73.1"
   },
   "dependencies": {
-    "@/design-system": "*",
-    "@/ui-kit": "*",
-    "@/icons-kit": "*",
+    "@lssm/design-system": "*",
+    "@lssm/ui-kit": "*",
+    "@lssm/icons-kit": "*",
     "expo-image": "^1.12.9",
     "nativewind": "4.0.36",
     "tailwindcss": "3.4.3"

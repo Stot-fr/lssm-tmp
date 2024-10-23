@@ -1,7 +1,5 @@
-import { Link, LinkText } from "@/ui-kit/ui/link";
-import { View } from "@/ui-kit/ui/view";
-import { Text } from "@/design-system/components/atoms/Text";
-
+import { Link, LinkText } from "@lssm/ui-kit/ui/link";
+import { View } from "@lssm/ui-kit/ui/view";
 
 const Page = () => {
   return (

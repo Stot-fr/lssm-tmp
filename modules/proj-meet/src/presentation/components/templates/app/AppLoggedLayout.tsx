@@ -1,10 +1,10 @@
 "use client";
-import { SideNavBarLayout } from "@/design-system/components/templates/Layouts/SideNavBarLayout";
-import type { IconName } from "@/icons-kit/icons";
+import { SideNavBarLayout } from "@lssm/design-system/components/templates/Layouts/SideNavBarLayout";
+import type { IconName } from "@lssm/icons-kit/icons";
 
 import { type PropsWithChildren, useMemo } from "react";
 import { APP_NAME } from "../../../constants/app";
-import type { CategorySideMenuProps } from "@/design-system/components/molecules/CategorySideMenu";
+import type { CategorySideMenuProps } from "@lssm/design-system/components/molecules/CategorySideMenu";
 
 export const AppLoggedLayout = (props: PropsWithChildren) => {
   const user = null;

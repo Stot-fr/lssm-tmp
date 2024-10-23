@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@/design-system/components/atoms/Fields/Button";
+import { Button } from "@lssm/design-system/components/atoms/Fields/Button";
 
-import { Link, LinkText } from "@/ui-kit/ui/link";
-import { AppLoggedLayout } from "@/module.proj-meet/src/presentation/components/templates/app/AppLoggedLayout";
+import { Link, LinkText } from "@lssm/ui-kit/ui/link";
+import { AppLoggedLayout } from "@lssm/module.proj-meet/src/presentation/components/templates/app/AppLoggedLayout";
 
 const Page = () => {
   return (

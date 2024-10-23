@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "@/design-system/components/atoms/Fields/Button";
-import { View } from "@/ui-kit/ui/view";
+import { Button } from "@lssm/design-system/components/atoms/Fields/Button";
+import { View } from "@lssm/ui-kit/ui/view";
 
 const index = () => {
   return (
