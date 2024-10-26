@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Replace with your database provider
+  url      = env("DATABASE_URL")
+}
+
+model UserAccount {
+  id                 Int                  @id @default(autoincrement())
+  externalId         String               @unique @default(uuid())
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  deletedAt          DateTime?
+  email              String               @unique
+  identities         AccountIdentity[]
+  contacts           UserContactGroup[]
+  Message            Message[]
+  ConversationMember ConversationMember[]
+  events             Event[]              @relation("UserEvents")
+  Attendee           EventAttendee[]
+
+  @@index([deletedAt])
+}
+
+model ApiAccount {
+  id         Int       @id @default(autoincrement())
+  externalId String    @unique @default(uuid())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+  apiKey     String    @unique
+
+  @@index([deletedAt])
+}
+
+model AccountIdentity {
+  id            Int                   @id @default(autoincrement())
+  externalId    String                @unique @default(uuid())
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+  deletedAt     DateTime?
+  userAccountId Int?
+  userAccount   UserAccount?          @relation(fields: [userAccountId], references: [id])
+  organizations AccountOrganization[]
+
+  @@index([deletedAt])
+}
+
+model AccountOrganization {
+  id         Int              @id @default(autoincrement())
+  externalId String           @unique @default(uuid())
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  deletedAt  DateTime?
+  name       String
+  identityId Int?
+  identity   AccountIdentity? @relation(fields: [identityId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model Message {
+  id             Int          @id @default(autoincrement())
+  externalId     String       @unique @default(uuid())
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+  content        String
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  senderId       Int
+  sender         UserAccount  @relation(fields: [senderId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model Conversation {
+  id         Int                  @id @default(autoincrement())
+  externalId String               @unique @default(uuid())
+  createdAt  DateTime             @default(now())
+  updatedAt  DateTime             @updatedAt
+  deletedAt  DateTime?
+  title      String?
+  messages   Message[]
+  members    ConversationMember[]
+
+  @@index([deletedAt])
+}
+
+model ConversationMember {
+  id             Int          @id @default(autoincrement())
+  externalId     String       @unique @default(uuid())
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  userAccountId  Int
+  userAccount    UserAccount  @relation(fields: [userAccountId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model Community {
+  id             Int         @id @default(autoincrement())
+  externalId     String      @unique @default(uuid())
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  deletedAt      DateTime?
+  name           String
+  parentId       Int?
+  parent         Community?  @relation("SubCommunities", fields: [parentId], references: [id])
+  subCommunities Community[] @relation("SubCommunities")
+
+  @@index([deletedAt])
+}
+
+model UserContactGroup {
+  id            Int         @id @default(autoincrement())
+  externalId    String      @unique @default(uuid())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deletedAt     DateTime?
+  name          String
+  userAccountId Int
+  userAccount   UserAccount @relation(fields: [userAccountId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model Event {
+  id          Int              @id @default(autoincrement())
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  location    String?
+  userId      Int
+  user        UserAccount      @relation("UserEvents", fields: [userId], references: [id])
+  attendees   EventAttendee[]
+  recurrence  EventRecurrence? // Optional: For recurring events
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+enum EventAttendeeStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  TENTATIVE
+  UNKNOWN
+}
+
+model EventAttendee {
+  id        Int                 @id @default(autoincrement())
+  eventId   Int
+  userId    Int
+  event     Event               @relation(fields: [eventId], references: [id])
+  user      UserAccount         @relation(fields: [userId], references: [id])
+  status    EventAttendeeStatus @default(PENDING)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+
+  @@unique([eventId, userId]) // Ensure unique attendee per event
+}
+
+model EventRecurrence {
+  id        Int       @id @default(autoincrement())
+  frequency String // e.g., 'daily', 'weekly', 'monthly'
+  interval  Int // e.g., 1 for daily, 2 for every other week
+  until     DateTime? // End date of recurrence
+  eventId   Int       @unique
+  event     Event     @relation(fields: [eventId], references: [id])
+}

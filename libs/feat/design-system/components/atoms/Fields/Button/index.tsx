@@ -1,13 +1,12 @@
+import type { IconName } from '@lssm/icons-kit/icons';
+import Icon from '@lssm/icons-kit/icons';
 import {
   Button as UiButton,
   ButtonText as UiButtonText,
-} from "@/ui-kit/ui/button";
-import Icon from "@/icons-kit/icons";
+} from '@lssm/ui-kit/ui/button';
+import type { ComponentProps } from 'react';
 
-import type { ComponentProps } from "react";
-import type { IconName } from "@/icons-kit/icons";
-
-interface ButtonProps extends ComponentProps<typeof UiButton> {
+export interface ButtonProps extends ComponentProps<typeof UiButton> {
   label: string;
   startIcon?: IconName;
   endIcon?: IconName;
