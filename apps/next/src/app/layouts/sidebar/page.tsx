@@ -1,17 +1,17 @@
-"use client";
-import { Button } from "@lssm/design-system/components/atoms/Fields/Button";
+'use client';
+import { Button } from '@lssm/design-system/components/atoms/Fields/Button';
 
-import { Link, LinkText } from "@lssm/ui-kit/ui/link";
-import { AppLoggedLayout } from "@lssm/module.proj-meet/src/presentation/components/templates/app/AppLoggedLayout";
+import { Link, LinkText } from '@lssm/ui-kit/ui/link';
+import { AppLoggedLayout } from '@lssm/module.proj-meet/src/presentation/components/templates/app/AppLoggedLayout';
 
 const Page = () => {
   return (
     <AppLoggedLayout>
       <Button
         onPress={() => {
-          console.log("test");
+          console.log('test');
         }}
-        label={"Test"}
+        label={'Test'}
       />
       <Link href="/">
         <LinkText>Home</LinkText>

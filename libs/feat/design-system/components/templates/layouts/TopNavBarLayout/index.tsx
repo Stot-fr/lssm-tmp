@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Dimensions } from "react-native";
-
-import { View } from "@lssm/ui-kit/ui/view";
-
-import { Menu, MenuItem, MenuItemLabel } from "@lssm/ui-kit/ui/menu";
-import { Link, LinkText } from "@lssm/ui-kit/ui/link";
-
-import { Text } from "@lssm/ui-kit/ui/text";
-import type { IconProps } from "@lssm/icons-kit/icons";
-import Icon from "@lssm/icons-kit/icons";
+import type { IconProps } from '@lssm/icons-kit/icons';
+import Icon from '@lssm/icons-kit/icons';
+import { LanguageSwitcher } from '@lssm/module.proj-meet/src/presentation/components/molecules/LanguageSwitcher';
+import { Link, LinkText } from '@lssm/ui-kit/ui/link';
+import { Menu, MenuItem, MenuItemLabel } from '@lssm/ui-kit/ui/menu';
+import { Text } from '@lssm/ui-kit/ui/text';
+import { View } from '@lssm/ui-kit/ui/view';
+import React, { useEffect, useState } from 'react';
+import { Dimensions } from 'react-native';
 
 type CategoryTopMenuItem = {
   id: string;
@@ -35,16 +33,16 @@ export const TopNavBarLayout: React.FC<{
 }> = ({ children, navigationMenu }) => {
   const { menuTitle, items } = navigationMenu;
   const [isMobile, setIsMobile] = useState(
-    Dimensions.get("window").width <= 800,
+    Dimensions.get('window').width <= 800,
   );
 
   useEffect(() => {
     const handleResize = () => {
-      const screenWidth = Dimensions.get("window").width;
+      const screenWidth = Dimensions.get('window').width;
       setIsMobile(screenWidth <= 800);
     };
 
-    const subscription = Dimensions.addEventListener("change", handleResize);
+    const subscription = Dimensions.addEventListener('change', handleResize);
 
     return () => {
       subscription.remove();
@@ -60,7 +58,7 @@ export const TopNavBarLayout: React.FC<{
 
         <View className="flex flex-row h-full space-x-8 items-center pr-6">
           {items.map((menuElement) => {
-            if (!("category" in menuElement)) {
+            if (!('category' in menuElement)) {
               return (
                 <Link
                   key={menuElement.id}
@@ -82,7 +80,7 @@ export const TopNavBarLayout: React.FC<{
                 key={menuElement.id}
                 placement="bottom right"
                 offset={24}
-                disabledKeys={["Settings"]}
+                disabledKeys={['Settings']}
                 trigger={({ ...triggerProps }) => {
                   return (
                     <Link
@@ -119,6 +117,8 @@ export const TopNavBarLayout: React.FC<{
               </Menu>
             );
           })}
+
+          <LanguageSwitcher />
         </View>
       </View>
 

@@ -1,0 +1,89 @@
+{
+  "i18n": {
+    "language": "Language",
+    "switchLanguage": "Switch language",
+    "languageToggle": {
+      "en": "English",
+      "fr": "French"
+    },
+    "languages": {
+      "en": "English",
+      "fr": "French"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "back": "Back",
+    "goBack": "Go back",
+    "menu": {
+      "close": "Close",
+      "closeMenu": "Close menu",
+      "open": "Open",
+      "openMenu": "Open menu"
+    }
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageOf": "Page {{current}} of {{total}}",
+    "itemsPerPage": "{{amount}} Items per page",
+    "showing": "Showing {{start}} to {{end}} of {{total}} items"
+  },
+  "form": {
+    "validation": {
+      "required": "Required",
+      "optional": "Optional",
+      "invalid": "Invalid"
+    }
+  },
+  "actions": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "search": "Search",
+    "select": "Select",
+    "submit": "Submit",
+    "toggle": "Toggle",
+    "upload": "Upload",
+    "confirm": "Confirm",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back"
+  },
+  "feedback": {
+    "loading": {
+      "saving": "Saving...",
+      "loading": "Loading...",
+      "processing": "Processing...",
+      "uploading": "Uploading...",
+      "deleting": "Deleting..."
+    },
+    "success": {
+      "generic": "Success",
+      "add": "Add successful",
+      "select": "Select successful",
+      "toggle": "Toggle successful",
+      "upload": "Upload successful",
+      "delete": "Delete successful",
+      "edit": "Edit successful",
+      "save": "Save successful",
+      "submit": "Submit successful",
+      "confirm": "Confirm successful",
+      "close": "Close successful",
+      "next": "Next successful",
+      "previous": "Previous successful",
+      "back": "Back successful"
+    },
+    "error": {
+      "generic": "Something went wrong. Please try again later.",
+      "network": "Network error. Please check your connection and try again.",
+      "server": "Server error. Please try again later.",
+      "unknown": "Unknown error. Please try again later.",
+      "timeout": "Request timed out. Please try again later.",
+      "unauthorized": "Unauthorized. Please sign in again."
+    }
+  }
+}

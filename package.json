@@ -1,25 +1,46 @@
 {
   "private": true,
+  "type": "module",
   "name": "lssm",
   "workspaces": [
     "apps/*",
     "modules/*",
     "libs/service/*",
     "libs/feat/*",
-    "libs/util/*"
+    "libs/util/*",
+    "configs/*"
   ],
   "scripts": {
     "dev:meet": "turbo run dev --filter=@lssm/app-webclient.meet",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
+    "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "postinstall": "patch-package",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "@eslint/js": "^9.11.1",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sonarjs": "^2.0.3",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-workspaces": "^0.10.1",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.7.0"
   },
   "packageManager": "yarn@1.22.19",
   "engines": {
