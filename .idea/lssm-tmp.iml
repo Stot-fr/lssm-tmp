@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/apps/expo-app/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/apps/next/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/proj-meet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/api/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/feat/translation/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

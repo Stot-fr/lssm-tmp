@@ -5,12 +5,14 @@
   "workspaces": [
     "apps/*",
     "modules/*",
+    "packages/*",
     "libs/service/*",
     "libs/feat/*",
     "libs/util/*",
     "configs/*"
   ],
   "scripts": {
+    "dev:api": "turbo run dev --filter=@lssm/app-api.monolith",
     "dev:meet": "turbo run dev --filter=@lssm/app-webclient.meet",
     "dev": "turbo run dev",
     "build": "turbo run build",
