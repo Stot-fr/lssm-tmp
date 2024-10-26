@@ -1,5 +1,5 @@
 {
-  "name": "@/design-system",
+  "name": "@lssm/design-system",
   "version": "0.0.0",
   "main": "index.js",
   "module": "index.js",
@@ -21,8 +21,8 @@
     "react-native": "^0.73.1"
   },
   "dependencies": {
-    "@/ui-kit": "*",
-    "@/icons-kit": "*",
+    "@lssm/ui-kit": "*",
+    "@lssm/icons-kit": "*",
     "expo-image": "^1.12.9",
     "nativewind": "4.0.36",
     "tailwindcss": "3.4.3"

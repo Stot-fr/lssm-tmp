@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
-import { View } from "@/ui-kit/ui/view";
+import { View } from "@lssm/ui-kit/ui/view";
 import { Button } from "../../../atoms/Fields/Button";
-import { Drawer, DrawerBackdrop, DrawerContent } from "@/ui-kit/ui/drawer";
+import { Drawer, DrawerBackdrop, DrawerContent } from "@lssm/ui-kit/ui/drawer";
 import {
   NavigationSideMenu,
   type NavigationSideMenuProps,
 } from "../../../organisms/NavigationSideMenu";
 
-export const SideNavBarLayout: React.FC<{
+export type SideNavBarLayoutProps = {
   children: React.ReactNode;
   navigationMenu: NavigationSideMenuProps;
-}> = ({ children, navigationMenu }) => {
+};
+
+export const SideNavBarLayout: React.FC<SideNavBarLayoutProps> = ({
+  children,
+  navigationMenu,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(
-    Dimensions.get("window").width <= 800
+    Dimensions.get("window").width <= 800,
   );
 
   useEffect(() => {
@@ -34,7 +39,7 @@ export const SideNavBarLayout: React.FC<{
     };
   }, []);
 
-  if (isMobile)
+  if (isMobile) {
     return (
       <View className="flex flex-row h-screen w-screen">
         <Button
@@ -58,15 +63,15 @@ export const SideNavBarLayout: React.FC<{
         <View className="flex-1">{children}</View>
       </View>
     );
-  else {
-    return (
-      <View className="flex flex-row h-screen w-screen">
-        <View className="top-0 left-0 h-screen z-10 w-1/4 max-w-sm min-w-64 shadow-md">
-          <NavigationSideMenu {...navigationMenu} />
-        </View>
-
-        <View className="flex-1">{children}</View>
-      </View>
-    );
   }
+
+  return (
+    <View className="flex flex-row h-screen w-screen">
+      <View className="top-0 left-0 h-screen z-10 w-1/4 max-w-sm min-w-64 shadow-md">
+        <NavigationSideMenu {...navigationMenu} />
+      </View>
+
+      <View className="flex-1">{children}</View>
+    </View>
+  );
 };

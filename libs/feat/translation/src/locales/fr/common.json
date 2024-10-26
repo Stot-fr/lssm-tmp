@@ -1,0 +1,89 @@
+{
+  "i18n": {
+    "language": "Language",
+    "switchLanguage": "Switch language",
+    "languageToggle": {
+      "en": "English",
+      "fr": "Français"
+    },
+    "languages": {
+      "en": "English",
+      "fr": "Français"
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "back": "Retour",
+    "goBack": "Go back",
+    "menu": {
+      "close": "Fermer",
+      "closeMenu": "Ferme le menu",
+      "open": "Ouvrir",
+      "openMenu": "Ouvrir le menu"
+    }
+  },
+  "pagination": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "pageOf": "Page {{current}} sur {{total}}",
+    "itemsPerPage": "{{amount}} Element par page",
+    "showing": "{{start}} à {{end}} sur {{total}} éléments"
+  },
+  "form": {
+    "validation": {
+      "required": "Requis",
+      "optional": "Optionnel",
+      "invalid": "Invalide"
+    }
+  },
+  "actions": {
+    "add": "Ajouter",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Editer",
+    "save": "Sauvegarder",
+    "search": "Rechercher",
+    "select": "Selectionner",
+    "submit": "Envoyer",
+    "toggle": "Basculer",
+    "upload": "Téléverser",
+    "confirm": "Confirmer",
+    "close": "Fermer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "back": "Retour"
+  },
+  "feedback": {
+    "loading": {
+      "saving": "Sauvegarde...",
+      "loading": "Chargement...",
+      "processing": "Traitement...",
+      "uploading": "Téléversement...",
+      "deleting": "Suppression..."
+    },
+    "success": {
+      "generic": "Succès",
+      "add": "Ajouté",
+      "select": "Sélectionné",
+      "toggle": "Basculé",
+      "upload": "Téléversé",
+      "delete": "Supprimé",
+      "edit": "Édité",
+      "save": "Sauvegardé",
+      "submit": "Envoyé",
+      "confirm": "Confirmé",
+      "close": "Fermé",
+      "next": "Suivant",
+      "previous": "Précédent",
+      "back": "Retour"
+    },
+    "error": {
+      "generic": "Quelque chose n'a pas fonctionné. Veuillez réessayer plus tard",
+      "network": "Erreur de réseau. Veuillez vérifier votre connexion et réessayer.",
+      "server": "Erreur de serveur. Veuillez réessayer plus tard.",
+      "unknown": "Erreur inconnue. Veuillez réessayer plus tard.",
+      "timeout": "La demande a expiré. Veuillez réessayer plus tard.",
+      "unauthorized": "Non autorisé. Veuillez vous connecter à nouveau."
+    }
+  }
+}

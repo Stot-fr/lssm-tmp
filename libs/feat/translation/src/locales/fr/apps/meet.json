@@ -1,0 +1,16 @@
+{
+  "navBar": {
+    "unlogged": {
+      "home": "Accueil",
+      "login": "Connexion",
+      "signup": "Inscription",
+      "legal": "Legal",
+      "feedback": "Feedback"
+    },
+    "logged": {
+      "home": "Accueil",
+      "profile": "Profile",
+      "logout": "Déconnexion"
+    }
+  }
+}
