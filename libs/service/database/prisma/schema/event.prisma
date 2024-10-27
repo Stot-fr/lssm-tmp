@@ -1,0 +1,46 @@
+model Event {
+  internalId  Int              @id @default(autoincrement())
+  externalId  String           @unique @default(uuid(7))
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  location    String?
+  userId      Int
+  user        UserAccount      @relation("UserEvents", fields: [userId], references: [internalId])
+  attendees   EventAttendee[]
+  recurrence  EventRecurrence? // Optional: For recurring events
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+enum EventAttendeeStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  TENTATIVE
+  UNKNOWN
+}
+
+model EventAttendee {
+  internalId Int                 @id @default(autoincrement())
+  externalId String              @unique @default(uuid(7))
+  eventId    Int
+  userId     Int
+  event      Event               @relation(fields: [eventId], references: [internalId])
+  user       UserAccount         @relation(fields: [userId], references: [internalId])
+  status     EventAttendeeStatus @default(PENDING)
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+
+  @@unique([eventId, userId]) // Ensure unique attendee per event
+}
+
+model EventRecurrence {
+  internalId Int       @id @default(autoincrement())
+  frequency  String // e.g., 'daily', 'weekly', 'monthly'
+  interval   Int // e.g., 1 for daily, 2 for every other week
+  until      DateTime? // End date of recurrence
+  eventId    Int       @unique
+  event      Event     @relation(fields: [eventId], references: [internalId])
+}

@@ -1,0 +1,41 @@
+model Message {
+  internalId     Int          @id @default(autoincrement())
+  externalId     String       @unique @default(uuid(7))
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+  content        String
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [internalId])
+  senderId       Int
+  sender         UserAccount  @relation(fields: [senderId], references: [internalId])
+
+  @@index([deletedAt])
+}
+
+model Conversation {
+  internalId Int                  @id @default(autoincrement())
+  externalId String               @unique @default(uuid(7))
+  createdAt  DateTime             @default(now())
+  updatedAt  DateTime             @updatedAt
+  deletedAt  DateTime?
+  title      String?
+  messages   Message[]
+  members    ConversationMember[]
+
+  @@index([deletedAt])
+}
+
+model ConversationMember {
+  internalId     Int          @id @default(autoincrement())
+  externalId     String       @unique @default(uuid(7))
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [internalId])
+  userAccountId  Int
+  userAccount    UserAccount  @relation(fields: [userAccountId], references: [internalId])
+
+  @@index([deletedAt])
+}

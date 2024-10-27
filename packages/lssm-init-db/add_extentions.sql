@@ -1,0 +1,10 @@
+CREATE EXTENSION IF NOT EXISTS btree_gist WITH SCHEMA public;
+COMMENT ON EXTENSION btree_gist IS 'support for indexing common datatypes in GiST';
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
+COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions';
+CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
+COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';

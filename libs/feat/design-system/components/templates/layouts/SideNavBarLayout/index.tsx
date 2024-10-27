@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Dimensions } from "react-native";
-import { View } from "@lssm/ui-kit/ui/view";
-import { Button } from "../../../atoms/Fields/Button";
-import { Drawer, DrawerBackdrop, DrawerContent } from "@lssm/ui-kit/ui/drawer";
+import { Drawer, DrawerBackdrop, DrawerContent } from '@lssm/ui-kit/ui/drawer';
+import { View } from '@lssm/ui-kit/ui/view';
+import React, { useEffect, useState } from 'react';
+import { Dimensions } from 'react-native';
+
+import { Button } from '../../../atoms/Fields/Button';
 import {
   NavigationSideMenu,
   type NavigationSideMenuProps,
-} from "../../../organisms/NavigationSideMenu";
+} from '../../../organisms/NavigationSideMenu';
 
 export type SideNavBarLayoutProps = {
   children: React.ReactNode;
@@ -19,12 +20,12 @@ export const SideNavBarLayout: React.FC<SideNavBarLayoutProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(
-    Dimensions.get("window").width <= 800,
+    Dimensions.get('window').width <= 800,
   );
 
   useEffect(() => {
     const handleResize = () => {
-      const screenWidth = Dimensions.get("window").width;
+      const screenWidth = Dimensions.get('window').width;
       setIsMobile(screenWidth <= 800);
 
       if (screenWidth > 800) {
@@ -32,7 +33,7 @@ export const SideNavBarLayout: React.FC<SideNavBarLayoutProps> = ({
       }
     };
 
-    const subscription = Dimensions.addEventListener("change", handleResize);
+    const subscription = Dimensions.addEventListener('change', handleResize);
 
     return () => {
       subscription.remove();

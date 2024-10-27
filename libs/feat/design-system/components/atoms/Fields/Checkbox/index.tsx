@@ -1,6 +1,5 @@
-import { Checkbox as UiCheckbox } from "@lssm/ui-kit/ui/checkbox";
-
-import type { ComponentProps } from "react";
+import { Checkbox as UiCheckbox } from '@lssm/ui-kit/ui/checkbox';
+import type { ComponentProps } from 'react';
 
 interface CheckboxProps extends ComponentProps<typeof UiCheckbox> {}
 

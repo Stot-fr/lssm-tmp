@@ -1,7 +1,8 @@
+import { Card } from '@lssm/ui-kit/ui/card';
 import React from 'react';
 import { View } from 'react-native';
+
 import BodyCard from '../molecules/BodyCard';
-import { Card } from '@lssm/ui-kit/ui/card';
 
 interface Habit {
   id: number; // Identifiant de l'habitude

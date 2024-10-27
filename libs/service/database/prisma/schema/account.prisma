@@ -1,0 +1,58 @@
+model UserAccount {
+  internalId         Int                  @id @default(autoincrement())
+  externalId         String               @unique @default(uuid(7))
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  deletedAt          DateTime?
+  email              String               @unique
+  identities         AccountIdentity[]
+  contacts           UserContactGroup[]
+  contactsOfs        Contact[]            @relation("UserContacts")
+  contactIns         Contact[]            @relation("ContactUser")
+  messages           Message[]
+  ConversationMember ConversationMember[]
+  events             Event[]              @relation("UserEvents")
+
+  // Uncesessary revert relations
+  eventAttendees   EventAttendee[]
+  UserContactLabel UserContactLabel[]
+
+  @@index([deletedAt])
+}
+
+model ApiAccount {
+  internalId Int       @id @default(autoincrement())
+  externalId String    @unique @default(uuid(7))
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+  apiKey     String    @unique
+
+  @@index([deletedAt])
+}
+
+model AccountIdentity {
+  internalId    Int                   @id @default(autoincrement())
+  externalId    String                @unique @default(uuid(7))
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+  deletedAt     DateTime?
+  userAccountId Int?
+  userAccount   UserAccount?          @relation(fields: [userAccountId], references: [internalId])
+  organizations AccountOrganization[]
+
+  @@index([deletedAt])
+}
+
+model AccountOrganization {
+  internalId Int              @id @default(autoincrement())
+  externalId String           @unique @default(uuid(7))
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  deletedAt  DateTime?
+  name       String
+  identityId Int?
+  identity   AccountIdentity? @relation(fields: [identityId], references: [internalId])
+
+  @@index([deletedAt])
+}

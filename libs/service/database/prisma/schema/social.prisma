@@ -1,0 +1,86 @@
+model Community {
+  internalId     Int         @id @default(autoincrement())
+  externalId     String      @unique @default(uuid(7))
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  deletedAt      DateTime?
+  name           String
+  parentId       Int?
+  parent         Community?  @relation("SubCommunities", fields: [parentId], references: [internalId])
+  subCommunities Community[] @relation("SubCommunities")
+
+  @@index([deletedAt])
+}
+
+model UserContactGroup {
+  internalId    Int         @id @default(autoincrement())
+  externalId    String      @unique @default(uuid(7))
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deletedAt     DateTime?
+  name          String
+  description   String?
+  userAccountId Int
+  userAccount   UserAccount @relation(fields: [userAccountId], references: [internalId])
+  contacts      Contact[]
+
+  @@index([deletedAt])
+}
+
+model UserContactLabel {
+  internalId Int         @id @default(autoincrement())
+  externalId String      @unique @default(uuid(7))
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  deletedAt  DateTime?
+  userId     Int
+  user       UserAccount @relation(fields: [userId], references: [internalId])
+  name       String
+  color      String?
+  members    Contact[]   @relation("ContactLabels")
+}
+
+model Contact {
+  internalId     Int                @id @default(autoincrement())
+  externalId     String             @unique @default(uuid(7))
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  deletedAt      DateTime?
+  name           String?
+  userAccountId  Int?               @unique
+  userAccount    UserAccount?       @relation("ContactUser", fields: [userAccountId], references: [internalId])
+  ownerAccountId Int
+  ownerAccount   UserAccount        @relation("UserContacts", fields: [ownerAccountId], references: [internalId])
+  contactGroupId Int
+  contactGroup   UserContactGroup   @relation(fields: [contactGroupId], references: [internalId])
+  contactDetails ContactDetail[]
+  labels         UserContactLabel[] @relation("ContactLabels")
+
+  @@index([deletedAt])
+}
+
+enum ContactDetailType {
+  PHONE
+  EMAIL
+  SOCIAL_INSTAGRAM
+  SOCIAL_TWITTER
+  SOCIAL_LINKEDIN
+  SOCIAL_FACEBOOK
+  SOCIAL_YOUTUBE
+  SOCIAL_TIK
+}
+
+model ContactDetail {
+  internalId Int               @id @default(autoincrement())
+  externalId String            @unique @default(uuid(7))
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+  deletedAt  DateTime?
+  type       ContactDetailType
+  value      String
+  label      String? // e.g., 'work', 'personal', etc.
+  contactId  Int
+  contact    Contact           @relation(fields: [contactId], references: [internalId])
+
+  @@index([deletedAt])
+}

@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/proj-meet/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/apps/api/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/translation/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/service/database/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

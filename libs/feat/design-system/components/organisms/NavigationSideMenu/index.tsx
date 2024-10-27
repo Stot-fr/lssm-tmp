@@ -1,13 +1,10 @@
-import type { IconProps } from "@lssm/icons-kit/icons";
-
-import { View } from "@lssm/ui-kit/ui/view";
-import { Text } from "@lssm/ui-kit/ui/text";
-import { ScrollView } from "@lssm/ui-kit/ui/scroll-view";
+import { ScrollView } from '@lssm/ui-kit/ui/scroll-view';
+import { Text } from '@lssm/ui-kit/ui/text';
 
 import {
   CategorySideMenu,
   type CategorySideMenuProps,
-} from "../../molecules/CategorySideMenu";
+} from '../../molecules/CategorySideMenu';
 
 export interface NavigationSideMenuProps {
   menuTitle: string;

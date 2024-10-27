@@ -1,0 +1,9 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex", "multiSchema", "postgresqlExtensions", "views", "relationJoins", "nativeDistinct", "omitApi", "prismaSchemaFolder", "typedSql", "strictUndefinedChecks"]
+}
+
+datasource db {
+  provider = "postgresql" // Replace with your database provider
+  url      = env("DATABASE_URL")
+}

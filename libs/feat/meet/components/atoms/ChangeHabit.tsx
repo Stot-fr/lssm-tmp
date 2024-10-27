@@ -1,16 +1,15 @@
-import React from 'react';
-import { View, Text } from 'react-native';
 import { Button } from '@lssm/ui-kit/ui/button';
+import { Input, InputField } from '@lssm/ui-kit/ui/input';
 import {
   Modal,
-  ModalBackdrop,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
+  ModalContent,
   ModalFooter,
+  ModalHeader,
 } from '@lssm/ui-kit/ui/modal';
-import { Input, InputField } from '@lssm/ui-kit/ui/input';
+import React from 'react';
+import { Text } from 'react-native';
+
 import styles from '../../style';
 
 const ChangeHabit: React.FC<{ isOpen: boolean; onClose: () => void }> = ({

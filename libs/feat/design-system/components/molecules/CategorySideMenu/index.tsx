@@ -1,9 +1,8 @@
-import type { IconProps } from "@lssm/icons-kit/icons";
-
-import { View } from "@lssm/ui-kit/ui/view";
-import { Text } from "@lssm/ui-kit/ui/text";
-import { Link } from "@lssm/ui-kit/ui/link";
-import Icon from "@lssm/icons-kit/icons";
+import type { IconProps } from '@lssm/icons-kit/icons';
+import Icon from '@lssm/icons-kit/icons';
+import { Link } from '@lssm/ui-kit/ui/link';
+import { Text } from '@lssm/ui-kit/ui/text';
+import { View } from '@lssm/ui-kit/ui/view';
 
 export type CategorySideMenuItem = {
   id: string;
