@@ -1,5 +1,5 @@
-import type { IconName } from '@lssm/icons-kit/icons';
-import Icon from '@lssm/icons-kit/icons';
+import type { IconName } from '@lssm/lib-service.icons-kit';
+import Icon from '@lssm/lib-service.icons-kit';
 import {
   Button as UiButton,
   ButtonText as UiButtonText,

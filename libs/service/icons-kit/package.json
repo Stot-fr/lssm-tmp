@@ -1,9 +1,9 @@
 {
-  "name": "@lssm/icons-kit",
+  "name": "@lssm/lib-service.icons-kit",
   "version": "0.0.0",
-  "main": "index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.jsx",
+  "module": "dist/index.jsx",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",

@@ -1,5 +1,5 @@
-import type { IconProps } from '@lssm/icons-kit/icons';
-import Icon from '@lssm/icons-kit/icons';
+import type { IconProps } from '@lssm/lib-service.icons-kit';
+import Icon from '@lssm/lib-service.icons-kit';
 import { Link } from '@lssm/lib-service.ui-kit/ui/link';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
 import { View } from '@lssm/lib-service.ui-kit/ui/view';

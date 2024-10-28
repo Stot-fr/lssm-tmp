@@ -1,7 +1,7 @@
 'use client';
-import type { CategorySideMenuProps } from '@lssm/design-system/components/molecules/CategorySideMenu/index';
-import { SideNavBarLayout } from '@lssm/design-system/components/templates/Layouts/SideNavBarLayout/index';
-import type { IconName } from '@lssm/icons-kit/icons';
+import type { CategorySideMenuProps } from '@lssm/lib-feat.design-system/components/molecules/CategorySideMenu/index';
+import { SideNavBarLayout } from '@lssm/lib-feat.design-system/components/templates/Layouts/SideNavBarLayout/index';
+import type { IconName } from '@lssm/lib-service.icons-kit';
 import { type PropsWithChildren, useMemo } from 'react';
 
 import { APP_NAME } from '../../../constants/app';
