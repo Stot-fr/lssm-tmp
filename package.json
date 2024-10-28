@@ -21,6 +21,7 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "postinstall": "patch-package",
+    "prepare": "husky",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },
   "devDependencies": {
