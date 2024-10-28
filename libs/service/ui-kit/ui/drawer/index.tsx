@@ -1,31 +1,31 @@
-"use client";
-import React from "react";
-import { createModal as createDrawer } from "@gluestack-ui/modal";
+'use client';
+import { createModal as createDrawer } from '@gluestack-ui/modal';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import {
-  Pressable,
-  View,
-  ScrollView,
-  Platform,
-  Dimensions,
-} from "react-native";
+  useStyleContext,
+  withStyleContext,
+} from '@gluestack-ui/nativewind-utils/withStyleContext';
+import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
 import {
-  Motion,
   AnimatePresence,
   createMotionAnimatedComponent,
-} from "@legendapp/motion";
-import { tva } from "@gluestack-ui/nativewind-utils/tva";
+  Motion,
+} from '@legendapp/motion';
+import { cssInterop } from 'nativewind';
+import React from 'react';
 import {
-  withStyleContext,
-  useStyleContext,
-} from "@gluestack-ui/nativewind-utils/withStyleContext";
-import { withStyleContextAndStates } from "@gluestack-ui/nativewind-utils/withStyleContextAndStates";
-import { cssInterop } from "nativewind";
-import type { VariantProps } from "@gluestack-ui/nativewind-utils";
+  Dimensions,
+  Platform,
+  Pressable,
+  ScrollView,
+  View,
+} from 'react-native';
 
 const AnimatedPressable = createMotionAnimatedComponent(Pressable);
-const SCOPE = "MODAL";
-const screenWidth = Dimensions.get("window").width;
-const screenHeight = Dimensions.get("window").height;
+const SCOPE = 'MODAL';
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 const sizes: { [key: string]: number } = {
   sm: 0.25,
   md: 0.5,
@@ -35,7 +35,7 @@ const sizes: { [key: string]: number } = {
 
 const UIDrawer = createDrawer({
   Root:
-    Platform.OS === "web"
+    Platform.OS === 'web'
       ? withStyleContext(View, SCOPE)
       : withStyleContextAndStates(View, SCOPE),
   Backdrop: AnimatedPressable,
@@ -46,114 +46,114 @@ const UIDrawer = createDrawer({
   Header: View,
   AnimatePresence: AnimatePresence,
 });
-cssInterop(UIDrawer, { className: "style" });
-cssInterop(UIDrawer.Backdrop, { className: "style" });
-cssInterop(UIDrawer.Content, { className: "style" });
-cssInterop(UIDrawer.CloseButton, { className: "style" });
-cssInterop(UIDrawer.Header, { className: "style" });
+cssInterop(UIDrawer, { className: 'style' });
+cssInterop(UIDrawer.Backdrop, { className: 'style' });
+cssInterop(UIDrawer.Content, { className: 'style' });
+cssInterop(UIDrawer.CloseButton, { className: 'style' });
+cssInterop(UIDrawer.Header, { className: 'style' });
 cssInterop(UIDrawer.Body, {
-  className: "style",
-  contentContainerClassName: "contentContainerStyle",
-  indicatorClassName: "indicatorStyle",
+  className: 'style',
+  contentContainerClassName: 'contentContainerStyle',
+  indicatorClassName: 'indicatorStyle',
 });
-cssInterop(UIDrawer.Footer, { className: "style" });
+cssInterop(UIDrawer.Footer, { className: 'style' });
 
 const drawerStyle = tva({
-  base: "w-full h-full web:pointer-events-none relative",
+  base: 'w-full h-full web:pointer-events-none relative',
   variants: {
     size: {
-      sm: "",
-      md: "",
-      lg: "",
-      full: "",
+      sm: '',
+      md: '',
+      lg: '',
+      full: '',
     },
     anchor: {
-      left: "items-start",
-      right: "items-end",
-      top: "justify-start",
-      bottom: "justify-end",
+      left: 'items-start',
+      right: 'items-end',
+      top: 'justify-start',
+      bottom: 'justify-end',
     },
   },
 });
 
 const drawerBackdropStyle = tva({
-  base: "absolute left-0 top-0 right-0 bottom-0 bg-background-dark web:cursor-default",
+  base: 'absolute left-0 top-0 right-0 bottom-0 bg-background-dark web:cursor-default',
 });
 
 const drawerContentStyle = tva({
-  base: "bg-background-0 overflow-scroll border border-outline-100 p-6 absolute",
+  base: 'bg-background-0 overflow-scroll border border-outline-100 p-6 absolute',
   parentVariants: {
     size: {
-      sm: "w-1/4",
-      md: "w-1/2",
-      lg: "w-3/4",
-      full: "w-full",
+      sm: 'w-1/4',
+      md: 'w-1/2',
+      lg: 'w-3/4',
+      full: 'w-full',
     },
     anchor: {
-      left: "h-full",
-      right: "h-full",
-      top: "w-full",
-      bottom: "w-full",
+      left: 'h-full',
+      right: 'h-full',
+      top: 'w-full',
+      bottom: 'w-full',
     },
   },
   parentCompoundVariants: [
     {
-      anchor: "top",
-      size: "sm",
-      class: "h-1/4",
+      anchor: 'top',
+      size: 'sm',
+      class: 'h-1/4',
     },
     {
-      anchor: "top",
-      size: "md",
-      class: "h-1/2",
+      anchor: 'top',
+      size: 'md',
+      class: 'h-1/2',
     },
     {
-      anchor: "top",
-      size: "lg",
-      class: "h-3/4",
+      anchor: 'top',
+      size: 'lg',
+      class: 'h-3/4',
     },
     {
-      anchor: "top",
-      size: "full",
-      class: "h-full",
+      anchor: 'top',
+      size: 'full',
+      class: 'h-full',
     },
     {
-      anchor: "bottom",
-      size: "sm",
-      class: "h-1/4",
+      anchor: 'bottom',
+      size: 'sm',
+      class: 'h-1/4',
     },
     {
-      anchor: "bottom",
-      size: "md",
-      class: "h-1/2",
+      anchor: 'bottom',
+      size: 'md',
+      class: 'h-1/2',
     },
     {
-      anchor: "bottom",
-      size: "lg",
-      class: "h-3/4",
+      anchor: 'bottom',
+      size: 'lg',
+      class: 'h-3/4',
     },
     {
-      anchor: "bottom",
-      size: "full",
-      class: "h-full",
+      anchor: 'bottom',
+      size: 'full',
+      class: 'h-full',
     },
   ],
 });
 
 const drawerCloseButtonStyle = tva({
-  base: "z-10 rounded data-[focus-visible=true]:web:bg-background-100 web:outline-0 cursor-pointer",
+  base: 'z-10 rounded data-[focus-visible=true]:web:bg-background-100 web:outline-0 cursor-pointer',
 });
 
 const drawerHeaderStyle = tva({
-  base: "justify-between items-center flex-row",
+  base: 'justify-between items-center flex-row',
 });
 
 const drawerBodyStyle = tva({
-  base: "mt-4 mb-6 shrink-0",
+  base: 'mt-4 mb-6 shrink-0',
 });
 
 const drawerFooterStyle = tva({
-  base: "flex-row justify-end items-center",
+  base: 'flex-row justify-end items-center',
 });
 
 type IDrawerProps = React.ComponentProps<typeof UIDrawer> &
@@ -182,10 +182,10 @@ type IDrawerCloseButtonProps = React.ComponentProps<
 const Drawer = React.forwardRef<
   React.ElementRef<typeof UIDrawer>,
   IDrawerProps
->(({ className, size = "sm", anchor = "left", ...props }, ref) => {
+>(({ className, size = 'sm', anchor = 'left', ...props }, ref) => {
   return (
     <UIDrawer
-      ref={ref}
+      ref={ref as any}
       {...props}
       pointerEvents="box-none"
       className={drawerStyle({ size, anchor, class: className })}
@@ -200,7 +200,7 @@ const DrawerBackdrop = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UIDrawer.Backdrop
-      ref={ref}
+      ref={ref as any}
       initial={{
         opacity: 0,
       }}
@@ -211,11 +211,11 @@ const DrawerBackdrop = React.forwardRef<
         opacity: 0,
       }}
       transition={{
-        type: "spring",
+        type: 'spring',
         damping: 18,
         stiffness: 250,
         opacity: {
-          type: "timing",
+          type: 'timing',
           duration: 250,
         },
       }}
@@ -230,36 +230,37 @@ const DrawerBackdrop = React.forwardRef<
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof UIDrawer.Content>,
   IDrawerContentProps
+  // eslint-disable-next-line sonarjs/cognitive-complexity
 >(({ className, ...props }, ref) => {
   const { size: parentSize, anchor: parentAnchor } = useStyleContext(SCOPE);
 
   const drawerHeight = screenHeight * (sizes[parentSize] || sizes.md);
   const drawerWidth = screenWidth * (sizes[parentSize] || sizes.md);
 
-  const isHorizontal = parentAnchor === "left" || parentAnchor === "right";
+  const isHorizontal = parentAnchor === 'left' || parentAnchor === 'right';
 
   const initialObj = isHorizontal
-    ? { x: parentAnchor === "left" ? -drawerWidth : drawerWidth }
-    : { y: parentAnchor === "top" ? -drawerHeight : drawerHeight };
+    ? { x: parentAnchor === 'left' ? -drawerWidth : drawerWidth }
+    : { y: parentAnchor === 'top' ? -drawerHeight : drawerHeight };
 
   const animateObj = isHorizontal ? { x: 0 } : { y: 0 };
 
   const exitObj = isHorizontal
-    ? { x: parentAnchor === "left" ? -drawerWidth : drawerWidth }
-    : { y: parentAnchor === "top" ? -drawerHeight : drawerHeight };
+    ? { x: parentAnchor === 'left' ? -drawerWidth : drawerWidth }
+    : { y: parentAnchor === 'top' ? -drawerHeight : drawerHeight };
 
   const customClass = isHorizontal
-    ? `top-0 ${parentAnchor === "left" ? "left-0" : "right-0"}`
-    : `left-0 ${parentAnchor === "top" ? "top-0" : "bottom-0"}`;
+    ? `top-0 ${parentAnchor === 'left' ? 'left-0' : 'right-0'}`
+    : `left-0 ${parentAnchor === 'top' ? 'top-0' : 'bottom-0'}`;
 
   return (
     <UIDrawer.Content
-      ref={ref}
+      ref={ref as any}
       initial={initialObj}
       animate={animateObj}
       exit={exitObj}
       transition={{
-        type: "timing",
+        type: 'timing',
         duration: 300,
       }}
       {...props}
@@ -326,7 +327,7 @@ const DrawerCloseButton = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UIDrawer.CloseButton
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={drawerCloseButtonStyle({
         class: className,
@@ -335,20 +336,20 @@ const DrawerCloseButton = React.forwardRef<
   );
 });
 
-Drawer.displayName = "Drawer";
-DrawerBackdrop.displayName = "DrawerBackdrop";
-DrawerContent.displayName = "DrawerContent";
-DrawerHeader.displayName = "DrawerHeader";
-DrawerBody.displayName = "DrawerBody";
-DrawerFooter.displayName = "DrawerFooter";
-DrawerCloseButton.displayName = "DrawerCloseButton";
+Drawer.displayName = 'Drawer';
+DrawerBackdrop.displayName = 'DrawerBackdrop';
+DrawerContent.displayName = 'DrawerContent';
+DrawerHeader.displayName = 'DrawerHeader';
+DrawerBody.displayName = 'DrawerBody';
+DrawerFooter.displayName = 'DrawerFooter';
+DrawerCloseButton.displayName = 'DrawerCloseButton';
 
 export {
   Drawer,
   DrawerBackdrop,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
   DrawerFooter,
+  DrawerHeader,
 };

@@ -1,0 +1,115 @@
+model UserContact {
+  id                      String                    @id @default(uuid(7))
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+  deletedAt               DateTime?
+  name                    String?
+  userAccountId           String?                   @unique
+  userAccount             UserAccount?              @relation("ContactUser", fields: [userAccountId], references: [id])
+  ownerAccountId          String
+  ownerAccount            UserAccount               @relation("UserContacts", fields: [ownerAccountId], references: [id])
+  contactGroupMemberships UserContactGroupMembers[]
+  contactDetails          ContactDetail[]
+  labels                  UserContactLabel[]        @relation("ContactLabels")
+
+  @@index([deletedAt])
+}
+
+enum ContactDetailType {
+  PHONE
+  EMAIL
+  SOCIAL_INSTAGRAM
+  SOCIAL_TWITTER
+  SOCIAL_LINKEDIN
+  SOCIAL_FACEBOOK
+  SOCIAL_YOUTUBE
+  SOCIAL_TIK
+}
+
+model ContactDetail {
+  id        String            @id @default(uuid(7))
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  deletedAt DateTime?
+  type      ContactDetailType
+  value     String
+  label     String? // e.g., 'work', 'personal', etc.
+  contactId String
+  contact   UserContact       @relation(fields: [contactId], references: [id])
+
+  @@index([deletedAt])
+}
+
+enum CommunityOpenLevel {
+  PRIVATE
+  ONLY_INVITE
+  ON_REQUEST
+  PUBLIC
+}
+
+model Community {
+  id             String              @id @default(uuid(7))
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  deletedAt      DateTime?
+  name           String
+  isOpen         CommunityOpenLevel?
+  parentId       String?
+  parent         Community?          @relation("SubCommunities", fields: [parentId], references: [id])
+  subCommunities Community[]         @relation("SubCommunities")
+  members        CommunityMembers[]
+
+  @@index([deletedAt])
+}
+
+model CommunityMembers {
+  id          String      @id @default(uuid(7))
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+  communityId String
+  community   Community   @relation(fields: [communityId], references: [id])
+  userId      String
+  user        UserAccount @relation(fields: [userId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model UserContactGroup {
+  id            String                    @id @default(uuid(7))
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+  deletedAt     DateTime?
+  name          String
+  description   String?
+  userAccountId String
+  userAccount   UserAccount               @relation(fields: [userAccountId], references: [id])
+  members       UserContactGroupMembers[]
+
+  @@index([deletedAt])
+}
+
+model UserContactGroupMembers {
+  id        String           @id @default(uuid(7))
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  deletedAt DateTime?
+  groupId   String
+  group     UserContactGroup @relation(fields: [groupId], references: [id])
+  contactId String
+  contact   UserContact      @relation(fields: [contactId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model UserContactLabel {
+  id        String        @id @default(uuid(7))
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  deletedAt DateTime?
+  userId    String
+  user      UserAccount   @relation(fields: [userId], references: [id])
+  name      String
+  color     String?
+  members   UserContact[] @relation("ContactLabels")
+}

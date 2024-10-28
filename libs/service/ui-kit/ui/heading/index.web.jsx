@@ -77,6 +77,7 @@ const MappedHeading = memo(forwardRef(({ size, className, isTruncated, bold, und
                     highlight,
                     class: className,
                 })} {...props} ref={ref}/>);
+        // eslint-disable-next-line sonarjs/no-duplicated-branches
         default:
             return (<h4 className={headingStyle({
                     size,

@@ -1,15 +1,15 @@
-import React from "react";
-import { Button } from "@lssm/design-system/components/atoms/Fields/Button";
-import { View } from "@lssm/ui-kit/ui/view";
+import { Button } from '@lssm/design-system/components/atoms/Fields/Button';
+import { View } from '@lssm/lib-service.ui-kit/ui/view';
+import React from 'react';
 
 const index = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         onPress={() => {
-          console.log("test");
+          console.log('test');
         }}
-        label={"Test"}
+        label={'Test'}
         startIcon="AlarmClock"
       />
     </View>

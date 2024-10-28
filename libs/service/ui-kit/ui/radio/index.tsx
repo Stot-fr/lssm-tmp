@@ -1,17 +1,17 @@
 'use client';
-import React, { useMemo } from 'react';
-import { createRadio } from '@gluestack-ui/radio';
-import { Svg } from 'react-native-svg';
-import { Pressable, View, Platform, Text } from 'react-native';
-import { tva } from '@gluestack-ui/nativewind-utils/tva';
-import {
-  withStyleContext,
-  useStyleContext,
-} from '@gluestack-ui/nativewind-utils/withStyleContext';
-import { cssInterop } from 'nativewind';
-import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
-import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
 import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import { tva } from '@gluestack-ui/nativewind-utils/tva';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
+import {
+  useStyleContext,
+  withStyleContext,
+} from '@gluestack-ui/nativewind-utils/withStyleContext';
+import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
+import { createRadio } from '@gluestack-ui/radio';
+import { cssInterop } from 'nativewind';
+import React, { useMemo } from 'react';
+import { Platform, Pressable, Text, View } from 'react-native';
+import { Svg } from 'react-native-svg';
 
 const IndicatorWrapper = React.forwardRef<
   React.ElementRef<typeof View>,
@@ -62,7 +62,7 @@ const PrimitiveIcon = React.forwardRef<
       as: AsComp,
       ...props
     },
-    ref
+    ref,
   ) => {
     color = color ?? classNameColor;
     const sizeProps = useMemo(() => {
@@ -89,7 +89,7 @@ const PrimitiveIcon = React.forwardRef<
     return (
       <Svg ref={ref} height={height} width={width} {...colorProps} {...props} />
     );
-  }
+  },
 );
 
 const radioStyle = tva({
@@ -135,11 +135,11 @@ const radioLabelStyle = tva({
   parentVariants: {
     size: {
       '2xs': 'text-2xs',
-      'xs': 'text-xs',
-      'sm': 'text-sm',
-      'md': 'text-base',
-      'lg': 'text-lg',
-      'xl': 'text-xl',
+      xs: 'text-xs',
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg',
+      xl: 'text-xl',
       '2xl': 'text-2xl',
       '3xl': 'text-3xl',
       '4xl': 'text-4xl',
@@ -194,7 +194,7 @@ const Radio = React.forwardRef<React.ElementRef<typeof UIRadio>, IRadioProps>(
         context={{ size }}
       />
     );
-  }
+  },
 );
 
 type IRadioGroupProps = React.ComponentProps<typeof UIRadio.Group> &
@@ -301,4 +301,4 @@ RadioIndicator.displayName = 'RadioIndicator';
 RadioLabel.displayName = 'RadioLabel';
 RadioIcon.displayName = 'RadioIcon';
 
-export { Radio, RadioGroup, RadioIndicator, RadioLabel, RadioIcon };
+export { Radio, RadioGroup, RadioIcon, RadioIndicator, RadioLabel };

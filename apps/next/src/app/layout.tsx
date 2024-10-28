@@ -1,7 +1,7 @@
 'use client';
 
-import i18n, { I18nextProvider } from '@lssm/libs-feat.translation/src/index';
-import { GluestackUIProvider } from '@lssm/ui-kit/ui/gluestack-ui-provider';
+import i18n, { I18nextProvider } from '@lssm/libs-feat.translation';
+import { GluestackUIProvider } from '@lssm/lib-service.ui-kit/ui/gluestack-ui-provider';
 import { Inter } from 'next/font/google';
 
 import StyledJsxRegistry from './registry';

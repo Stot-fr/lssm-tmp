@@ -1,17 +1,17 @@
 'use client';
-import { createSlider } from '@gluestack-ui/slider';
-import { Pressable } from 'react-native';
-import { View, Platform } from 'react-native';
-import React from 'react';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
 import {
-  withStyleContext,
   useStyleContext,
+  withStyleContext,
 } from '@gluestack-ui/nativewind-utils/withStyleContext';
 import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
+import { createSlider } from '@gluestack-ui/slider';
 import { cssInterop } from 'nativewind';
-import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
-import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React from 'react';
+import { Pressable } from 'react-native';
+import { Platform, View } from 'react-native';
 
 const ThumbWrapper = React.forwardRef<
   React.ElementRef<typeof View>,
@@ -183,7 +183,7 @@ export const Slider = React.forwardRef<
       isReversed = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <UISlider
@@ -199,7 +199,7 @@ export const Slider = React.forwardRef<
         context={{ size, orientation, isReversed }}
       />
     );
-  }
+  },
 );
 
 type ISliderThumbProps = React.ComponentProps<typeof UISlider.Thumb> &

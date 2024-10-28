@@ -1,23 +1,23 @@
 {
   "name": "@lssm/libs-feat.translation",
   "version": "0.0.0",
-  "main": "index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
-    "clean": "rm -rf dist"
+    "clean": "rimraf dist .turbo"
   },
   "devDependencies": {
-    "@types/react": "^18.2.46",
+    "@types/react": "^18.0.22",
     "jscodeshift": "0.15.2",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "nativewind": ">=4.0",
-    "react": "^18.2.0",
-    "react-native": "^0.73.1"
+    "react": "^18.1.0",
+    "react-native": "^0.72.4"
   },
   "dependencies": {
     "expo-image": "^1.12.9",

@@ -1,15 +1,15 @@
+import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import GorhomBottomSheet, {
   BottomSheetBackdrop as GorhomBottomSheetBackdrop,
-  BottomSheetView as GorhomBottomSheetView,
-  BottomSheetHandle,
-  BottomSheetTextInput as GorhomBottomSheetInput,
-  BottomSheetScrollView as GorhomBottomSheetScrollView,
   BottomSheetFlatList as GorhomBottomSheetFlatList,
+  BottomSheetHandle,
+  BottomSheetScrollView as GorhomBottomSheetScrollView,
   BottomSheetSectionList as GorhomBottomSheetSectionList,
+  BottomSheetTextInput as GorhomBottomSheetInput,
+  BottomSheetView as GorhomBottomSheetView,
 } from '@gorhom/bottom-sheet';
-import { Platform } from 'react-native';
-import type { PressableProps, TextProps } from 'react-native';
 import { FocusScope } from '@react-native-aria/focus';
+import { cssInterop } from 'nativewind';
 import React, {
   createContext,
   useCallback,
@@ -18,9 +18,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import type { PressableProps, TextProps } from 'react-native';
+import { Platform } from 'react-native';
 import { Pressable, Text } from 'react-native';
-import { cssInterop } from 'nativewind';
-import { tva } from '@gluestack-ui/nativewind-utils/tva';
 
 const bottomSheetBackdropStyle = tva({
   base: 'absolute inset-0 flex-1 touch-none select-none bg-black opacity-0',
@@ -113,7 +113,7 @@ export const BottomSheetPortal = ({
         handleClose();
       }
     },
-    [handleClose]
+    [handleClose],
   );
 
   return (

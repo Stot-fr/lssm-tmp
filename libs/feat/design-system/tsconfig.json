@@ -1,5 +1,5 @@
 {
-  "include": ["*.tsx", "*.ts", "**/*.tsx", "**/*.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "example"],
   "path": {},
   "compilerOptions": {
@@ -27,6 +27,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "outDir": "."
+    "outDir": "dist"
   }
 }

@@ -1,0 +1,56 @@
+model UserAccount {
+  id            String             @id @default(uuid(7))
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  deletedAt     DateTime?
+  email         String             @unique
+  identities    AccountIdentity[]
+  contactGroups UserContactGroup[]
+  contacts      UserContact[]      @relation("UserContacts")
+
+  // Utils relations
+  events              Event[]              @relation("UserEvents")
+  conversationMembers ConversationMember[]
+
+  // Uncesessary revert relations
+  contactOfs        UserContact[]      @relation("ContactUser")
+  communityMembers  CommunityMembers[]
+  eventAttendees    EventAttendee[]
+  userContactLabels UserContactLabel[]
+
+  @@index([deletedAt])
+}
+
+model ApiAccount {
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  apiKey    String    @unique
+
+  @@index([deletedAt])
+}
+
+model AccountIdentity {
+  id            String                @id @default(uuid(7))
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+  deletedAt     DateTime?
+  userAccountId String?
+  userAccount   UserAccount?          @relation(fields: [userAccountId], references: [id])
+  organizations AccountOrganization[]
+
+  @@index([deletedAt])
+}
+
+model AccountOrganization {
+  id         String           @id @default(uuid(7))
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  deletedAt  DateTime?
+  name       String
+  identityId String?
+  identity   AccountIdentity? @relation(fields: [identityId], references: [id])
+
+  @@index([deletedAt])
+}
