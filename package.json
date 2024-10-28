@@ -52,4 +52,10 @@
   "engines": {
     "node": ">=18"
   },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,css}": [
+      "yarn lint",
+      "yarn format"
+    ]
+  }
 }
