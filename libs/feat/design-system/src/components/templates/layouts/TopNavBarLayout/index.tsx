@@ -8,9 +8,10 @@ import {
 } from '@lssm/lib-service.ui-kit/ui/menu';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
 import { View } from '@lssm/lib-service.ui-kit/ui/view';
-import { LanguageSwitcher } from '@lssm/module.proj-meet/presentation/components/molecules/LanguageSwitcher';
 import React from 'react';
 import { SafeAreaView } from 'react-native';
+
+import { LanguageSwitcher } from '../../../molecules/LanguageSwitcher';
 
 type CategoryTopMenuItem = {
   id: string;

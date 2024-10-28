@@ -5,11 +5,11 @@ import {
   type NavigationTopMenuItem,
   TopNavBarLayout,
 } from '@lssm/design-system/components/templates/layouts/TopNavBarLayout/index';
-import type { IconName, IconProps } from '@lssm/icons-kit/icons';
+import type { IconProps } from '@lssm/icons-kit/icons';
+import { useTranslation } from '@lssm/libs-feat.translation';
 import { type PropsWithChildren, useMemo } from 'react';
 
 import { APP_NAME } from '../../../constants/app';
-import { useTranslation } from '@lssm/libs-feat.translation';
 
 export const AppUnLoggedLayout = (props: PropsWithChildren) => {
   const { t } = useTranslation('appMeet');
@@ -55,7 +55,7 @@ export const AppUnLoggedLayout = (props: PropsWithChildren) => {
         ],
       } satisfies CategoryTopMenuProps,
     ] satisfies Array<NavigationTopMenuItem>;
-  }, []);
+  }, [t]);
 
   return (
     <TopNavBarLayout navigationMenu={{ items: menuItems, menuTitle: APP_NAME }}>

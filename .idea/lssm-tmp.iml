@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/libs/service/database/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/design-system/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/meet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/service/database/dist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/core-messaging/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/apps/api/.turbo" />
