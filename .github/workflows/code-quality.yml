@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   sonarcloud:
-    name: Check code quality (SonarCloud)
+    name: SonarCloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   eslint:
-    name: Check code conventions (eslint)
+    name: EsLint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
