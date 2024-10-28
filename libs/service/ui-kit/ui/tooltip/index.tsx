@@ -87,7 +87,7 @@ export const Tooltip = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UITooltip
-      ref={ref}
+      ref={ref as any}
       className={tooltipStyle({ class: className })}
       {...props}
     />
@@ -100,7 +100,7 @@ export const TooltipContent = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UITooltip.Content
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={tooltipContentStyle({
         class: className,

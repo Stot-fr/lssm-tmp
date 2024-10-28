@@ -11,7 +11,6 @@
       <sourceFolder url="file://$MODULE_DIR$/libs/service/database/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/design-system/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/meet/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libs/service/database/dist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/util/misc/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/util/typescript/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/core-messaging/src" isTestSource="false" />
@@ -37,7 +36,11 @@
       <excludeFolder url="file://$MODULE_DIR$/modules/proj-meet/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/configs/eslint/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/core-module/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/libs/feat/core-module/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/database/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/database/dist" />
       <excludeFolder url="file://$MODULE_DIR$/libs/util/misc/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/libs/util/typescript/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/modules/core-accounting/.turbo" />

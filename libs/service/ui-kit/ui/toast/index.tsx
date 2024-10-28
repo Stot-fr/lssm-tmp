@@ -179,12 +179,12 @@ type IToastTitleProps = React.ComponentProps<typeof UIToast.Title> & {
 export const ToastTitle = React.forwardRef<
   React.ElementRef<typeof UIToast.Title>,
   IToastTitleProps
->(({ className, size = 'md', ...props }, ref) => {
+>(({ className, size = 'md', ...props }, _ref) => {
   const { variant: parentVariant, action: parentAction } =
     useStyleContext(SCOPE);
   return (
     <UIToast.Title
-      ref={ref as any}
+      // ref={ref as any}
       {...props}
       className={toastTitleStyle({
         size,
@@ -207,11 +207,11 @@ type IToastDescriptionProps = React.ComponentProps<
 export const ToastDescription = React.forwardRef<
   React.ElementRef<typeof UIToast.Description>,
   IToastDescriptionProps
->(({ className, size = 'md', ...props }, ref) => {
+>(({ className, size = 'md', ...props }, _ref) => {
   const { variant: parentVariant } = useStyleContext(SCOPE);
   return (
     <UIToast.Description
-      ref={ref as any}
+      // ref={ref as any}
       {...props}
       className={toastDescriptionStyle({
         size,

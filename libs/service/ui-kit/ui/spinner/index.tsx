@@ -18,10 +18,10 @@ type ISpinnerProps = React.ComponentProps<typeof UISpinner>;
 const Spinner = React.forwardRef<
   React.ElementRef<typeof UISpinner>,
   ISpinnerProps
->(({ className, color, ...props }, ref) => {
+>(({ className, color, ...props }, _ref) => {
   return (
     <UISpinner
-      ref={ref}
+      // ref={ref}
       {...props}
       color={color}
       className={spinnerStyle({ class: className })}

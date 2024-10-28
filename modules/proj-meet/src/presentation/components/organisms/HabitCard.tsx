@@ -35,8 +35,8 @@ export const HabitCard: React.FC<HabitCardProps> = ({
       <NameHabits name={name} />
       <Duration minDuration={minDuration} maxDuration={maxDuration} />
       <IdealTime hours={hours} />
-      <Repeat days={days} />
       <NextDate habitDays={days} />
+      <Repeat days={days} />
 
       <VStack space="xs" className="py-4">
         <Button title="Supprimer l'habit" onPress={onDelete} />

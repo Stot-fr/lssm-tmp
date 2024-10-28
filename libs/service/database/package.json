@@ -1,11 +1,12 @@
 {
-  "name": "@lssm/libs-service.database",
+  "name": "@lssm/lib-service.database",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
     "clean": "rimraf dist",
+    "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate"
   },
@@ -15,7 +16,7 @@
   "devDependencies": {
     "prisma": "^5.21.1"
   },
-  "main": "src/index.ts",
-  "module": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "src/index.ts"
 }

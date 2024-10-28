@@ -17,8 +17,10 @@ import {
   Pressable,
   ScrollView,
   SectionList,
+  type StyleProp,
   Text,
   View,
+  type ViewStyle,
   VirtualizedList,
 } from 'react-native';
 import { Svg } from 'react-native-svg';
@@ -34,6 +36,7 @@ type IPrimitiveIcon = {
   stroke?: string;
   as?: React.ElementType;
   className?: string;
+  style?: StyleProp<ViewStyle>;
 };
 
 const PrimitiveIcon = React.forwardRef<
@@ -338,7 +341,7 @@ const ActionsheetContent = React.forwardRef<
       className={actionsheetContentStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -353,7 +356,7 @@ const ActionsheetItem = React.forwardRef<
       className={actionsheetItemStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -433,7 +436,7 @@ const ActionsheetBackdrop = React.forwardRef<
       className={actionsheetBackdropStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
     />
   );
 });
@@ -530,7 +533,7 @@ const ActionsheetSectionHeaderText = React.forwardRef<
           italic,
           highlight,
         })}
-        ref={ref}
+        ref={ref as any}
         {...props}
       />
     );
@@ -559,7 +562,7 @@ const ActionsheetIcon = React.forwardRef<
         class: className,
         size,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );

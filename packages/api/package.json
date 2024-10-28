@@ -1,11 +1,12 @@
 {
-  "name": "@repo/api",
+  "name": "@lssm/package.api",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm build --watch",
-    "build": "tsc -b -v",
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf dist",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\""
   },
   "main": "./dist/index.js",
@@ -37,8 +38,7 @@
     "@nestjs/mapped-types": "*"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@lssm/package.typescript-config": "*",
     "@types/node": "^20.3.1",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
