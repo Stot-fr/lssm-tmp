@@ -1,4 +1,39 @@
 {
+  "sideBar": {
+    "appLinks": {
+      "title": "Liens rapide",
+      "links": {
+        "home": "Accueil",
+        "habits": "Habitutes",
+        "events": "Evenements",
+        "contacts": "Contacts"
+      }
+    },
+    "settings": {
+      "title": "Réglages",
+      "links": {
+        "profile": "Profile",
+        "preferences": "Préferences",
+        "billing": "Facturation"
+      }
+    },
+    "resources": {
+      "title": "Ressources",
+      "links": {
+        "blog": "Actualités & Blog",
+        "faq": "FAQs",
+        "community": "Communauté"
+      }
+    },
+    "moreApps": {
+      "title": "Plus d'Appli",
+      "links": {
+        "freelance": "Freelance Optimiser",
+        "messaging": "Messagerie unifiée",
+        "habits": "Routine management"
+      }
+    }
+  },
   "navBar": {
     "unlogged": {
       "home": "Accueil",

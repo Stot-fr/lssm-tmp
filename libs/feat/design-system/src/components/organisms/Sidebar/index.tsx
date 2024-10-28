@@ -1,4 +1,5 @@
 import { cn } from '@gluestack-ui/nativewind-utils/cn';
+import { i18n, useTranslation } from '@lssm/lib-feat.translation';
 import Icon, { type IconProps } from '@lssm/lib-service.icons-kit';
 import { Link } from '@lssm/lib-service.ui-kit/ui/link/index';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
@@ -18,94 +19,6 @@ export type SidebarSection = {
   items: SidebarEntryItem[];
 };
 
-const SECTIONS: Array<SidebarSection> = [
-  {
-    title: 'AppLinks',
-    items: [
-      {
-        name: 'Home',
-        icon: { name: 'House' },
-        link: '/',
-      },
-      {
-        name: 'Habits',
-        icon: { name: 'Repeat' },
-        link: '/habits',
-      },
-      {
-        name: 'Events',
-        icon: { name: 'CalendarDays' },
-        link: '/events',
-      },
-      {
-        name: 'Contacts',
-        icon: { name: 'Users' },
-        link: '/contacts',
-      },
-    ],
-  },
-  {
-    title: 'Settings',
-    items: [
-      {
-        name: 'Profile',
-        icon: { name: 'UserCog' },
-        link: '/profile',
-      },
-      {
-        name: 'Preferences',
-        icon: { name: 'Cog' },
-        link: '/settings',
-      },
-      {
-        name: 'Subscription',
-        icon: { name: 'CreditCard' },
-        link: '/billing',
-      },
-    ],
-  },
-  {
-    title: 'Resources',
-    items: [
-      {
-        name: 'Downloads',
-        icon: { name: 'Download' },
-        link: null,
-      },
-      {
-        name: 'FAQs',
-        icon: { name: 'CircleHelp' },
-        link: null,
-      },
-      {
-        name: 'News & Blogs',
-        icon: { name: 'Newspaper' },
-        link: null,
-      },
-    ],
-  },
-  {
-    title: 'More Apps',
-    items: [
-      {
-        name: 'Freelance life saver',
-        icon: { name: 'Timer' },
-        link: null,
-      },
-      {
-        name: 'Enhanced messaging',
-        icon: { name: 'MailWarning' },
-        link: null,
-      },
-      {
-        name: 'Habits tracking',
-        icon: { name: 'Calendar' },
-        link: null,
-      },
-    ],
-  },
-];
-
 type SidebarSectionProps = {
   section: SidebarSection;
 };
@@ -114,7 +27,7 @@ const SidebarSection = (props: SidebarSectionProps) => {
   const pathname = usePathname();
 
   return (
-    <VStack className="w-full px-0 pt-3 pb-4" space="xs">
+    <VStack className="w-full px-0 py-2" space="xs">
       <Text className="text-typography-600 px-4 py-2">
         {props.section.title}
       </Text>
@@ -176,6 +89,96 @@ export type SidebarProps = {
 };
 
 export const Sidebar = (_props: SidebarProps) => {
+  const { t } = useTranslation();
+
+  const SECTIONS: Array<SidebarSection> = [
+    {
+      title: t('appMeet:sideBar.appLinks.title'),
+      items: [
+        {
+          name: t('appMeet:sideBar.appLinks.links.home'),
+          icon: { name: 'House' },
+          link: '/',
+        },
+        {
+          name: t('appMeet:sideBar.appLinks.links.habits'),
+          icon: { name: 'Repeat' },
+          link: '/habits',
+        },
+        {
+          name: t('appMeet:sideBar.appLinks.links.events'),
+          icon: { name: 'CalendarDays' },
+          link: '/events',
+        },
+        {
+          name: t('appMeet:sideBar.appLinks.links.contacts'),
+          icon: { name: 'Users' },
+          link: '/contacts',
+        },
+      ],
+    },
+    {
+      title: t('appMeet:sideBar.settings.title'),
+      items: [
+        {
+          name: t('appMeet:sideBar.settings.links.profile'),
+          icon: { name: 'UserCog' },
+          link: '/profile',
+        },
+        {
+          name: t('appMeet:sideBar.settings.links.preferences'),
+          icon: { name: 'Cog' },
+          link: '/settings',
+        },
+        {
+          name: t('appMeet:sideBar.settings.links.billing'),
+          icon: { name: 'CreditCard' },
+          link: '/billing',
+        },
+      ],
+    },
+    {
+      title: t('appMeet:sideBar.resources.title'),
+      items: [
+        {
+          name: t('appMeet:sideBar.resources.links.blog'),
+          icon: { name: 'Newspaper' },
+          link: null,
+        },
+        {
+          name: t('appMeet:sideBar.resources.links.faq'),
+          icon: { name: 'CircleHelp' },
+          link: null,
+        },
+        {
+          name: t('appMeet:sideBar.resources.links.community'),
+          icon: { name: 'Boxes' },
+          link: null,
+        },
+      ],
+    },
+    {
+      title: t('appMeet:sideBar.moreApps.title'),
+      items: [
+        {
+          name: t('appMeet:sideBar.moreApps.links.freelance'),
+          icon: { name: 'Timer' },
+          link: null,
+        },
+        {
+          name: t('appMeet:sideBar.moreApps.links.messaging'),
+          icon: { name: 'MailWarning' },
+          link: null,
+        },
+        {
+          name: t('appMeet:sideBar.moreApps.links.habits'),
+          icon: { name: 'Calendar' },
+          link: null,
+        },
+      ],
+    },
+  ];
+
   return (
     <ScrollView className=" h-full" contentContainerStyle={{ flexGrow: 1 }}>
       <VStack

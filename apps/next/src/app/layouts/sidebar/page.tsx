@@ -6,7 +6,7 @@ import { AppLoggedLayout } from '@lssm/module.proj-meet/presentation/components/
 
 const Page = () => {
   return (
-    <AppLoggedLayout>
+    <AppLoggedLayout title="Test sidebar">
       <Button
         onPress={() => {
           console.log('test');

@@ -1,6 +1,6 @@
 'use client';
 
-import { ComingSoonPage } from '@lssm/module.proj-meet/presentation/components/pages/wip/ComingSoonPage';
+import { ComingSoonPage } from '@lssm/module.proj-meet/presentation/components/pages/errors/ComingSoonPage';
 
 const Page = () => {
   return <ComingSoonPage />;

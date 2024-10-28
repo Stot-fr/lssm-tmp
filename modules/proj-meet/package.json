@@ -7,6 +7,7 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@lssm/lib-util.typescript": "*",
     "@types/react": "^18.0.22",
     "@types/react-native": "^0.72.3",
     "jscodeshift": "0.15.2",
@@ -20,6 +21,7 @@
   "dependencies": {
     "@lssm/lib-feat.translation": "*",
     "@lssm/lib-feat.design-system": "*",
+    "@lssm/lib-util.misc": "*",
     "@lssm/lib-service.ui-kit": "*",
     "@lssm/lib-service.icons-kit": "*",
     "expo-image": "^1.12.9",

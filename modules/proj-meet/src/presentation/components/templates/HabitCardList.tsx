@@ -1,6 +1,6 @@
 import { Card } from '@lssm/lib-service.ui-kit/ui/card';
+import { HStack } from '@lssm/lib-service.ui-kit/ui/hstack';
 import React from 'react';
-import { View } from 'react-native';
 
 import { HabitCard } from '../organisms/HabitCard';
 
@@ -25,9 +25,9 @@ export const HabitCardList: React.FC<HabitCardListProps> = ({ habits }) => {
   };
 
   return (
-    <View>
+    <HStack>
       {habitList.map((habit) => (
-        <Card size="md" variant="outline" className="m-3" key={habit.id}>
+        <Card size="lg" variant="outline" className="m-3" key={habit.id}>
           <HabitCard
             minDuration={habit.minDuration}
             maxDuration={habit.maxDuration}
@@ -38,6 +38,6 @@ export const HabitCardList: React.FC<HabitCardListProps> = ({ habits }) => {
           />
         </Card>
       ))}
-    </View>
+    </HStack>
   );
 };

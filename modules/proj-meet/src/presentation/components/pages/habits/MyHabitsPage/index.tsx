@@ -46,7 +46,7 @@ const HABITS = [
 
 export const MyHabitsPage = () => {
   return (
-    <AppLoggedLayout>
+    <AppLoggedLayout title="My Habits">
       <HabitCardList habits={HABITS} />
     </AppLoggedLayout>
   );

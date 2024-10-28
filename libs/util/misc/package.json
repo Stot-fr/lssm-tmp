@@ -1,0 +1,33 @@
+{
+  "name": "@lssm/lib-util.misc",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf dist .turbo"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": ["./dist/index.js", "./dist/index.jsx"],
+      "require": ["./dist/index.js", "./dist/index.jsx"]
+    },
+    "./*": {
+      "import": ["./dist/*.js", "./dist/*.jsx"],
+      "require": ["./dist/*.js", "./dist/*.jsx"]
+    },
+    "./*/": {
+      "import": ["./dist/*/index.js", "./dist/*/index.jsx"],
+      "require": ["./dist/*/index.js", "./dist/*/index.jsx"]
+    }
+  }
+}
