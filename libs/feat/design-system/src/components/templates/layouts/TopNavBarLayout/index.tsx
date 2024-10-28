@@ -3,7 +3,7 @@ import { Box } from '@lssm/lib-service.ui-kit/ui/box';
 import { HStack } from '@lssm/lib-service.ui-kit/ui/hstack';
 import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 
 import { HeaderMobileTopNavBar } from '../../../organisms/headers/HeaderMobileTopNavBar';
 import { HeaderWebTopNavBar } from '../../../organisms/headers/HeaderWebTopNavBar';
@@ -82,7 +82,7 @@ export const TopNavBarLayout: React.FC<{
             <Box className="hidden md:flex h-full">
               {isSidebarVisible && <Sidebar />}
             </Box>
-            <VStack className="w-full flex-1">{props.children}</VStack>
+            <ScrollView className="w-full flex-1">{props.children}</ScrollView>
           </HStack>
         </VStack>
       </VStack>

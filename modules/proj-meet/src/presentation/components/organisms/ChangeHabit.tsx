@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import { Text } from 'react-native';
 
-import styles from '../../style';
+import commonStyles from '../../styles/common';
 
 const ChangeHabit: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -20,7 +20,7 @@ const ChangeHabit: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
         <ModalHeader>
-          <Text style={styles.h3}>Change content</Text>
+          <Text style={commonStyles.h3}>Change content</Text>
         </ModalHeader>
         <ModalBody>
           <Input

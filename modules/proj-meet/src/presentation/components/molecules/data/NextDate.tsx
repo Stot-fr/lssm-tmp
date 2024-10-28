@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import styles from '../../style';
+import commonStyles from '../../../styles/common';
 
 interface NextDateProps {
   habitDays: string[];
 }
 
-const NextDate: React.FC<NextDateProps> = ({ habitDays }) => {
+export const NextDate: React.FC<NextDateProps> = ({ habitDays }) => {
   const getNextDate = () => {
     const today = new Date();
     const currentDay = today.getDay();
@@ -33,11 +33,9 @@ const NextDate: React.FC<NextDateProps> = ({ habitDays }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.h3}>Next date :</Text>
+    <View style={commonStyles.container}>
+      <Text style={commonStyles.h3}>Next date :</Text>
       <Text>{getNextDate()}</Text>
     </View>
   );
 };
-
-export default NextDate;

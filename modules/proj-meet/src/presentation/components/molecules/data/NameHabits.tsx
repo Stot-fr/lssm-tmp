@@ -13,12 +13,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const NameHabits: React.FC<NameHabitsProps> = ({ name }) => {
+export const NameHabits: React.FC<NameHabitsProps> = ({ name }) => {
   return (
     <View>
       <Text style={styles.h2}>{name}</Text>
     </View>
   );
 };
-
-export default NameHabits;

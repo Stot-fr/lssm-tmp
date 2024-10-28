@@ -2,22 +2,22 @@ import { Card } from '@lssm/lib-service.ui-kit/ui/card';
 import React from 'react';
 import { View } from 'react-native';
 
-import BodyCard from '../molecules/BodyCard';
+import { HabitCard } from '../organisms/HabitCard';
 
-interface Habit {
+type Habit = {
   id: number; // Identifiant de l'habitude
   minDuration: number; // Durée minimale
   maxDuration: number; // Durée maximale
   name: string; // Nom de l'habitude
   hours: string; // Heures idéales
   days: string[]; // Jours de la semaine
-}
+};
 
-interface HabitListProps {
+type HabitCardListProps = {
   habits: Habit[]; // Liste des habitudes
-}
+};
 
-const HabitCard: React.FC<HabitListProps> = ({ habits }) => {
+export const HabitCardList: React.FC<HabitCardListProps> = ({ habits }) => {
   const [habitList, setHabitList] = React.useState<Habit[]>(habits);
 
   const handleDelete = (id: number) => {
@@ -28,7 +28,7 @@ const HabitCard: React.FC<HabitListProps> = ({ habits }) => {
     <View>
       {habitList.map((habit) => (
         <Card size="md" variant="outline" className="m-3" key={habit.id}>
-          <BodyCard
+          <HabitCard
             minDuration={habit.minDuration}
             maxDuration={habit.maxDuration}
             name={habit.name}
@@ -41,5 +41,3 @@ const HabitCard: React.FC<HabitListProps> = ({ habits }) => {
     </View>
   );
 };
-
-export default HabitCard;

@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Button, View } from 'react-native';
 
-import ChangeHabit from '../atoms/ChangeHabit';
-import Duration from '../atoms/Duration';
-import IdealTime from '../atoms/IdealTime';
-import NameHabits from '../atoms/NameHabits';
-import NextDate from '../atoms/NextDate';
-import Repeat from '../atoms/Repeat';
+import { Duration } from '../molecules/data/Duration';
+import { IdealTime } from '../molecules/data/IdealTime';
+import { NameHabits } from '../molecules/data/NameHabits';
+import { NextDate } from '../molecules/data/NextDate';
+import { Repeat } from '../molecules/data/Repeat';
+import ChangeHabit from '../organisms/ChangeHabit';
 
-interface BodyCardProps {
+type HabitCardProps = {
   minDuration: number; // Durée minimale
   maxDuration: number; // Durée maximale
   name: string; // Nom de l'habitude
   hours: string; // Heures idéales
   days: string[]; // Jours de la semaine
   onDelete: () => void; // Fonction pour supprimer l'habit
-}
+};
 
-const BodyCard: React.FC<BodyCardProps> = ({
+export const HabitCard: React.FC<HabitCardProps> = ({
   minDuration,
   maxDuration,
   name,
@@ -40,5 +40,3 @@ const BodyCard: React.FC<BodyCardProps> = ({
     </View>
   );
 };
-
-export default BodyCard;

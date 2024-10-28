@@ -1,7 +1,5 @@
-'use client';
-
-import HabitCard from '@lssm/lib-feat.meet/components/organisms/HabitCard';
-import { AppLoggedLayout } from '@lssm/module.proj-meet/presentation/components/templates/app/AppLoggedLayout';
+import { AppLoggedLayout } from '../../../templates/app/AppLoggedLayout';
+import { HabitCardList } from '../../../templates/HabitCardList';
 
 const HABITS = [
   {
@@ -46,12 +44,10 @@ const HABITS = [
   },
 ];
 
-const Page = () => {
+export const MyHabitsPage = () => {
   return (
     <AppLoggedLayout>
-      <HabitCard habits={HABITS} />
+      <HabitCardList habits={HABITS} />
     </AppLoggedLayout>
   );
 };
-
-export default Page;

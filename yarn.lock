@@ -6208,6 +6208,16 @@
   resolved "https://registry.yarnpkg.com/@unitools/link-next/-/link-next-0.0.1.tgz#aafb215406e90afeedfd01f198d0a91edb08d2e2"
   integrity sha512-k3Q28MoFifjEkJ/4hgx5/Go32fK/rlfwIv1HohOyOHFS9o1N1RnZkT7ZDk1mdw5YYKQanG2d+MKheBwrWGPOHg==
 
+"@unitools/link@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@unitools/link/-/link-0.0.4.tgz#5587c95b25c2f71b81e5a3ddd81653d61f047b43"
+  integrity sha512-2vDHzcryiYGuMn+OFa/PvSLXn09pKgL+Tai1jN88MLsg/Pp5BVwc55rqe8juFbQCDcH4uHDT5TMq+IRynuIvVw==
+
+"@unitools/navigation@^0.0.1-alpha.0":
+  version "0.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@unitools/navigation/-/navigation-0.0.1-alpha.0.tgz#ad8bf3fc36c85cd17374a91604b258f816506bc3"
+  integrity sha512-0cXru4LRlm6KtFB2hxNdWYnO1HdsM2THDM90UAyKL/lNFsNuELKF5oVEP2pI9SkA0lV1kmtNzG6XxOvifWLaRA==
+
 "@unitools/router-expo@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@unitools/router-expo/-/router-expo-0.0.1.tgz#679087628eab60527e749267eeb39ce7f5f82290"
@@ -6217,6 +6227,11 @@
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@unitools/router-next/-/router-next-0.0.1.tgz#25db22b8e856643356400f345f37abeac0a9fd5a"
   integrity sha512-wfhNOxpbmUzFhJ71+9sA7XW1oWyMWQrrnS91PYxRZC3a44+VK+iyrYnCQpuYtVGySRwyq84hAQV7o2brJaOjEw==
+
+"@unitools/router@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@unitools/router/-/router-0.0.4.tgz#8681acf8a0823ef8c6488a83deae15dd11d3be6a"
+  integrity sha512-gtiO1Z+KfpGU9ZDxZpE0sjT12fjbgMHcjtRtjszhM8al9Nl4DB6GVSIzYkiPArtDoLvCISz/RWEkxx9f0N1B8w==
 
 "@urql/core@2.3.6":
   version "2.3.6"
