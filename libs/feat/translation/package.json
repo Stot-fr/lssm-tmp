@@ -1,6 +1,7 @@
 {
   "name": "@lssm/lib-feat.translation",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",

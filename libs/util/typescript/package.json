@@ -1,6 +1,7 @@
 {
   "name": "@lssm/lib-util.typescript",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",

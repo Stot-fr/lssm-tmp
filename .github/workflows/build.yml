@@ -1,4 +1,4 @@
-name: Code Quality
+name: Images generation
 on:
   push:
     branches:
@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  eslint:
-    name: EsLint
+  build:
+    name: Try to build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,5 +16,5 @@ jobs:
           node-version: 20
       - name: Install modules
         run: yarn install --frozen-lockfile
-      - name: Run ESLint
-        run: yarn lint
+      - name: Run build
+        run: yarn build

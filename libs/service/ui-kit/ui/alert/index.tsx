@@ -205,7 +205,7 @@ const Alert = React.forwardRef<React.ElementRef<typeof UIAlert>, IAlertProps>(
       <UIAlert
         className={alertStyle({ action, variant, class: className })}
         context={{ variant, action }}
-        ref={ref}
+        ref={ref as any}
         {...props}
       />
     );
@@ -270,7 +270,7 @@ const AlertIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UIAlert.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={alertIconStyle({ class: className })}
         size={size}
@@ -282,7 +282,7 @@ const AlertIcon = React.forwardRef<
   ) {
     return (
       <UIAlert.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={alertIconStyle({ class: className })}
       />
@@ -298,7 +298,7 @@ const AlertIcon = React.forwardRef<
         class: className,
       })}
       {...props}
-      ref={ref}
+      ref={ref as any}
     />
   );
 });

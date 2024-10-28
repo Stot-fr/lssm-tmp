@@ -1,6 +1,7 @@
 {
   "name": "@lssm/lib-service.icons-kit",
   "version": "0.0.0",
+  "private": true,
   "main": "dist/index.jsx",
   "module": "dist/index.jsx",
   "types": "dist/index.d.ts",
