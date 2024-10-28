@@ -17,7 +17,6 @@
     "dev": "turbo run dev",
     "dev:not-apps": "turbo run dev --filter=@lssm/lib* --filter=@lssm/module*",
     "build": "turbo run build --filter=!@lssm/lib-service.ui-kit",
-    "build": "turbo run build --filter=!@lssm/lib-service.ui-kit  --filter=@lssm/lib* --filter=@lssm/module*",
     "clean": "turbo run clean",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
