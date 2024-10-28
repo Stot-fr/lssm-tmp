@@ -32,6 +32,16 @@ const SECTIONS: Array<SidebarSection> = [
         icon: { name: 'Repeat' },
         link: '/habits',
       },
+      {
+        name: 'Events',
+        icon: { name: 'CalendarDays' },
+        link: '/events',
+      },
+      {
+        name: 'Contacts',
+        icon: { name: 'Users' },
+        link: '/contacts',
+      },
     ],
   },
   {
@@ -78,18 +88,18 @@ const SECTIONS: Array<SidebarSection> = [
     title: 'More Apps',
     items: [
       {
-        name: 'Downloads',
-        icon: { name: 'Download' },
+        name: 'Freelance life saver',
+        icon: { name: 'Timer' },
         link: null,
       },
       {
-        name: 'FAQs',
-        icon: { name: 'CircleHelp' },
+        name: 'Enhanced messaging',
+        icon: { name: 'MailWarning' },
         link: null,
       },
       {
-        name: 'News & Blogs',
-        icon: { name: 'Newspaper' },
+        name: 'Habits tracking',
+        icon: { name: 'Calendar' },
         link: null,
       },
     ],
@@ -110,7 +120,13 @@ const SidebarSection = (props: SidebarSectionProps) => {
       </Text>
 
       {props.section.items.map((item) => {
-        const isActive = item.link && !!pathname?.startsWith(item.link);
+        const isActive = !!(
+          item.link &&
+          pathname &&
+          (item.link.length === 1
+            ? pathname === item.link
+            : pathname.startsWith(item.link))
+        );
 
         const className = cn({
           'flex-row px-4 py-3 items-center gap-2 rounded': true,
