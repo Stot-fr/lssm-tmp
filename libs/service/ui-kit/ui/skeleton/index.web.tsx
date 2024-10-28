@@ -1,7 +1,7 @@
-import React from 'react';
-import { skeletonStyle, skeletonTextStyle } from './styles';
-
 import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React from 'react';
+
+import { skeletonStyle, skeletonTextStyle } from './styles';
 
 type ISkeletonProps = React.ComponentPropsWithoutRef<'div'> &
   VariantProps<typeof skeletonStyle> & {
@@ -20,7 +20,7 @@ const Skeleton = React.forwardRef<HTMLDivElement, ISkeletonProps>(
       isLoaded = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (!isLoaded) {
       return (
@@ -37,7 +37,7 @@ const Skeleton = React.forwardRef<HTMLDivElement, ISkeletonProps>(
     } else {
       return children;
     }
-  }
+  },
 );
 
 type ISkeletonTextProps = React.ComponentPropsWithoutRef<'div'> &
@@ -58,7 +58,7 @@ const SkeletonText = React.forwardRef<HTMLDivElement, ISkeletonTextProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (!isLoaded) {
       if (_lines) {
@@ -94,7 +94,7 @@ const SkeletonText = React.forwardRef<HTMLDivElement, ISkeletonTextProps>(
     } else {
       return children;
     }
-  }
+  },
 );
 
 Skeleton.displayName = 'Skeleton';

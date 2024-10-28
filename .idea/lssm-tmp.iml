@@ -9,6 +9,27 @@
       <sourceFolder url="file://$MODULE_DIR$/apps/api/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/translation/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/service/database/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/feat/design-system/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/feat/meet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/core-messaging/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/api/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/api/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/next/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/design-system/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/design-system/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/meet/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/meet/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/translation/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/translation/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/icons-kit/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/icons-kit/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/ui-kit/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/core-messaging/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/core-messaging/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/proj-meet/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/api/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/api/dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

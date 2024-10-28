@@ -1,6 +1,6 @@
 'use client';
 
-import { SideNavBarLayout } from '@lssm/design-system/components/templates/Layouts/SideNavBarLayout';
+import { SideNavBarLayout } from '@lssm/design-system/components/templates/Layouts/SideNavBarLayout/index';
 import type { IconName } from '@lssm/icons-kit/icons';
 import HabitCard from '@lssm/lib-feat.meet/components/organisms/HabitCard';
 

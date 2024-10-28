@@ -1,7 +1,7 @@
 import '../global.css';
 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { GluestackUIProvider } from '@lssm/ui-kit/ui/gluestack-ui-provider';
+import { GluestackUIProvider } from '@lssm/lib-service.ui-kit/ui/gluestack-ui-provider';
 import {
   DarkTheme,
   DefaultTheme,

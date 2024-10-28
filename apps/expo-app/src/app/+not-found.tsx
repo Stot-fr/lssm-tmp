@@ -1,5 +1,5 @@
-import { Text } from '@lssm/ui-kit/ui/text';
-import { View } from '@lssm/ui-kit/ui/view';
+import { Text } from '@lssm/lib-service.ui-kit/ui/text';
+import { View } from '@lssm/lib-service.ui-kit/ui/view';
 import { Link, Stack } from 'expo-router';
 import React from 'react';
 import { StyleSheet } from 'react-native';

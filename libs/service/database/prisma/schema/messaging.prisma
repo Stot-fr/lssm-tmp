@@ -1,41 +1,40 @@
-model Message {
-  internalId     Int          @id @default(autoincrement())
-  externalId     String       @unique @default(uuid(7))
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+model ConversationMessage {
+  id             String             @id @default(uuid(7))
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
   deletedAt      DateTime?
   content        String
-  conversationId Int
-  conversation   Conversation @relation(fields: [conversationId], references: [internalId])
-  senderId       Int
-  sender         UserAccount  @relation(fields: [senderId], references: [internalId])
+  conversationId String
+  conversation   Conversation       @relation(fields: [conversationId], references: [id])
+  senderId       String
+  sender         ConversationMember @relation(fields: [senderId], references: [id])
 
   @@index([deletedAt])
 }
 
 model Conversation {
-  internalId Int                  @id @default(autoincrement())
-  externalId String               @unique @default(uuid(7))
-  createdAt  DateTime             @default(now())
-  updatedAt  DateTime             @updatedAt
-  deletedAt  DateTime?
-  title      String?
-  messages   Message[]
-  members    ConversationMember[]
+  id        String                @id @default(uuid(7))
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
+  deletedAt DateTime?
+  title     String?
+  messages  ConversationMessage[]
+  members   ConversationMember[]
 
   @@index([deletedAt])
 }
 
 model ConversationMember {
-  internalId     Int          @id @default(autoincrement())
-  externalId     String       @unique @default(uuid(7))
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  id             String                @id @default(uuid(7))
+  createdAt      DateTime              @default(now())
+  updatedAt      DateTime              @updatedAt
   deletedAt      DateTime?
-  conversationId Int
-  conversation   Conversation @relation(fields: [conversationId], references: [internalId])
-  userAccountId  Int
-  userAccount    UserAccount  @relation(fields: [userAccountId], references: [internalId])
+  conversationId String
+  conversation   Conversation          @relation(fields: [conversationId], references: [id])
+  userAccountId  String
+  userAccount    UserAccount           @relation(fields: [userAccountId], references: [id])
+  messages       ConversationMessage[]
 
+  @@unique([conversationId, userAccountId, deletedAt])
   @@index([deletedAt])
 }

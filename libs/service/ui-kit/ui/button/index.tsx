@@ -1,28 +1,27 @@
 'use client';
-import React, { useMemo } from 'react';
 import { createButton } from '@gluestack-ui/button';
-import { Svg } from 'react-native-svg';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import {
-  withStyleContext,
   useStyleContext,
+  withStyleContext,
 } from '@gluestack-ui/nativewind-utils/withStyleContext';
 import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
 import { cssInterop } from 'nativewind';
-import type { VariantProps } from '@gluestack-ui/nativewind-utils';
-
+import React, { useMemo } from 'react';
 import {
   ActivityIndicator,
+  Platform,
   Pressable,
   Text,
   View,
-  Platform,
 } from 'react-native';
+import { Svg } from 'react-native-svg';
 
 const PrimitiveIcon = React.forwardRef(
   (
     { height, width, fill = 'none', color, size, as: AsComp, ...props }: any,
-    ref?: any
+    ref?: any,
   ) => {
     const sizeProps = useMemo(() => {
       return size ? { size } : { height, width };
@@ -43,7 +42,7 @@ const PrimitiveIcon = React.forwardRef(
         {...props}
       />
     );
-  }
+  },
 );
 
 const SCOPE = 'BUTTON';
@@ -212,11 +211,11 @@ const buttonIconStyle = tva({
     },
     size: {
       '2xs': 'h-3 w-3',
-      'xs': 'h-3.5 w-3.5',
-      'sm': 'h-4 w-4',
-      'md': 'h-[18px] w-[18px]',
-      'lg': 'h-5 w-5',
-      'xl': 'h-6 w-6',
+      xs: 'h-3.5 w-3.5',
+      sm: 'h-4 w-4',
+      md: 'h-[18px] w-[18px]',
+      lg: 'h-5 w-5',
+      xl: 'h-6 w-6',
     },
   },
 });
@@ -225,11 +224,11 @@ const buttonGroupStyle = tva({
   base: '',
   variants: {
     space: {
-      'xs': 'gap-1',
-      'sm': 'gap-2',
-      'md': 'gap-3',
-      'lg': 'gap-4',
-      'xl': 'gap-5',
+      xs: 'gap-1',
+      sm: 'gap-2',
+      md: 'gap-3',
+      lg: 'gap-4',
+      xl: 'gap-5',
       '2xl': 'gap-6',
       '3xl': 'gap-7',
       '4xl': 'gap-8',
@@ -251,7 +250,7 @@ const Button = React.forwardRef(
       action = 'primary',
       ...props
     }: { className?: string } & IButtonProps,
-    ref?: any
+    ref?: any,
   ) => {
     return (
       <UIButton
@@ -261,7 +260,7 @@ const Button = React.forwardRef(
         context={{ variant, size, action }}
       />
     );
-  }
+  },
 );
 
 type IButtonTextProps = React.ComponentProps<typeof UIButton.Text> &
@@ -275,7 +274,7 @@ const ButtonText = React.forwardRef(
       action,
       ...props
     }: { className?: string } & IButtonTextProps,
-    ref?: any
+    ref?: any,
   ) => {
     const {
       variant: parentVariant,
@@ -301,7 +300,7 @@ const ButtonText = React.forwardRef(
         })}
       />
     );
-  }
+  },
 );
 
 const ButtonSpinner = UIButton.Spinner;
@@ -332,7 +331,7 @@ const ButtonIcon = React.forwardRef(
       color?: string;
       as?: any;
     },
-    ref?: any
+    ref?: any,
   ) => {
     const {
       variant: parentVariant,
@@ -387,7 +386,7 @@ const ButtonIcon = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 type IButtonGroupProps = React.ComponentProps<typeof UIButton.Group> &
@@ -400,7 +399,7 @@ const ButtonGroup = React.forwardRef(
       isAttached = false,
       ...props
     }: { className?: string } & IButtonGroupProps,
-    ref?: any
+    ref?: any,
   ) => {
     return (
       <UIButton.Group
@@ -409,7 +408,7 @@ const ButtonGroup = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';
@@ -418,4 +417,4 @@ ButtonSpinner.displayName = 'ButtonSpinner';
 ButtonIcon.displayName = 'ButtonIcon';
 ButtonGroup.displayName = 'ButtonGroup';
 
-export { Button, ButtonText, ButtonSpinner, ButtonIcon, ButtonGroup };
+export { Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText };

@@ -1,19 +1,19 @@
 'use client';
-import React, { useMemo } from 'react';
 import { createCheckbox } from '@gluestack-ui/checkbox';
-import { View, Pressable, Text } from 'react-native';
-import type { TextProps, ViewProps } from 'react-native';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
-import { Svg } from 'react-native-svg';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
 import {
-  withStyleContext,
   useStyleContext,
+  withStyleContext,
 } from '@gluestack-ui/nativewind-utils/withStyleContext';
 import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
 import { cssInterop } from 'nativewind';
-import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
-import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React, { useMemo } from 'react';
+import type { TextProps, ViewProps } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Platform } from 'react-native';
+import { Svg } from 'react-native-svg';
 
 const IndicatorWrapper = React.forwardRef<
   React.ElementRef<typeof View>,
@@ -25,7 +25,7 @@ const IndicatorWrapper = React.forwardRef<
 const LabelWrapper = React.forwardRef<React.ElementRef<typeof Text>, TextProps>(
   ({ ...props }, ref) => {
     return <Text {...props} ref={ref} />;
-  }
+  },
 );
 
 type IPrimitiveIcon = React.ComponentPropsWithoutRef<typeof Svg> & {
@@ -63,7 +63,7 @@ const PrimitiveIcon = React.forwardRef<
       as: AsComp,
       ...props
     },
-    ref
+    ref,
   ) => {
     color = color ?? classNameColor;
     const sizeProps = useMemo(() => {
@@ -90,7 +90,7 @@ const PrimitiveIcon = React.forwardRef<
     return (
       <Svg ref={ref} height={height} width={width} {...colorProps} {...props} />
     );
-  }
+  },
 );
 
 const SCOPE = 'CHECKBOX';
@@ -298,8 +298,8 @@ CheckboxIcon.displayName = 'CheckboxIcon';
 
 export {
   Checkbox,
+  CheckboxGroup,
+  CheckboxIcon,
   CheckboxIndicator,
   CheckboxLabel,
-  CheckboxIcon,
-  CheckboxGroup,
 };

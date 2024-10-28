@@ -1,6 +1,7 @@
-import React, { forwardRef } from 'react';
 import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React, { forwardRef } from 'react';
 import { Animated, Easing, Platform, View } from 'react-native';
+
 import { skeletonStyle, skeletonTextStyle } from './styles';
 
 type ISkeletonProps = React.ComponentProps<typeof View> &
@@ -30,7 +31,7 @@ const Skeleton = forwardRef<
       speed = 2,
       ...props
     },
-    ref
+    ref,
   ) => {
     const pulseAnim = new Animated.Value(1);
     const customTimingFunction = Easing.bezier(0.4, 0, 0.6, 1);
@@ -76,7 +77,7 @@ const Skeleton = forwardRef<
 
       return children;
     }
-  }
+  },
 );
 
 const SkeletonText = forwardRef<
@@ -93,7 +94,7 @@ const SkeletonText = forwardRef<
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (!isLoaded) {
       if (_lines) {
@@ -129,7 +130,7 @@ const SkeletonText = forwardRef<
     } else {
       return children;
     }
-  }
+  },
 );
 
 Skeleton.displayName = 'Skeleton';

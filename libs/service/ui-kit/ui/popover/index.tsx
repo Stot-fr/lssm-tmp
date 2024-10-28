@@ -1,21 +1,21 @@
 'use client';
-import React from 'react';
-import { View, Pressable, Platform, ScrollView } from 'react-native';
-import {
-  Motion,
-  createMotionAnimatedComponent,
-  AnimatePresence,
-} from '@legendapp/motion';
-import { createPopover } from '@gluestack-ui/popover';
-import { tva } from '@gluestack-ui/nativewind-utils/tva';
-import {
-  withStyleContext,
-  useStyleContext,
-} from '@gluestack-ui/nativewind-utils/withStyleContext';
-import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
-import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
-import { cssInterop } from 'nativewind';
 import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import { tva } from '@gluestack-ui/nativewind-utils/tva';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
+import {
+  useStyleContext,
+  withStyleContext,
+} from '@gluestack-ui/nativewind-utils/withStyleContext';
+import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
+import { createPopover } from '@gluestack-ui/popover';
+import {
+  AnimatePresence,
+  createMotionAnimatedComponent,
+  Motion,
+} from '@legendapp/motion';
+import { cssInterop } from 'nativewind';
+import React from 'react';
+import { Platform, Pressable, ScrollView, View } from 'react-native';
 
 const AnimatedPressable = createMotionAnimatedComponent(Pressable);
 const SCOPE = 'POPOVER';
@@ -73,23 +73,21 @@ const popoverArrowStyle = tva({
     placement: {
       'top left':
         'data-[flip=false]:border-t-transparent data-[flip=false]:border-l-transparent data-[flip=true]:border-b-transparent data-[flip=true]:border-r-transparent',
-      'top':
-        'data-[flip=false]:border-t-transparent data-[flip=false]:border-l-transparent data-[flip=true]:border-b-transparent data-[flip=true]:border-r-transparent',
+      top: 'data-[flip=false]:border-t-transparent data-[flip=false]:border-l-transparent data-[flip=true]:border-b-transparent data-[flip=true]:border-r-transparent',
       'top right':
         'data-[flip=false]:border-t-transparent data-[flip=false]:border-l-transparent data-[flip=true]:border-b-transparent data-[flip=true]:border-r-transparent',
-      'bottom':
+      bottom:
         'data-[flip=false]:border-b-transparent data-[flip=false]:border-r-transparent data-[flip=true]:border-t-transparent data-[flip=true]:border-l-transparent',
       'bottom left':
         'data-[flip=false]:border-b-transparent data-[flip=false]:border-r-transparent data-[flip=true]:border-t-transparent data-[flip=true]:border-l-transparent',
       'bottom right':
         'data-[flip=false]:border-b-transparent data-[flip=false]:border-r-transparent data-[flip=true]:border-t-transparent data-[flip=true]:border-l-transparent',
-      'left':
-        'data-[flip=false]:border-l-transparent data-[flip=false]:border-b-transparent data-[flip=true]:border-r-transparent data-[flip=true]:border-t-transparent',
+      left: 'data-[flip=false]:border-l-transparent data-[flip=false]:border-b-transparent data-[flip=true]:border-r-transparent data-[flip=true]:border-t-transparent',
       'left top':
         'data-[flip=false]:border-l-transparent data-[flip=false]:border-b-transparent data-[flip=true]:border-r-transparent data-[flip=true]:border-t-transparent',
       'left bottom':
         'data-[flip=false]:border-l-transparent data-[flip=false]:border-b-transparent data-[flip=true]:border-r-transparent data-[flip=true]:border-t-transparent',
-      'right':
+      right:
         'data-[flip=false]:border-r-transparent data-[flip=false]:border-t-transparent data-[flip=true]:border-l-transparent data-[flip=true]:border-b-transparent',
       'right top':
         'data-[flip=false]:border-r-transparent data-[flip=false]:border-t-transparent data-[flip=true]:border-l-transparent data-[flip=true]:border-b-transparent',
@@ -342,11 +340,11 @@ PopoverCloseButton.displayName = 'PopoverCloseButton';
 
 export {
   Popover,
-  PopoverBackdrop,
   PopoverArrow,
+  PopoverBackdrop,
+  PopoverBody,
   PopoverCloseButton,
+  PopoverContent,
   PopoverFooter,
   PopoverHeader,
-  PopoverBody,
-  PopoverContent,
 };

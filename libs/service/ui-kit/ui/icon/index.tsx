@@ -1,10 +1,10 @@
 'use client';
-import React, { useMemo } from 'react';
 import { createIcon } from '@gluestack-ui/icon';
-import { Path, Svg } from 'react-native-svg';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
 import { cssInterop } from 'nativewind';
-import { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React, { useMemo } from 'react';
+import { Path, Svg } from 'react-native-svg';
 
 type IPrimitiveIcon = {
   height?: number | string;
@@ -34,7 +34,7 @@ const PrimitiveIcon = React.forwardRef<
       as: AsComp,
       ...props
     },
-    ref
+    ref,
   ) => {
     color = color ?? classNameColor;
     const sizeProps = useMemo(() => {
@@ -61,7 +61,7 @@ const PrimitiveIcon = React.forwardRef<
     return (
       <Svg ref={ref} height={height} width={width} {...colorProps} {...props} />
     );
-  }
+  },
 );
 
 export const UIIcon = createIcon({
@@ -73,11 +73,11 @@ const iconStyle = tva({
   variants: {
     size: {
       '2xs': 'h-3 w-3',
-      'xs': 'h-3.5 w-3.5',
-      'sm': 'h-4 w-4',
-      'md': 'h-[18px] w-[18px]',
-      'lg': 'h-5 w-5',
-      'xl': 'h-6 w-6',
+      xs: 'h-3.5 w-3.5',
+      sm: 'h-4 w-4',
+      md: 'h-[18px] w-[18px]',
+      lg: 'h-5 w-5',
+      xl: 'h-6 w-6',
     },
   },
 });
@@ -130,7 +130,7 @@ export const Icon = React.forwardRef<React.ElementRef<typeof Svg>, IIConProps>(
         className={iconStyle({ size, class: className })}
       />
     );
-  }
+  },
 );
 
 type ParameterTypes = Omit<Parameters<typeof createIcon>[0], 'Root'>;
@@ -146,7 +146,7 @@ const createIconUI = ({ ...props }: ParameterTypes) => {
         ...props
       }: VariantProps<typeof iconStyle> &
         React.ComponentPropsWithoutRef<typeof UIIconCreateIcon>,
-      ref
+      ref,
     ) => {
       return (
         <UIIconCreateIcon
@@ -156,7 +156,7 @@ const createIconUI = ({ ...props }: ParameterTypes) => {
           className={iconStyle({ size, class: className })}
         />
       );
-    }
+    },
   );
 };
 export { createIconUI as createIcon };
@@ -306,7 +306,7 @@ ArrowDownIcon.displayName = 'ArrowDownIcon';
 ArrowRightIcon.displayName = 'ArrowRightIcon';
 ArrowLeftIcon.displayName = 'ArrowLeftIcon';
 
-export { ArrowUpIcon, ArrowDownIcon, ArrowRightIcon, ArrowLeftIcon };
+export { ArrowDownIcon, ArrowLeftIcon, ArrowRightIcon, ArrowUpIcon };
 
 const AtSignIcon = createIcon({
   Root: Svg,
@@ -472,7 +472,7 @@ const CheckCircleIcon = createIcon({
 CheckIcon.displayName = 'CheckIcon';
 CheckCircleIcon.displayName = 'CheckCircleIcon';
 
-export { CheckIcon, CheckCircleIcon };
+export { CheckCircleIcon, CheckIcon };
 
 const ChevronUpIcon = createIcon({
   Root: Svg,
@@ -611,13 +611,13 @@ ChevronsRightIcon.displayName = 'ChevronsRightIcon';
 ChevronsUpDownIcon.displayName = 'ChevronsUpDownIcon';
 
 export {
-  ChevronUpIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
   ChevronsUpDownIcon,
+  ChevronUpIcon,
 };
 
 const CircleIcon = createIcon({
@@ -715,7 +715,7 @@ const CloseCircleIcon = createIcon({
 CloseIcon.displayName = 'CloseIcon';
 CloseCircleIcon.displayName = 'CloseCircleIcon';
 
-export { CloseIcon, CloseCircleIcon };
+export { CloseCircleIcon, CloseIcon };
 
 const CopyIcon = createIcon({
   Root: Svg,
@@ -1062,7 +1062,7 @@ const ExternalLinkIcon = createIcon({
 });
 
 ExternalLinkIcon.displayName = 'ExternalLinkIcon';
-export { LinkIcon, ExternalLinkIcon };
+export { ExternalLinkIcon, LinkIcon };
 
 const LoaderIcon = createIcon({
   Root: Svg,
@@ -1350,7 +1350,7 @@ const Repeat1Icon = createIcon({
 });
 
 Repeat1Icon.displayName = 'Repeat1Icon';
-export { RepeatIcon, Repeat1Icon };
+export { Repeat1Icon, RepeatIcon };
 
 const SearchIcon = createIcon({
   Root: Svg,

@@ -1,8 +1,12 @@
-// import { GlobeIcon, Icon } from '@lssm/ui-kit/ui/icon';
+// import { GlobeIcon, Icon } from '@lssm/lib-service.ui-kit/ui/icon';
 import Icon from '@lssm/icons-kit/icons';
-import { useTranslation } from '@lssm/libs-feat.translation/src/index';
-import { Button, ButtonText } from '@lssm/ui-kit/ui/button';
-import { Menu, MenuItem, MenuItemLabel } from '@lssm/ui-kit/ui/menu';
+import { Button, ButtonText } from '@lssm/lib-service.ui-kit/ui/button';
+import {
+  Menu,
+  MenuItem,
+  MenuItemLabel,
+} from '@lssm/lib-service.ui-kit/ui/menu';
+import { useTranslation } from '@lssm/libs-feat.translation';
 import React from 'react';
 
 export const LanguageSwitcher = () => {

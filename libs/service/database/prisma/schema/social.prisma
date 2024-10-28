@@ -1,60 +1,16 @@
-model Community {
-  internalId     Int         @id @default(autoincrement())
-  externalId     String      @unique @default(uuid(7))
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
-  deletedAt      DateTime?
-  name           String
-  parentId       Int?
-  parent         Community?  @relation("SubCommunities", fields: [parentId], references: [internalId])
-  subCommunities Community[] @relation("SubCommunities")
-
-  @@index([deletedAt])
-}
-
-model UserContactGroup {
-  internalId    Int         @id @default(autoincrement())
-  externalId    String      @unique @default(uuid(7))
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  deletedAt     DateTime?
-  name          String
-  description   String?
-  userAccountId Int
-  userAccount   UserAccount @relation(fields: [userAccountId], references: [internalId])
-  contacts      Contact[]
-
-  @@index([deletedAt])
-}
-
-model UserContactLabel {
-  internalId Int         @id @default(autoincrement())
-  externalId String      @unique @default(uuid(7))
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  deletedAt  DateTime?
-  userId     Int
-  user       UserAccount @relation(fields: [userId], references: [internalId])
-  name       String
-  color      String?
-  members    Contact[]   @relation("ContactLabels")
-}
-
-model Contact {
-  internalId     Int                @id @default(autoincrement())
-  externalId     String             @unique @default(uuid(7))
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  deletedAt      DateTime?
-  name           String?
-  userAccountId  Int?               @unique
-  userAccount    UserAccount?       @relation("ContactUser", fields: [userAccountId], references: [internalId])
-  ownerAccountId Int
-  ownerAccount   UserAccount        @relation("UserContacts", fields: [ownerAccountId], references: [internalId])
-  contactGroupId Int
-  contactGroup   UserContactGroup   @relation(fields: [contactGroupId], references: [internalId])
-  contactDetails ContactDetail[]
-  labels         UserContactLabel[] @relation("ContactLabels")
+model UserContact {
+  id                      String                    @id @default(uuid(7))
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+  deletedAt               DateTime?
+  name                    String?
+  userAccountId           String?                   @unique
+  userAccount             UserAccount?              @relation("ContactUser", fields: [userAccountId], references: [id])
+  ownerAccountId          String
+  ownerAccount            UserAccount               @relation("UserContacts", fields: [ownerAccountId], references: [id])
+  contactGroupMemberships UserContactGroupMembers[]
+  contactDetails          ContactDetail[]
+  labels                  UserContactLabel[]        @relation("ContactLabels")
 
   @@index([deletedAt])
 }
@@ -71,16 +27,89 @@ enum ContactDetailType {
 }
 
 model ContactDetail {
-  internalId Int               @id @default(autoincrement())
-  externalId String            @unique @default(uuid(7))
-  createdAt  DateTime          @default(now())
-  updatedAt  DateTime          @updatedAt
-  deletedAt  DateTime?
-  type       ContactDetailType
-  value      String
-  label      String? // e.g., 'work', 'personal', etc.
-  contactId  Int
-  contact    Contact           @relation(fields: [contactId], references: [internalId])
+  id        String            @id @default(uuid(7))
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  deletedAt DateTime?
+  type      ContactDetailType
+  value     String
+  label     String? // e.g., 'work', 'personal', etc.
+  contactId String
+  contact   UserContact       @relation(fields: [contactId], references: [id])
 
   @@index([deletedAt])
+}
+
+enum CommunityOpenLevel {
+  PRIVATE
+  ONLY_INVITE
+  ON_REQUEST
+  PUBLIC
+}
+
+model Community {
+  id             String              @id @default(uuid(7))
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  deletedAt      DateTime?
+  name           String
+  isOpen         CommunityOpenLevel?
+  parentId       String?
+  parent         Community?          @relation("SubCommunities", fields: [parentId], references: [id])
+  subCommunities Community[]         @relation("SubCommunities")
+  members        CommunityMembers[]
+
+  @@index([deletedAt])
+}
+
+model CommunityMembers {
+  id          String      @id @default(uuid(7))
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+  communityId String
+  community   Community   @relation(fields: [communityId], references: [id])
+  userId      String
+  user        UserAccount @relation(fields: [userId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model UserContactGroup {
+  id            String                    @id @default(uuid(7))
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+  deletedAt     DateTime?
+  name          String
+  description   String?
+  userAccountId String
+  userAccount   UserAccount               @relation(fields: [userAccountId], references: [id])
+  members       UserContactGroupMembers[]
+
+  @@index([deletedAt])
+}
+
+model UserContactGroupMembers {
+  id        String           @id @default(uuid(7))
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  deletedAt DateTime?
+  groupId   String
+  group     UserContactGroup @relation(fields: [groupId], references: [id])
+  contactId String
+  contact   UserContact      @relation(fields: [contactId], references: [id])
+
+  @@index([deletedAt])
+}
+
+model UserContactLabel {
+  id        String        @id @default(uuid(7))
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  deletedAt DateTime?
+  userId    String
+  user      UserAccount   @relation(fields: [userId], references: [id])
+  name      String
+  color     String?
+  members   UserContact[] @relation("ContactLabels")
 }

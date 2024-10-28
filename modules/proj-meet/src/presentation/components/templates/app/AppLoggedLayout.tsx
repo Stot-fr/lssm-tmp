@@ -1,64 +1,62 @@
-"use client";
-import { SideNavBarLayout } from "@lssm/design-system/components/templates/Layouts/SideNavBarLayout";
-import type { IconName } from "@lssm/icons-kit/icons";
+'use client';
+import type { CategorySideMenuProps } from '@lssm/design-system/components/molecules/CategorySideMenu/index';
+import { SideNavBarLayout } from '@lssm/design-system/components/templates/Layouts/SideNavBarLayout/index';
+import type { IconName } from '@lssm/icons-kit/icons';
+import { type PropsWithChildren, useMemo } from 'react';
 
-import { type PropsWithChildren, useMemo } from "react";
-import { APP_NAME } from "../../../constants/app";
-import type { CategorySideMenuProps } from "@lssm/design-system/components/molecules/CategorySideMenu";
+import { APP_NAME } from '../../../constants/app';
 
 export const AppLoggedLayout = (props: PropsWithChildren) => {
-  const user = null;
-
   const menuItems = useMemo<Array<CategorySideMenuProps>>(() => {
     return [
       {
-        id: "build",
-        category: "Build",
+        id: 'build',
+        category: 'Build',
         items: [
           {
-            id: "overview",
-            title: "Overview",
-            target: "/overview",
+            id: 'overview',
+            title: 'Overview',
+            target: '/overview',
             IconElement: {
-              name: "View" as IconName,
+              name: 'View' as IconName,
             },
           },
           {
-            id: "auth",
-            title: "Authentification",
-            target: "/auth",
+            id: 'auth',
+            title: 'Authentification',
+            target: '/auth',
             IconElement: {
-              name: "LockOpen" as IconName,
+              name: 'LockOpen' as IconName,
             },
           },
           {
-            id: "db",
-            title: "Database",
-            target: "/database",
+            id: 'db',
+            title: 'Database',
+            target: '/database',
             IconElement: {
-              name: "Database" as IconName,
+              name: 'Database' as IconName,
             },
           },
         ],
       },
       {
-        id: "quality",
-        category: "Quality",
+        id: 'quality',
+        category: 'Quality',
         items: [
           {
-            id: "analytics",
-            title: "Analytics",
-            target: "/analytics",
+            id: 'analytics',
+            title: 'Analytics',
+            target: '/analytics',
             IconElement: {
-              name: "ChartSpline" as IconName,
+              name: 'ChartSpline' as IconName,
             },
           },
           {
-            id: "performance",
-            title: "Performance",
-            target: "/perf",
+            id: 'performance',
+            title: 'Performance',
+            target: '/perf',
             IconElement: {
-              name: "Rabbit" as IconName,
+              name: 'Rabbit' as IconName,
             },
           },
         ],

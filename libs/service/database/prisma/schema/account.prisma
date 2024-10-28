@@ -1,58 +1,56 @@
 model UserAccount {
-  internalId         Int                  @id @default(autoincrement())
-  externalId         String               @unique @default(uuid(7))
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  deletedAt          DateTime?
-  email              String               @unique
-  identities         AccountIdentity[]
-  contacts           UserContactGroup[]
-  contactsOfs        Contact[]            @relation("UserContacts")
-  contactIns         Contact[]            @relation("ContactUser")
-  messages           Message[]
-  ConversationMember ConversationMember[]
-  events             Event[]              @relation("UserEvents")
+  id            String             @id @default(uuid(7))
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  deletedAt     DateTime?
+  email         String             @unique
+  identities    AccountIdentity[]
+  contactGroups UserContactGroup[]
+  contacts      UserContact[]      @relation("UserContacts")
+
+  // Utils relations
+  events              Event[]              @relation("UserEvents")
+  conversationMembers ConversationMember[]
 
   // Uncesessary revert relations
-  eventAttendees   EventAttendee[]
-  UserContactLabel UserContactLabel[]
+  contactOfs        UserContact[]      @relation("ContactUser")
+  communityMembers  CommunityMembers[]
+  eventAttendees    EventAttendee[]
+  userContactLabels UserContactLabel[]
 
   @@index([deletedAt])
 }
 
 model ApiAccount {
-  internalId Int       @id @default(autoincrement())
-  externalId String    @unique @default(uuid(7))
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  deletedAt  DateTime?
-  apiKey     String    @unique
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  apiKey    String    @unique
 
   @@index([deletedAt])
 }
 
 model AccountIdentity {
-  internalId    Int                   @id @default(autoincrement())
-  externalId    String                @unique @default(uuid(7))
+  id            String                @id @default(uuid(7))
   createdAt     DateTime              @default(now())
   updatedAt     DateTime              @updatedAt
   deletedAt     DateTime?
-  userAccountId Int?
-  userAccount   UserAccount?          @relation(fields: [userAccountId], references: [internalId])
+  userAccountId String?
+  userAccount   UserAccount?          @relation(fields: [userAccountId], references: [id])
   organizations AccountOrganization[]
 
   @@index([deletedAt])
 }
 
 model AccountOrganization {
-  internalId Int              @id @default(autoincrement())
-  externalId String           @unique @default(uuid(7))
+  id         String           @id @default(uuid(7))
   createdAt  DateTime         @default(now())
   updatedAt  DateTime         @updatedAt
   deletedAt  DateTime?
   name       String
-  identityId Int?
-  identity   AccountIdentity? @relation(fields: [identityId], references: [internalId])
+  identityId String?
+  identity   AccountIdentity? @relation(fields: [identityId], references: [id])
 
   @@index([deletedAt])
 }

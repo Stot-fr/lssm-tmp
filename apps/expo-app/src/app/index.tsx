@@ -1,5 +1,5 @@
 import { Button } from '@lssm/design-system/components/atoms/Fields/Button';
-import { View } from '@lssm/ui-kit/ui/view';
+import { View } from '@lssm/lib-service.ui-kit/ui/view';
 import React from 'react';
 
 const index = () => {

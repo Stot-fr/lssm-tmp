@@ -5,14 +5,19 @@ import { initReactI18next } from 'react-i18next';
 
 export { I18nextProvider, useTranslation } from 'react-i18next';
 
+import enAppMeet from './locales/en/apps/meet.json';
+import enCommon from './locales/en/common.json';
+import frAppMeet from './locales/fr/apps/meet.json';
+import frCommon from './locales/fr/common.json';
+
 const resources = {
   en: {
-    common: require('./locales/en/common.json'),
-    appMeet: require('./locales/en/apps/meet.json'),
+    common: enCommon,
+    appMeet: enAppMeet,
   },
   fr: {
-    common: require('./locales/fr/common.json'),
-    appMeet: require('./locales/fr/apps/meet.json'),
+    common: frCommon,
+    appMeet: frAppMeet,
   },
 };
 
@@ -25,7 +30,7 @@ void i18n
     resources,
     lng: 'en',
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     interpolation: {
       escapeValue: false,
     },

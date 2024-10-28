@@ -15,16 +15,14 @@
     "dev:api": "turbo run dev --filter=@lssm/app-api.monolith",
     "dev:meet": "turbo run dev --filter=@lssm/app-webclient.meet",
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "build": "turbo run build --filter=!@lssm/lib-service.ui-kit",
+    "clean": "turbo run clean",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "postinstall": "patch-package",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },
   "devDependencies": {
-    "prettier": "^3.1.1",
-    "turbo": "latest",
     "@eslint/js": "^9.11.1",
     "@types/eslint__js": "^8.42.3",
     "eslint": "^9.11.1",
@@ -41,6 +39,9 @@
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-workspaces": "^0.10.1",
+    "prettier": "^3.1.1",
+    "rimraf": "^6.0.1",
+    "turbo": "^2.2.3",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.7.0"
   },

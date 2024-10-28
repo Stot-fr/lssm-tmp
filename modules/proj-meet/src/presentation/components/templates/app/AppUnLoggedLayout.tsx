@@ -1,61 +1,60 @@
 'use client';
 
 import {
-  type NavigationTopMenuProps,
+  type CategoryTopMenuProps,
+  type NavigationTopMenuItem,
   TopNavBarLayout,
-} from '@lssm/design-system/components/templates/layouts/TopNavBarLayout';
-import type { IconName } from '@lssm/icons-kit/icons';
+} from '@lssm/design-system/components/templates/layouts/TopNavBarLayout/index';
+import type { IconName, IconProps } from '@lssm/icons-kit/icons';
 import { type PropsWithChildren, useMemo } from 'react';
 
 import { APP_NAME } from '../../../constants/app';
-import { useTranslation } from '@lssm/libs-feat.translation/src';
+import { useTranslation } from '@lssm/libs-feat.translation';
 
 export const AppUnLoggedLayout = (props: PropsWithChildren) => {
   const { t } = useTranslation('appMeet');
 
-  const user = null;
-
-  const menuItems = useMemo<NavigationTopMenuProps['items']>(() => {
+  const menuItems = useMemo<Array<NavigationTopMenuItem>>(() => {
     return [
       {
         id: 'home',
         title: t('navBar.unlogged.home'),
         target: '/',
         IconElement: {
-          name: 'View' as IconName,
-        },
+          name: 'View',
+        } as IconProps,
       },
       {
         id: 'login',
         title: t('navBar.unlogged.login'),
         target: '/login',
         IconElement: {
-          name: 'View' as IconName,
-        },
+          name: 'View',
+        } as IconProps,
       },
       {
         id: 'build',
-        title: t('navBar.unlogged.legal'),
+        categoryTitle: t('navBar.unlogged.legal').toString(),
         items: [
           {
             id: 'privacy',
             title: 'Privacy policy',
             target: '/legal/privacy',
             IconElement: {
-              name: 'View' as IconName,
-            },
+              name: 'View',
+            } as IconProps,
           },
           {
             id: 'legal-notice',
             title: 'Legal notice',
             target: '/legal/notice',
             IconElement: {
-              name: 'LockOpen' as IconName,
-            },
+              name: 'LockOpen',
+            } as IconProps,
           },
         ],
-      },
-    ];
+      } satisfies CategoryTopMenuProps,
+    ] satisfies Array<NavigationTopMenuItem>;
   }, []);
 
   return (

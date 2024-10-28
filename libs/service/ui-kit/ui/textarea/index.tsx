@@ -1,16 +1,16 @@
 'use client';
-import React from 'react';
-import { createTextarea } from '@gluestack-ui/textarea';
-import { View, TextInput, Platform } from 'react-native';
+import type { VariantProps } from '@gluestack-ui/nativewind-utils';
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
+import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
 import {
-  withStyleContext,
   useStyleContext,
+  withStyleContext,
 } from '@gluestack-ui/nativewind-utils/withStyleContext';
 import { withStyleContextAndStates } from '@gluestack-ui/nativewind-utils/withStyleContextAndStates';
+import { createTextarea } from '@gluestack-ui/textarea';
 import { cssInterop } from 'nativewind';
-import { withStates } from '@gluestack-ui/nativewind-utils/withStates';
-import type { VariantProps } from '@gluestack-ui/nativewind-utils';
+import React from 'react';
+import { Platform, TextInput, View } from 'react-native';
 
 const TextareaWrapper = React.forwardRef<
   React.ElementRef<typeof View>,
