@@ -1,10 +1,10 @@
 'use client';
 
-import { Card } from '@lssm/design-system/components/atoms/Card/index';
-import { Button } from '@lssm/design-system/components/atoms/Fields/Button/index';
+import { Card } from '@lssm/lib-feat.design-system/components/atoms/Card/index';
+import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button/index';
 import { Link, LinkText } from '@lssm/lib-service.ui-kit/ui/link';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
-import { useTranslation } from '@lssm/libs-feat.translation';
+import { useTranslation } from '@lssm/lib-feat.translation';
 
 export const DefaultLandingTemplate = () => {
   const { t } = useTranslation();

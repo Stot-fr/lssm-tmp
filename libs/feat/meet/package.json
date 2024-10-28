@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@lssm/lib-service.ui-kit": "*",
-    "@lssm/design-system": "*",
-    "@lssm/icons-kit": "*",
+    "@lssm/lib-feat.design-system": "*",
+    "@lssm/lib-service.icons-kit": "*",
     "expo-image": "^1.12.9",
     "nativewind": "4.0.36",
     "tailwindcss": "3.4.3"

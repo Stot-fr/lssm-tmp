@@ -137,4 +137,18 @@ export default tsEslint.config(
     ...tsEslint.configs.disableTypeChecked,
   },
   pluginPrettier,
+  {
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {
+          semi: true,
+          trailingComma: 'all',
+          singleQuote: true,
+          printWidth: 80,
+          tabWidth: 2,
+        },
+      ],
+    },
+  },
 );

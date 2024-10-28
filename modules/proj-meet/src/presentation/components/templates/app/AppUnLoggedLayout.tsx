@@ -4,14 +4,19 @@ import {
   type CategoryTopMenuProps,
   type NavigationTopMenuItem,
   TopNavBarLayout,
-} from '@lssm/design-system/components/templates/layouts/TopNavBarLayout/index';
-import type { IconProps } from '@lssm/icons-kit/icons';
-import { useTranslation } from '@lssm/libs-feat.translation';
-import { type PropsWithChildren, useMemo } from 'react';
+} from '@lssm/lib-feat.design-system/components/templates/layouts/TopNavBarLayout/index';
+import { useTranslation } from '@lssm/lib-feat.translation';
+import type { IconProps } from '@lssm/lib-service.icons-kit';
+import { type ReactNode, useMemo } from 'react';
 
 import { APP_NAME } from '../../../constants/app';
 
-export const AppUnLoggedLayout = (props: PropsWithChildren) => {
+export type AppUnLoggedLayoutProps = {
+  children: ReactNode;
+  title: string;
+};
+
+export const AppUnLoggedLayout = (props: AppUnLoggedLayoutProps) => {
   const { t } = useTranslation('appMeet');
 
   const menuItems = useMemo<Array<NavigationTopMenuItem>>(() => {
@@ -58,7 +63,10 @@ export const AppUnLoggedLayout = (props: PropsWithChildren) => {
   }, [t]);
 
   return (
-    <TopNavBarLayout navigationMenu={{ items: menuItems, menuTitle: APP_NAME }}>
+    <TopNavBarLayout
+      title={props.title}
+      navigationMenu={{ items: menuItems, menuTitle: APP_NAME }}
+    >
       {props.children}
     </TopNavBarLayout>
   );

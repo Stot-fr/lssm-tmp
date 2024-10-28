@@ -1,1 +1,1 @@
-export const APP_NAME = "MEET Project";
+export const APP_NAME = 'MEET Project';

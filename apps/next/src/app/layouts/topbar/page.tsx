@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@lssm/design-system/components/atoms/Fields/Button/index';
+import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button/index';
 import { Link, LinkText } from '@lssm/lib-service.ui-kit/ui/link';
 import { AppUnLoggedLayout } from '@lssm/module.proj-meet/presentation/components/templates/app/AppUnLoggedLayout';
 
