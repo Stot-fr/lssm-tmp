@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@expo/html-elements": "latest",
+    "@gorhom/bottom-sheet": "latest",
     "@gluestack-ui/accordion": "latest",
     "@gluestack-ui/actionsheet": "latest",
     "@gluestack-ui/alert": "latest",

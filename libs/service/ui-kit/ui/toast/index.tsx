@@ -184,7 +184,7 @@ export const ToastTitle = React.forwardRef<
     useStyleContext(SCOPE);
   return (
     <UIToast.Title
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={toastTitleStyle({
         size,
@@ -211,7 +211,7 @@ export const ToastDescription = React.forwardRef<
   const { variant: parentVariant } = useStyleContext(SCOPE);
   return (
     <UIToast.Description
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={toastDescriptionStyle({
         size,

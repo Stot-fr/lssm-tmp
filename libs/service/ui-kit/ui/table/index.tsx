@@ -40,7 +40,7 @@ const Table = React.forwardRef<React.ElementRef<typeof ExpoTable>, ITableProps>(
   ({ className, ...props }, ref) => {
     return (
       <ExpoTable
-        ref={ref}
+        ref={ref as any}
         className={tableStyle({ class: className })}
         {...props}
       />
@@ -60,7 +60,7 @@ const TableHeader = React.forwardRef<
   return (
     <TableHeaderContext.Provider value={contextValue}>
       <ExpoTHead
-        ref={ref}
+        ref={ref as any}
         className={tableHeaderStyle({ class: className })}
         {...props}
       />
@@ -74,7 +74,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <ExpoTBody
-      ref={ref}
+      ref={ref as any}
       className={tableBodyStyle({ class: className })}
       {...props}
     />
@@ -93,7 +93,7 @@ const TableFooter = React.forwardRef<
   return (
     <TableFooterContext.Provider value={contextValue}>
       <ExpoTFoot
-        ref={ref}
+        ref={ref as any}
         className={tableFooterStyle({ class: className })}
         {...props}
       />
@@ -133,7 +133,7 @@ const TableRow = React.forwardRef<
 
   return (
     <ExpoTR
-      ref={ref}
+      ref={ref as any}
       className={tableRowStyleStyle({
         isHeaderRow,
         isFooterRow,
@@ -173,7 +173,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <ExpoTCaption
-      ref={ref}
+      ref={ref as any}
       className={tableCaptionStyle({ class: className })}
       {...props}
     />

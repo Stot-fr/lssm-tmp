@@ -134,7 +134,7 @@ const Menu = React.forwardRef<React.ElementRef<typeof UIMenu>, IMenuProps>(
   ({ className, ...props }, ref) => {
     return (
       <UIMenu
-        ref={ref}
+        ref={ref as any}
         initial={{
           opacity: 0,
           scale: 0.8,

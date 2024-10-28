@@ -115,7 +115,7 @@ type IModalCloseButtonProps = React.ComponentProps<typeof UIModal.CloseButton> &
 const Modal = React.forwardRef<React.ElementRef<typeof UIModal>, IModalProps>(
   ({ className, size = 'md', ...props }, ref) => (
     <UIModal
-      ref={ref}
+      ref={ref as any}
       {...props}
       pointerEvents="box-none"
       className={modalStyle({ size, class: className })}
@@ -130,7 +130,7 @@ const ModalBackdrop = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UIModal.Backdrop
-      ref={ref}
+      ref={ref as any}
       initial={{
         opacity: 0,
       }}
@@ -165,7 +165,7 @@ const ModalContent = React.forwardRef<
 
   return (
     <UIModal.Content
-      ref={ref}
+      ref={ref as any}
       initial={{
         opacity: 0,
         scale: 0.9,
@@ -250,7 +250,7 @@ const ModalCloseButton = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UIModal.CloseButton
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={modalCloseButtonStyle({
         class: className,

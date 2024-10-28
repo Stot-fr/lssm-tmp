@@ -357,7 +357,7 @@ const ActionsheetContent = React.forwardRef<
       className={actionsheetContentStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -372,7 +372,7 @@ const ActionsheetItem = React.forwardRef<
       className={actionsheetItemStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -460,7 +460,7 @@ const ActionsheetBackdrop = React.forwardRef<
       className={actionsheetBackdropStyle({
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
     />
   );
 });
@@ -557,7 +557,7 @@ const ActionsheetSectionHeaderText = React.forwardRef<
           italic,
           highlight,
         })}
-        ref={ref}
+        ref={ref as any}
         {...props}
       />
     );
@@ -571,7 +571,7 @@ const ActionsheetIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UIActionsheet.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={actionsheetIconStyle({ class: className })}
         size={size}
@@ -583,7 +583,7 @@ const ActionsheetIcon = React.forwardRef<
   ) {
     return (
       <UIActionsheet.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={actionsheetIconStyle({ class: className })}
       />
@@ -595,7 +595,7 @@ const ActionsheetIcon = React.forwardRef<
         class: className,
         size,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );

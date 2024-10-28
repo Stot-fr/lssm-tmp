@@ -216,7 +216,7 @@ const FabLabel = React.forwardRef<
     const { size: parentSize } = useStyleContext(SCOPE);
     return (
       <UIFab.Label
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={fabLabelStyle({
           parentVariants: {
