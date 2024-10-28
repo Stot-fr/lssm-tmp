@@ -5,16 +5,16 @@ import React from 'react';
 import { HabitCard } from '../organisms/HabitCard';
 
 type Habit = {
-  id: number; // Identifiant de l'habitude
-  minDuration: number; // Durée minimale
-  maxDuration: number; // Durée maximale
-  name: string; // Nom de l'habitude
-  hours: string; // Heures idéales
-  days: string[]; // Jours de la semaine
+  id: number;
+  minDuration: number;
+  maxDuration: number;
+  name: string;
+  hours: string;
+  days: string[];
 };
 
 type HabitCardListProps = {
-  habits: Habit[]; // Liste des habitudes
+  habits: Habit[];
 };
 
 export const HabitCardList: React.FC<HabitCardListProps> = ({ habits }) => {

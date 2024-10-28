@@ -1,6 +1,7 @@
 {
   "name": "@lssm/lib-service.ui-kit",
   "version": "0.0.0",
+  "private": true,
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
