@@ -3,7 +3,7 @@
 
 services:
   lssm-db:
-    container_name: coviflex-db
+    container_name: lssm-db
     image: mdillon/postgis
     ports:
       - 5433:5432
