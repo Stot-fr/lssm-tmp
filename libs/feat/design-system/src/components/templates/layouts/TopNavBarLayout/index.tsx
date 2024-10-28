@@ -65,7 +65,9 @@ export const TopNavBarLayout: React.FC<NavigationTopMenuProps> = (props) => {
             <Box className="hidden md:flex h-full">
               {isSidebarVisible && <Sidebar />}
             </Box>
-            <ScrollView className="w-full flex-1">{props.children}</ScrollView>
+            <ScrollView className="w-full flex-1 p-4">
+              {props.children}
+            </ScrollView>
           </HStack>
         </VStack>
       </VStack>

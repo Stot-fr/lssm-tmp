@@ -1,10 +1,9 @@
 import { cn } from '@gluestack-ui/nativewind-utils/cn';
 import Icon, { type IconProps } from '@lssm/lib-service.icons-kit';
-import { Pressable } from '@lssm/lib-service.ui-kit/ui/pressable/index';
+import { Link } from '@lssm/lib-service.ui-kit/ui/link/index';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
 import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
 import { usePathname } from '@unitools/navigation';
-import useRouter from '@unitools/router';
 import React from 'react';
 import { ScrollView } from 'react-native';
 
@@ -19,68 +18,89 @@ export type SidebarSection = {
   items: SidebarEntryItem[];
 };
 
-const AppLinks: SidebarSection = {
-  title: 'AppLinks',
-  items: [
-    {
-      name: 'Home',
-      icon: { name: 'House' },
-      link: '/',
-    },
-    {
-      name: 'Habits',
-      icon: { name: 'Repeat' },
-      link: '/habits',
-    },
-  ],
-};
-const SettingsList: SidebarSection = {
-  title: 'Settings',
-  items: [
-    {
-      name: 'Profile',
-      icon: { name: 'UserCog' },
-      link: '/profile',
-    },
-    {
-      name: 'Preferences',
-      icon: { name: 'Cog' },
-      link: '/settings',
-    },
-    {
-      name: 'Subscription',
-      icon: { name: 'CreditCard' },
-      link: '/billing',
-    },
-  ],
-};
-const ResourcesList: SidebarSection = {
-  title: 'Resources',
-  items: [
-    {
-      name: 'Downloads',
-      icon: { name: 'Download' },
-      link: null,
-    },
-    {
-      name: 'FAQs',
-      icon: { name: 'CircleHelp' },
-      link: null,
-    },
-    {
-      name: 'News & Blogs',
-      icon: { name: 'Newspaper' },
-      link: null,
-    },
-  ],
-};
+const SECTIONS: Array<SidebarSection> = [
+  {
+    title: 'AppLinks',
+    items: [
+      {
+        name: 'Home',
+        icon: { name: 'House' },
+        link: '/',
+      },
+      {
+        name: 'Habits',
+        icon: { name: 'Repeat' },
+        link: '/habits',
+      },
+    ],
+  },
+  {
+    title: 'Settings',
+    items: [
+      {
+        name: 'Profile',
+        icon: { name: 'UserCog' },
+        link: '/profile',
+      },
+      {
+        name: 'Preferences',
+        icon: { name: 'Cog' },
+        link: '/settings',
+      },
+      {
+        name: 'Subscription',
+        icon: { name: 'CreditCard' },
+        link: '/billing',
+      },
+    ],
+  },
+  {
+    title: 'Resources',
+    items: [
+      {
+        name: 'Downloads',
+        icon: { name: 'Download' },
+        link: null,
+      },
+      {
+        name: 'FAQs',
+        icon: { name: 'CircleHelp' },
+        link: null,
+      },
+      {
+        name: 'News & Blogs',
+        icon: { name: 'Newspaper' },
+        link: null,
+      },
+    ],
+  },
+  {
+    title: 'More Apps',
+    items: [
+      {
+        name: 'Downloads',
+        icon: { name: 'Download' },
+        link: null,
+      },
+      {
+        name: 'FAQs',
+        icon: { name: 'CircleHelp' },
+        link: null,
+      },
+      {
+        name: 'News & Blogs',
+        icon: { name: 'Newspaper' },
+        link: null,
+      },
+    ],
+  },
+];
 
 type SidebarSectionProps = {
   section: SidebarSection;
 };
 
 const SidebarSection = (props: SidebarSectionProps) => {
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -89,25 +109,16 @@ const SidebarSection = (props: SidebarSectionProps) => {
         {props.section.title}
       </Text>
 
-      {props.section.items.map((item, index) => {
+      {props.section.items.map((item) => {
         const isActive = item.link && !!pathname?.startsWith(item.link);
 
-        return (
-          <Pressable
-            key={index}
-            onPress={() => {
-              if (!item.link) {
-                return;
-              }
-
-              void router.push(item.link);
-            }}
-            className={cn({
-              'flex-row px-4 py-3 items-center gap-2 rounded': true,
-              'bg-background-950': isActive,
-              'bg-background-0': !isActive,
-            })}
-          >
+        const className = cn({
+          'flex-row px-4 py-3 items-center gap-2 rounded': true,
+          'bg-background-950': isActive,
+          'bg-background-0': !isActive,
+        });
+        const content = (
+          <>
             <Icon
               {...item.icon}
               className={cn({
@@ -123,7 +134,21 @@ const SidebarSection = (props: SidebarSectionProps) => {
             >
               {item.name}
             </Text>
-          </Pressable>
+          </>
+        );
+
+        if (item.link) {
+          return (
+            <Link href={item.link} key={item.name} className={className}>
+              {content}
+            </Link>
+          );
+        }
+
+        return (
+          <VStack key={item.name} className={className}>
+            {content}
+          </VStack>
         );
       })}
     </VStack>
@@ -141,9 +166,9 @@ export const Sidebar = (_props: SidebarProps) => {
         className="h-full flex-1 w-[280px] py-4 pr-4 pl-8 items-center border-r border-border-300"
         space="xl"
       >
-        <SidebarSection section={AppLinks} />
-        <SidebarSection section={SettingsList} />
-        <SidebarSection section={ResourcesList} />
+        {SECTIONS.map((section) => (
+          <SidebarSection key={section.title} section={section} />
+        ))}
       </VStack>
     </ScrollView>
   );
