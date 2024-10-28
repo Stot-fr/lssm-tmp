@@ -15,13 +15,13 @@
     "dev:api": "turbo run dev --filter=@lssm/app-api.monolith",
     "dev:meet": "turbo run dev --filter=@lssm/app-webclient.meet",
     "dev": "turbo run dev",
-    "dev:not-apps": "turbo run dev --filter=@lssm/lib* --filter=@lssm/module*",
+    "dev:not-apps": "turbo run dev --concurrency 42 --filter=@lssm/lib* --filter=@lssm/module*",
     "build": "turbo run build --filter=!@lssm/lib-service.ui-kit",
-    "build": "turbo run build --filter=!@lssm/lib-service.ui-kit  --filter=@lssm/lib* --filter=@lssm/module*",
     "clean": "turbo run clean",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "postinstall": "patch-package",
+    "prepare": "husky",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },
   "devDependencies": {
@@ -41,6 +41,8 @@
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-workspaces": "^0.10.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.1.1",
     "rimraf": "^6.0.1",
     "turbo": "^2.2.3",
@@ -51,5 +53,7 @@
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {}
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,css}": []
+  }
 }

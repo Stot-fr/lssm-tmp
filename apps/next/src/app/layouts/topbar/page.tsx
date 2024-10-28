@@ -5,7 +5,7 @@ import { AppUnLoggedLayout } from '@lssm/module.proj-meet/presentation/component
 
 const Page = () => {
   return (
-    <AppUnLoggedLayout>
+    <AppUnLoggedLayout title="test topbar">
       <Button
         onPress={() => {
           console.log('test');

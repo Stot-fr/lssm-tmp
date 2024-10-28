@@ -1,12 +1,13 @@
 // import { GlobeIcon, Icon } from '@lssm/lib-service.ui-kit/ui/icon';
+import { useTranslation } from '@lssm/lib-feat.translation';
 import Icon from '@lssm/lib-service.icons-kit';
-import { Button, ButtonText } from '@lssm/lib-service.ui-kit/ui/button';
+import { Avatar } from '@lssm/lib-service.ui-kit/ui/avatar';
 import {
   Menu,
   MenuItem,
   MenuItemLabel,
 } from '@lssm/lib-service.ui-kit/ui/menu';
-import { useTranslation } from '@lssm/lib-feat.translation';
+import { Pressable } from '@lssm/lib-service.ui-kit/ui/pressable/index';
 import React from 'react';
 
 export const LanguageSwitcher = () => {
@@ -22,12 +23,13 @@ export const LanguageSwitcher = () => {
       offset={5}
       trigger={({ ...triggerProps }) => {
         return (
-          <Button {...triggerProps}>
-            {/*<Icon as={GlobeIcon} size="sm" className="mr-2" />*/}
+          <Pressable {...triggerProps}>
+            <Avatar className="h-9 w-9">
+              <Icon name="Languages" className="stroke-white" />
+            </Avatar>
 
-            <Icon name="Globe" className="bg-primary-0" />
-            <ButtonText>{t('common:i18n.switchLanguage')}</ButtonText>
-          </Button>
+            {/*<ButtonText>{t('common:i18n.switchLanguage')}</ButtonText>*/}
+          </Pressable>
         );
       }}
       selectionMode="single"
@@ -40,30 +42,12 @@ export const LanguageSwitcher = () => {
         }
       }}
     >
-      <MenuItem key="en" textValue="English">
-        {/*<Icon as={GlobeIcon} size="sm" className="mr-2" />*/}
-        <MenuItemLabel size="sm">English</MenuItemLabel>
+      <MenuItem key="en" textValue={t('common:i18n.languages.en')}>
+        <MenuItemLabel size="sm">{t('common:i18n.languages.en')}</MenuItemLabel>
       </MenuItem>
-      <MenuItem key="fr" textValue="French">
-        {/*<Icon as={GlobeIcon} size="sm" className="mr-2" />*/}
-        <MenuItemLabel size="sm">French</MenuItemLabel>
+      <MenuItem key="fr" textValue={t('common:i18n.languages.fr')}>
+        <MenuItemLabel size="sm">{t('common:i18n.languages.fr')}</MenuItemLabel>
       </MenuItem>
-      {/*<MenuItem key="Add account" textValue="Add account">*/}
-      {/*  <Icon as={AddIcon} size="sm" className="mr-2" />*/}
-      {/*  <MenuItemLabel size="sm">Add account</MenuItemLabel>*/}
-      {/*</MenuItem>*/}
-      {/*<MenuItem key="Community" textValue="Community">*/}
-      {/*  <Icon as={GlobeIcon} size="sm" className="mr-2" />*/}
-      {/*  <MenuItemLabel size="sm">Community</MenuItemLabel>*/}
-      {/*</MenuItem>*/}
-      {/*<MenuItem key="Plugins" textValue="Plugins">*/}
-      {/*  <Icon as={PlayIcon} size="sm" className="mr-2" />*/}
-      {/*  <MenuItemLabel size="sm">Plugins</MenuItemLabel>*/}
-      {/*</MenuItem>*/}
-      {/*<MenuItem key="Settings" textValue="Settings">*/}
-      {/*  <Icon as={SettingsIcon} size="sm" className="mr-2" />*/}
-      {/*  <MenuItemLabel size="sm">Settings</MenuItemLabel>*/}
-      {/*</MenuItem>*/}
     </Menu>
   );
 };

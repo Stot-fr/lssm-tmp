@@ -1,14 +1,8 @@
 {
   "i18n": {
-    "language": "Language",
-    "switchLanguage": "Switch language",
-    "languageToggle": {
-      "en": "English",
-      "fr": "French"
-    },
     "languages": {
       "en": "English",
-      "fr": "French"
+      "fr": "Français"
     }
   },
   "navigation": {

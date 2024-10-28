@@ -5,6 +5,7 @@ import { Pressable } from '@lssm/lib-service.ui-kit/ui/pressable/index';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';
 import React from 'react';
 
+import { LanguageSwitcher } from '../../molecules/LanguageSwitcher';
 import type { BaseHeaderTopNavProps } from './types';
 
 export type HeaderWebTopNavProps = BaseHeaderTopNavProps & {
@@ -25,9 +26,13 @@ export const HeaderWebTopNavBar = (props: HeaderWebTopNavProps) => {
         <Text className="text-2xl">{props.title}</Text>
       </HStack>
 
-      <Avatar className="h-9 w-9">
-        <AvatarFallbackText className="font-light">A</AvatarFallbackText>
-      </Avatar>
+      <HStack className="gap-4">
+        <Avatar className="h-9 w-9">
+          <Icon name="User" className="stroke-white" />{' '}
+        </Avatar>
+
+        <LanguageSwitcher />
+      </HStack>
     </HStack>
   );
 };

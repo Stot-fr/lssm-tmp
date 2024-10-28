@@ -1,4 +1,4 @@
-import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button';
+import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button/index';
 import { View } from '@lssm/lib-service.ui-kit/ui/view';
 import React from 'react';
 

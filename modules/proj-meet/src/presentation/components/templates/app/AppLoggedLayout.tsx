@@ -1,72 +1,70 @@
 'use client';
-import type { CategorySideMenuProps } from '@lssm/lib-feat.design-system/components/molecules/CategorySideMenu/index';
-import { SideNavBarLayout } from '@lssm/lib-feat.design-system/components/templates/Layouts/SideNavBarLayout/index';
-import type { IconName } from '@lssm/lib-service.icons-kit';
-import { type PropsWithChildren, useMemo } from 'react';
+
+import {
+  type CategoryTopMenuProps,
+  type NavigationTopMenuItem,
+  TopNavBarLayout,
+} from '@lssm/lib-feat.design-system/components/templates/layouts/TopNavBarLayout/index';
+import { useTranslation } from '@lssm/lib-feat.translation';
+import type { IconProps } from '@lssm/lib-service.icons-kit';
+import { type ReactNode, useMemo } from 'react';
 
 import { APP_NAME } from '../../../constants/app';
 
-export const AppLoggedLayout = (props: PropsWithChildren) => {
-  const menuItems = useMemo<Array<CategorySideMenuProps>>(() => {
+export type AppLoggedLayoutProps = {
+  children: ReactNode;
+  title: string;
+};
+
+export const AppLoggedLayout = (props: AppLoggedLayoutProps) => {
+  const { t } = useTranslation('appMeet');
+
+  const menuItems = useMemo<Array<NavigationTopMenuItem>>(() => {
     return [
       {
-        id: 'build',
-        category: 'Build',
-        items: [
-          {
-            id: 'overview',
-            title: 'Overview',
-            target: '/overview',
-            IconElement: {
-              name: 'View' as IconName,
-            },
-          },
-          {
-            id: 'auth',
-            title: 'Authentification',
-            target: '/auth',
-            IconElement: {
-              name: 'LockOpen' as IconName,
-            },
-          },
-          {
-            id: 'db',
-            title: 'Database',
-            target: '/database',
-            IconElement: {
-              name: 'Database' as IconName,
-            },
-          },
-        ],
+        id: 'home',
+        title: t('navBar.unlogged.home'),
+        target: '/',
+        IconElement: {
+          name: 'View',
+        } as IconProps,
       },
       {
-        id: 'quality',
-        category: 'Quality',
+        id: 'login',
+        title: t('navBar.unlogged.login'),
+        target: '/login',
+        IconElement: {
+          name: 'View',
+        } as IconProps,
+      },
+      {
+        id: 'build',
+        categoryTitle: t('navBar.unlogged.legal').toString(),
         items: [
           {
-            id: 'analytics',
-            title: 'Analytics',
-            target: '/analytics',
+            id: 'privacy',
+            title: 'Privacy policy',
+            target: '/legal/privacy',
             IconElement: {
-              name: 'ChartSpline' as IconName,
-            },
+              name: 'View',
+            } as IconProps,
           },
           {
-            id: 'performance',
-            title: 'Performance',
-            target: '/perf',
+            id: 'legal-notice',
+            title: 'Legal notice',
+            target: '/legal/notice',
             IconElement: {
-              name: 'Rabbit' as IconName,
-            },
+              name: 'LockOpen',
+            } as IconProps,
           },
         ],
-      },
-    ];
-  }, []);
+      } satisfies CategoryTopMenuProps,
+    ] satisfies Array<NavigationTopMenuItem>;
+  }, [t]);
 
   return (
-    <SideNavBarLayout navigationMenu={{ menu: menuItems, menuTitle: APP_NAME }}>
+    <TopNavBarLayout menuTitle={APP_NAME} items={menuItems}>
       {props.children}
-    </SideNavBarLayout>
+    </TopNavBarLayout>
   );
 };

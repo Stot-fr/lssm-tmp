@@ -36,4 +36,4 @@ void i18n
     },
   });
 
-export default i18n;
+export { i18n };

@@ -42,16 +42,23 @@ export default tsEslint.config(
   {
     ignores: ['**/node_modules', '**/.next', '**/dist'],
     plugins: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       import: pluginImport,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       jest: pluginJest,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       'jsx-a11y': pluginJsxA11y,
       react: pluginReact,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       'react-hooks': pluginReactHooks,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       security: pluginSecurity,
       'simple-import-sort': pluginImportSort,
       sonarjs: pluginSonar,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       tailwindcss: pluginTailwind,
       'unused-imports': pluginUnusedImport,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       workspaces: pluginWorkspaces,
     },
     settings: {

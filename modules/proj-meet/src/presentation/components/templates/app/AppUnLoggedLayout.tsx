@@ -63,10 +63,7 @@ export const AppUnLoggedLayout = (props: AppUnLoggedLayoutProps) => {
   }, [t]);
 
   return (
-    <TopNavBarLayout
-      title={props.title}
-      navigationMenu={{ items: menuItems, menuTitle: APP_NAME }}
-    >
+    <TopNavBarLayout menuTitle={APP_NAME} items={menuItems}>
       {props.children}
     </TopNavBarLayout>
   );

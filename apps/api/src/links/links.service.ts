@@ -36,7 +36,7 @@ export class LinksService {
   ];
 
   create(createLinkDto: CreateLinkDto) {
-    return `This action adds a new link ${createLinkDto}`;
+    return `This action adds a new link ${JSON.stringify(createLinkDto)}`;
   }
 
   findAll() {
@@ -49,7 +49,7 @@ export class LinksService {
   }
 
   update(id: number, updateLinkDto: UpdateLinkDto) {
-    return `This action updates a #${id} link ${updateLinkDto}`;
+    return `This action updates a #${id} link ${JSON.stringify(updateLinkDto)}`;
   }
 
   remove(id: number) {

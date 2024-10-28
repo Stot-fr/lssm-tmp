@@ -6,6 +6,7 @@ import type { ComponentProps, ReactNode } from 'react';
 
 import { Divider } from '../Divider';
 import type { ButtonProps } from '../Fields/Button';
+import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
 
 export interface CardActionConfig {
   actions: Array<ButtonProps>;
@@ -41,11 +42,39 @@ export const Card = ({
       {contentHeader && (
         <>
           <Divider orientation="horizontal" />
-          <HStack space="md" reversed={false}>
+          <VStack space="md" reversed={false}>
             <Box className="h-20 w-20 bg-primary-300" />
             <Box className="h-20 w-20 bg-primary-400" />
             <Box className="h-20 w-20 bg-primary-500" />
-          </HStack>
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+
+            <Box className="h-20 w-20 bg-primary-300" />
+            <Box className="h-20 w-20 bg-primary-400" />
+            <Box className="h-20 w-20 bg-primary-500" />
+          </VStack>
         </>
       )}
     </UiCard>

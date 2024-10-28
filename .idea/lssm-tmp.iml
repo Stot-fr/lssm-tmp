@@ -12,7 +12,11 @@
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/design-system/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/meet/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/service/database/dist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/util/misc/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/util/typescript/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/core-messaging/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/feat/core-module/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/core-accounting/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/apps/api/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/apps/api/dist" />
@@ -26,6 +30,8 @@
       <excludeFolder url="file://$MODULE_DIR$/libs/service/icons-kit/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/libs/service/icons-kit/dist" />
       <excludeFolder url="file://$MODULE_DIR$/libs/service/ui-kit/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util/misc/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util/typescript/dist" />
       <excludeFolder url="file://$MODULE_DIR$/modules/core-messaging/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/modules/core-messaging/dist" />
       <excludeFolder url="file://$MODULE_DIR$/modules/proj-meet/dist" />
