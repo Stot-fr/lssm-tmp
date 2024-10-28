@@ -3,12 +3,12 @@ tone_instructions: 'Please use a professional and a mix of suggestive and assert
 early_access: false
 enable_free_tier: true
 reviews:
-  profile: assertive
+  profile: chill
   request_changes_workflow: true
-  high_level_summary: true
+  high_level_summary: false
   high_level_summary_placeholder: '@coderabbitai summary'
   auto_title_placeholder: '@coderabbitai'
-  poem: true
+  poem: false
   review_status: true
   collapse_walkthrough: true
   path_filters: [ ]
