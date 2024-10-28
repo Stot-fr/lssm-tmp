@@ -15,6 +15,7 @@ export type * from './lib/EmptyRecord';
 export type * from './lib/IdentifiedLabel';
 export type * from './lib/IsAny';
 export type * from './lib/KeepOnly';
+export type * from './lib/Maybe';
 export type * from './lib/MaybeArray';
 export type * from './lib/NestedValue';
 export type * from './lib/NonUndefined';

@@ -2,8 +2,8 @@
   "name": "@lssm/config.eslint",
   "version": "0.0.0",
   "scripts": {
-    "lint": "eslint src --fix",
-    "lint:check": "eslint src"
+    "lint": "eslint eslint.config.mjs --fix",
+    "lint:check": "eslint eslint.config.mjs"
   },
   "main": "eslint.config.mjs",
   "type": "module",

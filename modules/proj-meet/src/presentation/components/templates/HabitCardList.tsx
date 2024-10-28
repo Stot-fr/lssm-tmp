@@ -27,7 +27,7 @@ export const HabitCardList: React.FC<HabitCardListProps> = ({ habits }) => {
   return (
     <HStack>
       {habitList.map((habit) => (
-        <Card size="lg" variant="outline" className="m-3" key={habit.id}>
+        <Card size="lg" variant="outline" className="m-3 gap-1" key={habit.id}>
           <HabitCard
             minDuration={habit.minDuration}
             maxDuration={habit.maxDuration}

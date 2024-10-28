@@ -38,7 +38,7 @@ export const HabitCard: React.FC<HabitCardProps> = ({
       <Repeat days={days} />
       <NextDate habitDays={days} />
 
-      <VStack className="my-[20px]">
+      <VStack space="xs" className="py-4">
         <Button title="Supprimer l'habit" onPress={onDelete} />
         <Button title="Modifier l'habit" onPress={() => setIsOpen(true)} />
       </VStack>
