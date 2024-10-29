@@ -1,5 +1,11 @@
 model Event {
-  id           String           @id @default(uuid(7))
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Entity fields
   title        String
   description  String?
   startTime    DateTime
@@ -10,9 +16,6 @@ model Event {
   attendees    EventAttendee[]
   recurrenceId String?          @unique
   recurrence   EventRecurrence? @relation(fields: [recurrenceId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 enum EventAttendeeStatus {
@@ -24,23 +27,20 @@ enum EventAttendeeStatus {
 }
 
 model EventAttendee {
-  id        String              @id @default(uuid(7))
-  eventId   String
-  event     Event               @relation(fields: [eventId], references: [id])
-  userId    String
-  user      UserAccount         @relation(fields: [userId], references: [id])
-  status    EventAttendeeStatus @default(PENDING)
-  createdAt DateTime            @default(now())
-  updatedAt DateTime            @updatedAt
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Entity fields
+  eventId String
+  event   Event               @relation(fields: [eventId], references: [id])
+  userId  String
+  user    UserAccount         @relation(fields: [userId], references: [id])
+  status  EventAttendeeStatus @default(PENDING)
 
   @@unique([eventId, userId]) // Ensure unique attendee per event
-}
-
-enum Frequency {
-  DAILY
-  WEEKLY
-  MONTHLY
-  YEARLY
 }
 
 model EventRecurrence {

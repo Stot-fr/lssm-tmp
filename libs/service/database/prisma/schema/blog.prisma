@@ -1,0 +1,50 @@
+model Blog {
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Entity fields
+  title    String
+  content  String
+  userId   Int?
+  user     UserAccount       @relation("UserBlogs", fields: [userId], references: [id])
+  posts    BlogPost[]
+  comments BlogPostComment[]
+
+  @@index([deletedAt])
+}
+
+model BlogPost {
+  id        Int               @id @default(autoincrement())
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  deletedAt DateTime?
+  title     String
+  content   String
+  blogId    Int
+  blog      Blog              @relation(fields: [blogId], references: [id])
+  comments  BlogPostComment[]
+
+  @@index([deletedAt])
+}
+
+model BlogPostComment {
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Entity fields
+  content    String
+  blogId     Int?
+  blog       Blog?       @relation(fields: [blogId], references: [id])
+  blogPostId Int?
+  blogPost   BlogPost?   @relation(fields: [blogPostId], references: [id])
+  userId     Int
+  user       UserAccount @relation(name: "UserBlogComments", fields: [userId], references: [id])
+
+  @@index([deletedAt])
+}

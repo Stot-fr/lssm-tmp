@@ -1,0 +1,27 @@
+model Habit {
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Entity fields
+  title        String
+  description  String?
+  startTime    DateTime
+  endTime      DateTime
+  location     String?
+  userId       String
+  user         UserAccount     @relation("UserHabits", fields: [userId], references: [id])
+  recurrenceId String          @unique
+  recurrence   HabitRecurrence @relation(fields: [recurrenceId], references: [id])
+}
+
+model HabitRecurrence {
+  id         String    @id @default(uuid(7))
+  frequency  Frequency
+  interval   Int
+  startingAt DateTime  @default(now())
+  endingAt   DateTime?
+  Habit      Habit?
+}
