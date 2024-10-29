@@ -25,7 +25,10 @@
     "@lssm/lib-service.ui-kit": "*",
     "@lssm/lib-service.icons-kit": "*",
     "@lssm/lib-util.misc": "*",
+    "@nestjs/class-validator": "^0.13.4",
+    "@nestjs/graphql": "^12.2.1",
     "expo-image": "^1.12.9",
+    "graphql": "^16.9.0",
     "nativewind": "4.0.36",
     "tailwindcss": "3.4.3"
   },
