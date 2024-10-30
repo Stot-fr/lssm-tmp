@@ -2,12 +2,14 @@
   "name": "@lssm/module-core.messaging",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@lssm/package.typescript-config": "*",
     "@lssm/lib-util.typescript": "*",
     "@types/react": "^18.0.22",
     "@types/react-native": "^0.72.3",

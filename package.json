@@ -21,7 +21,7 @@
     "clean": "turbo run clean",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
-    "postinstall": "patch-package",
+    "postinstall": "patch-package && turbo run postinstall",
     "prepare": "husky",
     "eject": "npx @gluestack-ui/universal-cli@latest eject"
   },

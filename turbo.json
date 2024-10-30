@@ -3,6 +3,9 @@
   "globalDependencies": ["**/.env.*local"],
   "globalEnv": ["DATABASE_URL"],
   "tasks": {
+    "postinstall": {
+      "cache": false
+    },
     "build": {
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "dependsOn": ["^build"]

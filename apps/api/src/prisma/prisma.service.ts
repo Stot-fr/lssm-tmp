@@ -1,4 +1,4 @@
-import { PrismaClient } from '@lssm/libs-service.database';
+import { PrismaClient } from '@lssm/lib-service.database';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 
 @Injectable()

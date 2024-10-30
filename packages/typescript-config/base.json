@@ -6,14 +6,29 @@
     "esModuleInterop": true,
     "incremental": false,
     "isolatedModules": true,
-    "lib": ["es2022", "DOM", "DOM.Iterable"],
-    "module": "NodeNext",
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
+    "module": "esnext",
     "moduleDetection": "force",
     "moduleResolution": "node",
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+
+    "verbatimModuleSyntax": false,
+
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true
   }
 }

@@ -8,7 +8,7 @@ model Blog {
   // Entity fields
   title    String
   content  String
-  userId   Int?
+  userId   String
   user     UserAccount       @relation("UserBlogs", fields: [userId], references: [id])
   posts    BlogPost[]
   comments BlogPostComment[]
@@ -17,15 +17,18 @@ model Blog {
 }
 
 model BlogPost {
-  id        Int               @id @default(autoincrement())
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
+  // Base field
+  id        String    @id @default(uuid(7))
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deletedAt DateTime?
-  title     String
-  content   String
-  blogId    Int
-  blog      Blog              @relation(fields: [blogId], references: [id])
-  comments  BlogPostComment[]
+
+  // Entity fields
+  title    String
+  content  String
+  blogId   String
+  blog     Blog              @relation(fields: [blogId], references: [id])
+  comments BlogPostComment[]
 
   @@index([deletedAt])
 }
@@ -39,11 +42,11 @@ model BlogPostComment {
 
   // Entity fields
   content    String
-  blogId     Int?
+  blogId     String?
   blog       Blog?       @relation(fields: [blogId], references: [id])
-  blogPostId Int?
+  blogPostId String?
   blogPost   BlogPost?   @relation(fields: [blogPostId], references: [id])
-  userId     Int
+  userId     String
   user       UserAccount @relation(name: "UserBlogComments", fields: [userId], references: [id])
 
   @@index([deletedAt])

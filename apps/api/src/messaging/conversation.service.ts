@@ -11,7 +11,7 @@ export class ConversationService {
     return this.prisma.conversation.findMany();
   }
 
-  async createConversation(createConversationDto: CreateConversationDto) {
+  async createConversation(_createConversationDto: CreateConversationDto) {
     return this.prisma.conversation.create({
       data: {},
     });
