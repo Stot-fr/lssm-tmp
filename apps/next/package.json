@@ -10,6 +10,7 @@
     "clean": "rimraf .next .turbo"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.0.2",
     "@lssm/module.proj-meet": "*",
     "@lssm/lib-feat.translation": "*",
     "@lssm/lib-feat.design-system": "*",

@@ -3,7 +3,7 @@ import { DefaultLandingTemplate } from '../../templates/landing/DefaultLandingTe
 
 export const UnloggedHomePage = () => {
   return (
-    <AppUnLoggedLayout title="Home">
+    <AppUnLoggedLayout title="Home!">
       <DefaultLandingTemplate />
     </AppUnLoggedLayout>
   );

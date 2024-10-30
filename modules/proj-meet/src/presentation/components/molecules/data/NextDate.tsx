@@ -22,14 +22,14 @@ export const NextDate: React.FC<NextDateProps> = ({ habitDays }) => {
     ];
 
     for (let i = 1; i <= 7; i++) {
-      const nextDayIndex = (currentDay + i) % 7;
-      if (habitDays.includes(daysOfWeek[nextDayIndex])) {
+      const nextDayIndex = (currentDay + i) % daysOfWeek.length;
+      if (habitDays.includes(daysOfWeek[nextDayIndex]!)) {
         const nextDate = new Date(today);
         nextDate.setDate(today.getDate() + i);
         return nextDate.toLocaleDateString();
       }
     }
-    return 'Aucune date trouvée';
+    return 'No date found';
   };
 
   return (

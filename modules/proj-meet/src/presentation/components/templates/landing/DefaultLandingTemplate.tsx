@@ -1,5 +1,3 @@
-'use client';
-
 import { Card } from '@lssm/lib-feat.design-system/components/atoms/Card/index';
 import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button/index';
 import { useTranslation } from '@lssm/lib-feat.translation';
