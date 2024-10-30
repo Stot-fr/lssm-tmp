@@ -1,5 +1,12 @@
 import { CreateConversationDto } from '@lssm/module-core.messaging/application/dto/create-conversation.dto';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver,
+} from '@nestjs/graphql';
 
 import { ConversationService } from './conversation.service';
 import { Conversation } from './models/Conversation';
@@ -18,5 +25,10 @@ export class ConversationResolver {
     @Args('createConversation') createConversationDto: CreateConversationDto,
   ) {
     return this.conversationService.createConversation(createConversationDto);
+  }
+
+  @ResolveField()
+  async members(@Parent() conversation: Conversation) {
+    return this.conversationService.getMembers(conversation.id);
   }
 }

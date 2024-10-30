@@ -16,4 +16,14 @@ export class ConversationService {
       data: {},
     });
   }
+
+  async getMembers(id: string) {
+    return this.prisma.conversation
+      .findUnique({
+        where: {
+          id,
+        },
+      })
+      .members();
+  }
 }

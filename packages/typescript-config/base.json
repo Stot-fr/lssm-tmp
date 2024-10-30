@@ -7,7 +7,7 @@
     "incremental": false,
     "isolatedModules": true,
     "lib": ["esnext", "DOM", "DOM.Iterable"],
-    "module": "esnext",
+    "module": "commonjs",
     "moduleDetection": "force",
     "moduleResolution": "node",
     "noUncheckedIndexedAccess": true,

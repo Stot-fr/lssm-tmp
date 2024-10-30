@@ -39,15 +39,22 @@ type ConversationMessage {
   updatedAt: DateTime!
 }
 
+input CreateConversationDto {
+  members: [UuidV7!]!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
 
 type Mutation {
-  createConversation: Conversation!
+  createConversation(createConversation: CreateConversationDto!): Conversation!
 }
 
 type Query {
   myConversations: [Conversation!]!
 }
+
+"""A simple uuid v7 parser"""
+scalar UuidV7
