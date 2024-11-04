@@ -6,16 +6,19 @@
     "build": "tsc",
     "dev": "tsc -w",
     "clean": "rimraf dist",
+    "db:format": "zenstack format",
     "db:migrate": "prisma migrate dev",
-    "db:generate": "prisma generate",
+    "db:generate": "zenstack generate",
     "db:push": "prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.21.1"
+    "@prisma/client": "^5.21.x",
+    "@zenstackhq/runtime": "^2.7.4"
   },
   "devDependencies": {
-    "prisma": "^5.21.1"
+    "prisma": "^5.21.x",
+    "zenstack": "^2.7.4"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -1,8 +1,13 @@
-model UserContact {
-  id                      String                    @id @default(uuid(7))
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
-  deletedAt               DateTime?
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model UserContact  extends Entity{
+
   name                    String?
   userAccountId           String?                   @unique
   userAccount             UserAccount?              @relation("ContactUser", fields: [userAccountId], references: [id])
@@ -26,11 +31,8 @@ enum ContactDetailType {
   SOCIAL_TIK
 }
 
-model ContactDetail {
-  id        String            @id @default(uuid(7))
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
-  deletedAt DateTime?
+model ContactDetail   extends Entity{
+
   type      ContactDetailType
   value     String
   label     String? // e.g., 'work', 'personal', etc.
@@ -47,11 +49,8 @@ enum CommunityOpenLevel {
   PUBLIC
 }
 
-model Community {
-  id             String              @id @default(uuid(7))
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
-  deletedAt      DateTime?
+model Community   extends Entity{
+
   name           String
   isOpen         CommunityOpenLevel?
   parentId       String?
@@ -62,11 +61,8 @@ model Community {
   @@index([deletedAt])
 }
 
-model CommunityMembers {
-  id          String      @id @default(uuid(7))
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-  deletedAt   DateTime?
+model CommunityMembers   extends Entity{
+
   communityId String
   community   Community   @relation(fields: [communityId], references: [id])
   userId      String
@@ -75,11 +71,8 @@ model CommunityMembers {
   @@index([deletedAt])
 }
 
-model UserContactGroup {
-  id            String                    @id @default(uuid(7))
-  createdAt     DateTime                  @default(now())
-  updatedAt     DateTime                  @updatedAt
-  deletedAt     DateTime?
+model UserContactGroup   extends Entity{
+
   name          String
   description   String?
   userAccountId String
@@ -89,11 +82,8 @@ model UserContactGroup {
   @@index([deletedAt])
 }
 
-model UserContactGroupMembers {
-  id        String           @id @default(uuid(7))
-  createdAt DateTime         @default(now())
-  updatedAt DateTime         @updatedAt
-  deletedAt DateTime?
+model UserContactGroupMembers   extends Entity{
+
   groupId   String
   group     UserContactGroup @relation(fields: [groupId], references: [id])
   contactId String
@@ -102,11 +92,8 @@ model UserContactGroupMembers {
   @@index([deletedAt])
 }
 
-model UserContactLabel {
-  id        String        @id @default(uuid(7))
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-  deletedAt DateTime?
+model UserContactLabel   extends Entity{
+
   userId    String
   user      UserAccount   @relation(fields: [userId], references: [id])
   name      String

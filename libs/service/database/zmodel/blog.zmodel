@@ -1,9 +1,13 @@
-model Blog {
-  // Base field
-  id        String    @id @default(uuid(7))
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model Blog   extends Entity{
+
 
   // Entity fields
   title    String
@@ -16,13 +20,7 @@ model Blog {
   @@index([deletedAt])
 }
 
-model BlogPost {
-  // Base field
-  id        String    @id @default(uuid(7))
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
-
+model BlogPost extends Entity {
   // Entity fields
   title    String
   content  String
@@ -33,13 +31,7 @@ model BlogPost {
   @@index([deletedAt])
 }
 
-model BlogPostComment {
-  // Base field
-  id        String    @id @default(uuid(7))
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
-
+model BlogPostComment extends Entity {
   // Entity fields
   content    String
   blogId     String?

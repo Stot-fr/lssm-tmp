@@ -8,7 +8,7 @@
     },
     "build": {
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-      "dependsOn": ["^build"]
+      "dependsOn": ["db:generate", "^build"]
     },
     "dev": {
       "env": [
@@ -24,8 +24,8 @@
       "cache": false
     },
     "db:generate": {
-      "inputs": ["prisma/**"],
-      "cache": false
+      "inputs": ["prisma/**", "zmodel/**", "schema.zmodel"],
+      "cache": true
     },
     "db:push": {
       "cache": false

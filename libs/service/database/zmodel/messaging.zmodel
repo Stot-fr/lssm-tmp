@@ -1,8 +1,13 @@
-model ConversationMessage {
-  id             String             @id @default(uuid(7))
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  deletedAt      DateTime?
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model ConversationMessage   extends Entity{
+
   content        String
   conversationId String
   conversation   Conversation       @relation(fields: [conversationId], references: [id])
@@ -12,11 +17,8 @@ model ConversationMessage {
   @@index([deletedAt])
 }
 
-model Conversation {
-  id        String                @id @default(uuid(7))
-  createdAt DateTime              @default(now())
-  updatedAt DateTime              @updatedAt
-  deletedAt DateTime?
+model Conversation   extends Entity{
+
   title     String?
   messages  ConversationMessage[]
   members   ConversationMember[]
@@ -24,11 +26,8 @@ model Conversation {
   @@index([deletedAt])
 }
 
-model ConversationMember {
-  id             String                @id @default(uuid(7))
-  createdAt      DateTime              @default(now())
-  updatedAt      DateTime              @updatedAt
-  deletedAt      DateTime?
+model ConversationMember  extends Entity{
+
   conversationId String
   conversation   Conversation          @relation(fields: [conversationId], references: [id])
   userAccountId  String

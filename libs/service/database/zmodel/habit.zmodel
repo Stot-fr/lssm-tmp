@@ -1,9 +1,13 @@
-model Habit {
-  // Base field
-  id        String    @id @default(uuid(7))
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model Habit   extends Entity{
+
 
   // Entity fields
   title        String
@@ -17,8 +21,8 @@ model Habit {
   recurrence   HabitRecurrence @relation(fields: [recurrenceId], references: [id])
 }
 
-model HabitRecurrence {
-  id         String    @id @default(uuid(7))
+model HabitRecurrence   extends Entity{
+
   frequency  Frequency
   interval   Int
   startingAt DateTime  @default(now())

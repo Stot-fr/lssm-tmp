@@ -8,17 +8,17 @@ export class ConversationService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getMyConversations() {
-    return this.prisma.conversation.findMany();
+    return this.prisma.client.conversation.findMany();
   }
 
   async createConversation(_createConversationDto: CreateConversationDto) {
-    return this.prisma.conversation.create({
+    return this.prisma.client.conversation.create({
       data: {},
     });
   }
 
   async getMembers(id: string) {
-    return this.prisma.conversation
+    return this.prisma.client.conversation
       .findUnique({
         where: {
           id,

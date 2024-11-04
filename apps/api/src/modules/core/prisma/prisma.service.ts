@@ -1,10 +1,18 @@
-import { PrismaClient } from '@lssm/lib-service.database';
+import { db, PrismaClient } from '@lssm/lib-service.database';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit {
+export class PrismaService implements OnModuleInit {
+  public readonly client: PrismaClient = db;
+
+  constructor() {}
+
   async onModuleInit() {
-    await this.$connect();
+    await this.client.$connect();
+  }
+
+  get _() {
+    return this.client;
   }
 
   // async enableShutdownHooks(app: INestApplication) {

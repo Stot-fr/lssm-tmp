@@ -17,10 +17,10 @@
     "target": "esnext",
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "plugins": [{ "name": "next" }],
 
     "verbatimModuleSyntax": false,
 
-    "allowJs": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": true,
     "forceConsistentCasingInFileNames": true,
