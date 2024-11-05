@@ -26,6 +26,7 @@
     "@unitools/link": "^0.0.4",
     "@unitools/navigation": "^0.0.1-alpha.0",
     "@unitools/router": "^0.0.4",
+    "clsx": "^2.1.1",
     "expo-image": "^1.12.9",
     "lucide-react-native": "^0.453.0",
     "nativewind": "4.0.36",

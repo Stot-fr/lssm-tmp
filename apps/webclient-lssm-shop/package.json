@@ -23,6 +23,7 @@
     "@unitools/image": "^0.0.5",
     "@unitools/link": "^0.0.4",
     "@unitools/router": "^0.0.6",
+    "clsx": "^2.1.1",
     "autoprefixer": "latest",
     "nativewind": "4.0.36",
     "next": "^14.0.4",

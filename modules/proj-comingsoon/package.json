@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.0.2",
+    "@gluestack-ui/nativewind-utils": "latest",
     "@hookform/resolvers": "^3.3.4",
     "@lssm/lib-feat.core-module": "*",
     "@lssm/lib-feat.translation": "*",
@@ -35,6 +36,7 @@
     "@lssm/lib-util.misc": "*",
     "@lssm/module-core.accounting": "*",
     "@lssm/module-core.messaging": "*",
+    "clsx": "^2.1.1",
     "expo-image": "^1.12.9",
     "nativewind": "4.0.36",
     "react-hook-form": "^7.51.4",

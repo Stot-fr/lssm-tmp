@@ -2,6 +2,7 @@
 
 export const ThemeToggler = () => {
   // const { theme, setTheme } = useTheme();
+  // const portal = usePortalProvider();
   return (
     <button
       aria-label="theme toggler"

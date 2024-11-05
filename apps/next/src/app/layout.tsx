@@ -2,11 +2,10 @@
 
 import { ClerkProvider } from '@clerk/nextjs';
 import { GluestackUIProvider } from '@lssm/lib-service.ui-kit/ui/gluestack-ui-provider';
-import { Inter } from 'next/font/google';
 
 import StyledJsxRegistry from './registry';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,7 +14,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className} style={{ display: 'flex' }}>
+        <body style={{ display: 'flex' }}>
+          {/*<body className={inter.className} style={{ display: 'flex' }}>*/}
           <StyledJsxRegistry>
             <GluestackUIProvider mode="light">{children}</GluestackUIProvider>
           </StyledJsxRegistry>

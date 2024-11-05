@@ -10,7 +10,11 @@ import {
 import { Pressable } from '@lssm/lib-service.ui-kit/ui/pressable/index';
 import React from 'react';
 
-export const LanguageSwitcher = () => {
+export type LanguageSwitcherProps = {
+  className?: string;
+};
+
+export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = async (lng: string) => {
@@ -23,7 +27,7 @@ export const LanguageSwitcher = () => {
       offset={5}
       trigger={({ ...triggerProps }) => {
         return (
-          <Pressable {...triggerProps}>
+          <Pressable {...triggerProps} className={props.className}>
             <Avatar className="h-9 w-9">
               <Icon name="Languages" className="stroke-white" />
             </Avatar>

@@ -1,7 +1,8 @@
 import { ScrollToTop } from '@lssm/lib-feat.design-system/components/molecules/ScrollToTop/index';
 import { useTranslation } from '@lssm/lib-feat.translation';
-import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
+import { clsx } from 'clsx';
 import { type ReactNode } from 'react';
+import { ScrollView } from 'react-native';
 
 import { Footer } from '../../organisms/Footer';
 import { Header } from '../../organisms/Header';
@@ -15,11 +16,12 @@ export const OnePageTemplate = (props: AppUnLoggedLayoutProps) => {
   const { t } = useTranslation('landing');
 
   return (
-    <VStack className="bg-[#FCFCFC] dark:bg-black ${inter.className}">
+    <div className={`bg-[#FCFCFC] dark:bg-black w-full h-full`}>
+      {/*<VStack className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>*/}
       <Header />
-      {props.children}
+      <ScrollView className={clsx('pt-[120px]')}>{props.children}</ScrollView>
       <Footer />
       <ScrollToTop />
-    </VStack>
+    </div>
   );
 };

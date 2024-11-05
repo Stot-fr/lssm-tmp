@@ -5,11 +5,13 @@ import Image from '@unitools/image';
 import { usePathname } from '@unitools/router';
 import { useEffect, useState } from 'react';
 
+import logoGroceries from '../../../../../assets/images/logo-grocerices.svg';
 import menuData from './menuData';
 import { ThemeToggler } from './ThemeToggler';
 
 export const Header = () => {
-  const usePathName = usePathname();
+  const pathname = usePathname?.() || '';
+  // const pathname = usePathname();
 
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -58,18 +60,19 @@ export const Header = () => {
                   sticky ? 'py-5 lg:py-2' : 'py-8'
                 } `}
               >
+                {/*<Image*/}
+                {/*  source="/images/logo/logo-2.svg"*/}
+                {/*  alt="logo"*/}
+                {/*  width={140}*/}
+                {/*  height={30}*/}
+                {/*  // className="w-full dark:hidden"*/}
+                {/*/>*/}
                 <Image
-                  source="/images/logo/logo-2.svg"
+                  // source="/images/logo/logo.svg"
+                  source={logoGroceries}
                   alt="logo"
-                  width={140}
-                  height={30}
-                  // className="w-full dark:hidden"
-                />
-                <Image
-                  source="/images/logo/logo.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
+                  width={200}
+                  height={50}
                   // className="hidden w-full dark:block"
                 />
               </Link>
@@ -113,7 +116,7 @@ export const Header = () => {
                           <Link
                             href={menuItem.path}
                             className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                              usePathName === menuItem.path
+                              pathname === menuItem.path
                                 ? 'text-primary dark:text-white'
                                 : 'text-dark hover:text-primary dark:text-white/70 dark:hover:text-white'
                             }`}
