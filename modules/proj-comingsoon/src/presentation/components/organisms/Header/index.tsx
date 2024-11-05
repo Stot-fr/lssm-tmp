@@ -51,7 +51,7 @@ export const Header = () => {
             : 'absolute bg-transparent'
         }`}
       >
-        <div className="container">
+        <div className="container mx-auto">
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="w-60 max-w-full px-4 xl:mr-12">
               <Link

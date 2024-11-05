@@ -1,13 +1,12 @@
 import Image from '@unitools/image';
 
-import type { Brand } from '@/types/brand';
-
+import type { Brand } from './brandsData';
 import { brandsData } from './brandsData';
 
 export const Brands = () => {
   return (
     <section className="pt-16">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="flex flex-wrap items-center justify-center rounded-sm bg-gray-light px-8 py-8 dark:bg-gray-dark sm:px-10 md:px-[50px] md:py-[40px] xl:p-[50px] 2xl:px-[70px] 2xl:py-[60px]">
@@ -33,8 +32,22 @@ export const SingleBrand = ({ brand }: { brand: Brand }) => {
         rel="nofollow noreferrer"
         className="relative h-10 w-full opacity-70 transition hover:opacity-100 dark:opacity-60 dark:hover:opacity-100"
       >
-        <Image src={imageLight} alt={name} fill className="hidden dark:block" />
-        <Image src={image} alt={name} fill className="block dark:hidden" />
+        <Image
+          source={imageLight}
+          alt={name}
+          contentFit="fill"
+          width={50}
+          height={50}
+          // className="hidden dark:block"
+        />
+        <Image
+          source={image}
+          alt={name}
+          contentFit="fill"
+          width={50}
+          height={50}
+          // className="block dark:hidden"
+        />
       </a>
     </div>
   );
