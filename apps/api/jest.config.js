@@ -1,4 +1,4 @@
 /** @type {import('jest').Config} */
 module.exports = {
-  ...require('@repo/jest-config/nest'),
+  ...require('@lssm/package.jest-config/nest'),
 };

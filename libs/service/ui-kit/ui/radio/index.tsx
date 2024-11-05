@@ -190,7 +190,7 @@ const Radio = React.forwardRef<React.ElementRef<typeof UIRadio>, IRadioProps>(
       <UIRadio
         className={radioStyle({ class: className, size })}
         {...props}
-        ref={ref}
+        ref={ref as any}
         context={{ size }}
       />
     );
@@ -225,7 +225,7 @@ const RadioIndicator = React.forwardRef<
         parentVariants: { size },
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -244,7 +244,7 @@ const RadioLabel = React.forwardRef<
         parentVariants: { size },
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );
@@ -261,7 +261,7 @@ const RadioIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UIRadio.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={radioIconStyle({ class: className })}
         size={size}
@@ -273,7 +273,7 @@ const RadioIcon = React.forwardRef<
   ) {
     return (
       <UIRadio.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={radioIconStyle({ class: className })}
       />
@@ -290,7 +290,7 @@ const RadioIcon = React.forwardRef<
         size,
         class: className,
       })}
-      ref={ref}
+      ref={ref as any}
     />
   );
 });

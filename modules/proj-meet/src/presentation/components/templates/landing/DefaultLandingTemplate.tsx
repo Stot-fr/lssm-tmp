@@ -1,5 +1,4 @@
-'use client';
-
+import { SignInButton, UserButton } from '@clerk/nextjs';
 import { Card } from '@lssm/lib-feat.design-system/components/atoms/Card/index';
 import { Button } from '@lssm/lib-feat.design-system/components/atoms/Fields/Button/index';
 import { useTranslation } from '@lssm/lib-feat.translation';
@@ -11,11 +10,14 @@ export const DefaultLandingTemplate = () => {
 
   return (
     <>
+      <SignInButton />
+      <UserButton />
       <Button
         onPress={() => {
           console.log('test');
         }}
         label={'Test'}
+        className="w-4"
       />
       <Link href="/">
         <LinkText>Home</LinkText>

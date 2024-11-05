@@ -1,0 +1,13 @@
+abstract model Entity {
+    id        String    @id @default(uuid(7))
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}
+
+enum Frequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+}

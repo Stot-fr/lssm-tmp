@@ -2,6 +2,10 @@
 
 ## Guide
 
+### 0. Prerequisites
+- Node.js v20.18.0
+- Yarn v1.22.19
+
 ### 1. Install
 
 - run `yarn install` in the project root

@@ -183,7 +183,7 @@ const Input = React.forwardRef<React.ElementRef<typeof UIInput>, IInputProps>(
   ({ className, variant = 'outline', size = 'md', ...props }, ref) => {
     return (
       <UIInput
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={inputStyle({ variant, size, class: className })}
         context={{ variant, size }}
@@ -205,7 +205,7 @@ const InputIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UIInput.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={inputIconStyle({ class: className })}
         size={size}
@@ -217,7 +217,7 @@ const InputIcon = React.forwardRef<
   ) {
     return (
       <UIInput.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={inputIconStyle({ class: className })}
       />
@@ -225,7 +225,7 @@ const InputIcon = React.forwardRef<
   }
   return (
     <UIInput.Icon
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={inputIconStyle({
         parentVariants: {
@@ -246,7 +246,7 @@ const InputSlot = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <UIInput.Slot
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={inputSlotStyle({
         class: className,

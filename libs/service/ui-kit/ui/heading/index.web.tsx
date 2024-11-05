@@ -195,7 +195,12 @@ const Heading: React.MemoExoticComponent<
     }
 
     return (
-      <MappedHeading className={className} size={size} ref={ref} {...props} />
+      <MappedHeading
+        className={className}
+        size={size}
+        ref={ref as any}
+        {...props}
+      />
     );
   }),
 );

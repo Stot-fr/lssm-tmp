@@ -1,5 +1,5 @@
 import { cn } from '@gluestack-ui/nativewind-utils/cn';
-import { i18n, useTranslation } from '@lssm/lib-feat.translation';
+import { useTranslation } from '@lssm/lib-feat.translation';
 import Icon, { type IconProps } from '@lssm/lib-service.icons-kit';
 import { Link } from '@lssm/lib-service.ui-kit/ui/link/index';
 import { Text } from '@lssm/lib-service.ui-kit/ui/text';

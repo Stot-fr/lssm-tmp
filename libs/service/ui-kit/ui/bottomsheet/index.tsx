@@ -72,12 +72,14 @@ export const BottomSheet = ({
   const handleOpen = useCallback(() => {
     bottomSheetRef.current?.snapToIndex(snapToIndex);
     setVisible(true);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onOpen && onOpen();
   }, [onOpen, snapToIndex]);
 
   const handleClose = useCallback(() => {
     bottomSheetRef.current?.close();
     setVisible(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onClose && onClose();
   }, [onClose]);
 

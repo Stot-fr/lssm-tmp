@@ -1,0 +1,67 @@
+{
+  "name": "@lssm/module.proj-comingsoon",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@lssm/lib-util.typescript": "*",
+    "@gluestack-ui/nativewind-utils": "latest",
+    "@types/react": "^18.0.22",
+    "@types/react-native": "^0.72.3",
+    "@unitools/image": "^0.0.5",
+    "@unitools/link": "^0.0.4",
+    "@unitools/router": "^0.0.6",
+    "jscodeshift": "0.15.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "nativewind": ">=4.0",
+    "react": "^18.1.0",
+    "react-native": "^0.72.4"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.0.2",
+    "@gluestack-ui/nativewind-utils": "latest",
+    "@hookform/resolvers": "^3.3.4",
+    "@lssm/lib-feat.core-module": "*",
+    "@lssm/lib-feat.translation": "*",
+    "@lssm/lib-feat.design-system": "*",
+    "@lssm/lib-service.ui-kit": "*",
+    "@lssm/lib-service.icons-kit": "*",
+    "@lssm/lib-util.misc": "*",
+    "@lssm/module-core.accounting": "*",
+    "@lssm/module-core.messaging": "*",
+    "clsx": "^2.1.1",
+    "expo-image": "^1.12.9",
+    "nativewind": "4.0.36",
+    "react-hook-form": "^7.51.4",
+    "tailwindcss": "3.4.3",
+    "zod": "^3.23.8"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": ["./dist/index.js", "./dist/index.jsx"],
+      "require": ["./dist/index.js", "./dist/index.jsx"]
+    },
+    "./*": {
+      "import": ["./dist/*.js", "./dist/*.jsx"],
+      "require": ["./dist/*.js", "./dist/*.jsx"]
+    },
+    "./*/": {
+      "import": ["./dist/*/index.js", "./dist/*/index.jsx"],
+      "require": ["./dist/*/index.js", "./dist/*/index.jsx"]
+    }
+  }
+}

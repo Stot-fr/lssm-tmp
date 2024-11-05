@@ -88,7 +88,7 @@ export const Avatar = React.forwardRef<
 >(({ className, size = 'md', ...props }, ref) => {
   return (
     <UIAvatar
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={avatarStyle({ size, class: className })}
       context={{ size }}

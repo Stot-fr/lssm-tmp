@@ -11,12 +11,16 @@
       <sourceFolder url="file://$MODULE_DIR$/libs/service/database/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/design-system/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/meet/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libs/service/database/dist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/util/misc/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/util/typescript/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/core-messaging/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libs/feat/core-module/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/core-accounting/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/next/public" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/webclient-lssm-shop/public" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/webclient-lssm-shop/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/service/icons-kit/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/proj-comingsoon/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/apps/api/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/apps/api/dist" />
@@ -37,6 +41,17 @@
       <excludeFolder url="file://$MODULE_DIR$/modules/proj-meet/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/configs/eslint/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/core-module/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/feat/core-module/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/database/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/service/database/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util/misc/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util/typescript/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/core-accounting/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/proj-meet/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/proj-comingsoon/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/proj-comingsoon/dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

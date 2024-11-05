@@ -223,7 +223,7 @@ const SelectTrigger = React.forwardRef<
         size,
         variant,
       })}
-      ref={ref}
+      ref={ref as any}
       context={{ size, variant }}
       {...props}
     />
@@ -264,7 +264,7 @@ const SelectIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UISelect.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={selectIconStyle({ class: className })}
         size={size}
@@ -276,7 +276,7 @@ const SelectIcon = React.forwardRef<
   ) {
     return (
       <UISelect.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={selectIconStyle({ class: className })}
       />
@@ -291,7 +291,7 @@ const SelectIcon = React.forwardRef<
           size: parentSize,
         },
       })}
-      ref={ref}
+      ref={ref as any}
       {...props}
     />
   );

@@ -1,0 +1,31 @@
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model Habit   extends Entity{
+
+
+  // Entity fields
+  title        String
+  description  String?
+  startTime    DateTime
+  endTime      DateTime
+  location     String?
+  userId       String
+  user         UserAccount     @relation("UserHabits", fields: [userId], references: [id])
+  recurrenceId String          @unique
+  recurrence   HabitRecurrence @relation(fields: [recurrenceId], references: [id])
+}
+
+model HabitRecurrence   extends Entity{
+
+  frequency  Frequency
+  interval   Int
+  startingAt DateTime  @default(now())
+  endingAt   DateTime?
+  Habit      Habit?
+}

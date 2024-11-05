@@ -1,12 +1,11 @@
 import { Box } from '@lssm/lib-service.ui-kit/ui/box';
 import { Card as UiCard } from '@lssm/lib-service.ui-kit/ui/card';
 import { Heading } from '@lssm/lib-service.ui-kit/ui/heading';
-import { HStack } from '@lssm/lib-service.ui-kit/ui/hstack';
+import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
 import type { ComponentProps, ReactNode } from 'react';
 
 import { Divider } from '../Divider';
 import type { ButtonProps } from '../Fields/Button';
-import { VStack } from '@lssm/lib-service.ui-kit/ui/vstack';
 
 export interface CardActionConfig {
   actions: Array<ButtonProps>;

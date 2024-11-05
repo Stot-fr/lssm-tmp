@@ -230,7 +230,7 @@ const Accordion = React.forwardRef<
 >(({ className, variant = 'filled', size = 'md', ...props }, ref) => {
   return (
     <UIAccordion
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={accordionStyle({ variant, class: className })}
       context={{ variant, size }}
@@ -296,7 +296,7 @@ const AccordionIcon = React.forwardRef<
   if (typeof size === 'number') {
     return (
       <UIAccordion.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={accordionIconStyle({ class: className })}
         size={size}
@@ -308,7 +308,7 @@ const AccordionIcon = React.forwardRef<
   ) {
     return (
       <UIAccordion.Icon
-        ref={ref}
+        ref={ref as any}
         {...props}
         className={accordionIconStyle({ class: className })}
       />
@@ -316,7 +316,7 @@ const AccordionIcon = React.forwardRef<
   }
   return (
     <UIAccordion.Icon
-      ref={ref}
+      ref={ref as any}
       {...props}
       className={accordionIconStyle({
         size,

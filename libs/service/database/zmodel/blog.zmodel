@@ -1,0 +1,45 @@
+import "utils"
+import "account"
+import "blog"
+import "event"
+import "habit"
+import "messaging"
+import "social"
+
+model Blog   extends Entity{
+
+
+  // Entity fields
+  title    String
+  content  String
+  userId   String
+  user     UserAccount       @relation("UserBlogs", fields: [userId], references: [id])
+  posts    BlogPost[]
+  comments BlogPostComment[]
+
+  @@index([deletedAt])
+}
+
+model BlogPost extends Entity {
+  // Entity fields
+  title    String
+  content  String
+  blogId   String
+  blog     Blog              @relation(fields: [blogId], references: [id])
+  comments BlogPostComment[]
+
+  @@index([deletedAt])
+}
+
+model BlogPostComment extends Entity {
+  // Entity fields
+  content    String
+  blogId     String?
+  blog       Blog?       @relation(fields: [blogId], references: [id])
+  blogPostId String?
+  blogPost   BlogPost?   @relation(fields: [blogPostId], references: [id])
+  userId     String
+  user       UserAccount @relation(name: "UserBlogComments", fields: [userId], references: [id])
+
+  @@index([deletedAt])
+}
